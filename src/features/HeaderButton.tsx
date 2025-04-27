@@ -18,7 +18,10 @@ export default function HeaderButton({
 	return (
 		<div>
 			<Button
-				className={`bg-[${color}] ` + 'rounded-[15px] font-bold text-[16px] text-black shadow-md h-10' + className}
+				className={`bg-white rounded-[15px] font-bold text-[16px] text-black shadow-md h-10 ` + className}
+				style={{
+					backgroundColor: color
+				}}
 				onPress={onOpen}
 			>
 				{children}

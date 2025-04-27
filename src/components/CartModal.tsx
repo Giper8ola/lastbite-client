@@ -33,7 +33,10 @@ export default function CartModal({ isOpen, onOpenChange }: { isOpen: boolean; o
 									<Button
 										onPress={onClose}
 										variant="faded"
-										className={`bg-[${COLORS.primary}] w-[90%] h-20 text-[24px] font-bold border-[#89E49D]`}
+										className={`w-[90%] h-20 text-[24px] font-bold border-[#89E49D]`}
+										style={{
+											backgroundColor: COLORS.primary
+										}}
 									>
 										ОПЛАТИТЬ
 									</Button>
