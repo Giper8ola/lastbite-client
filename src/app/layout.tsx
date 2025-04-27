@@ -1,4 +1,4 @@
-import { Roboto_Mono } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 
 import { Providers } from '@/components/Provider';
 
@@ -6,9 +6,9 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 
-const robotoSans = Roboto_Mono({
-	variable: '--font-roboto-mono',
-	subsets: ['cyrillic']
+const robotoSans = Roboto({
+	variable: '--font-roboto-sans',
+	subsets: ['latin']
 });
 
 export const metadata: Metadata = {
