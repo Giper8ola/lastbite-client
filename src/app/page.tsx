@@ -8,7 +8,7 @@ const basePath = publicRuntimeConfig.basePath ?? '';
 export default function Home() {
 	return (
 		<div>
-			<Button>Click me</Button>
+			<Button className="bg-amber-200 text-white shadow-lg">Click me</Button>
 		</div>
 	);
 }
