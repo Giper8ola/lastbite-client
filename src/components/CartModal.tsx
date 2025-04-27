@@ -23,7 +23,7 @@ export default function CartModal({ isOpen, onOpenChange }: { isOpen: boolean; o
 							</ScrollShadow>
 							<div className="col-start-3 shadow-[-6px_0px_8px_0px_rgba(0,0,0,0.3)] pt-5 pb-8 px-3 grid grid-rows-2">
 								<p className="text-[24px] font-bold px-5 ">Доставить по адресу:</p>
-								<div className="text-[24px] font-bold rows-end-1 px-5 grid grid-rows-4">
+								<div className="text-[24px] font-bold rows-end-1 px-5 grid grid-rows-4 ">
 									<p className="row-start-1 leading-[80px]">Cпособ оплаты</p>
 									<HeaderButton color={COLORS.primary} className="w-[100%] h-[54px] rounded-full"></HeaderButton>
 									<HeaderButton color={COLORS.primary} className="w-[100%] h-[54px] rounded-full"></HeaderButton>
