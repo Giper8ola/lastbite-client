@@ -1,6 +1,6 @@
 import getConfig from 'next/config';
 
-import { Button } from '@/components/boxlist';
+import { Button } from '@/components/Boxlist';
 import Header from '@/components/Header';
 
 const { publicRuntimeConfig } = getConfig();
