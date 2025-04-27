@@ -5,10 +5,9 @@ import { ChefHat } from 'lucide-react';
 
 import Image from 'next/image';
 
-import { Score } from '@/features/score';
+import { Score } from '@/features/Score';
 
 interface Props {
-	className?: string;
 	url: string;
 	name: string;
 	category: string[];
@@ -17,11 +16,11 @@ interface Props {
 	score: number;
 }
 
-export const Button: React.FC<Props> = ({ className, url, name, category, restaurant, address, score }) => {
+export const Button: React.FC<Props> = ({ url, name, category, restaurant, address, score }) => {
 	return (
 		<div
 			className="bg-white
-        w-[410px] h-[165px] rounded-[25px] shadow-md 
+        w-[410px] h-[165px] rounded-[25px] shadow-md
         hover:cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105 origin-center
         p-[15px] grid grid-rows-1 grid-cols-[130px_240px] gap-[10px]"
 		>

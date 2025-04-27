@@ -1,7 +1,7 @@
 import getConfig from 'next/config';
 
+import { Button } from '@/components/Boxlist';
 import Header from '@/components/Header';
-import { Button } from '@/components/boxlist';
 
 const { publicRuntimeConfig } = getConfig();
 const basePath = publicRuntimeConfig.basePath ?? '';
@@ -33,23 +33,25 @@ const BoxesList = [
 	}
 ];
 
-export default function Home() {
+const Home = () => {
 	return (
 		<div className="px-20 py-5">
 			<Header />
-      <div className="p-10 flex flex-col gap-6">
-        {BoxesList.map((el, ind) => (
-          <Button
-            key={ind}
-            url={el.url}
-            name={el.name}
-            category={el.category}
-            restaurant={el.restaurant}
-            address={el.address}
-            score={el.score}
-          />
-        )}
-		  </div>
-    </div>
+			<div className="p-10 flex flex-col gap-6">
+				{BoxesList.map((el, ind) => (
+					<Button
+						key={ind}
+						url={el.url}
+						name={el.name}
+						category={el.category}
+						restaurant={el.restaurant}
+						address={el.address}
+						score={el.score}
+					/>
+				))}
+			</div>
+		</div>
 	);
-}
+};
+
+export default Home;
