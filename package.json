@@ -9,7 +9,20 @@
     "eslint:check": "npx eslint . --ext .js,.jsx,.ts,.tsx",
     "eslint:fix": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prettier:check": "prettier --check",
-    "prettier:format": "prettier --write ."
+    "prettier:format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.css": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "next": "15.3.1",
@@ -31,6 +44,8 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
     "prettier": "^3.5.3",
     "tailwindcss": "^4",
     "typescript": "^5"
