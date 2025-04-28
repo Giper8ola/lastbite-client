@@ -39,7 +39,7 @@ export default function Header() {
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>
-				<HeaderButton color={COLORS.secondary} modalName="reg">
+				<HeaderButton color={COLORS.secondary} modalName="auth">
 					<CircleUser size={28} strokeWidth={2.5} />
 					Войти
 				</HeaderButton>
