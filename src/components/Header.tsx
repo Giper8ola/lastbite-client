@@ -2,6 +2,7 @@ import { Package, House, ShoppingCart, MapPin, CircleUser } from 'lucide-react';
 
 import getConfig from 'next/config';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import HeaderButton from '@/features/HeaderButton';
 import { COLORS } from '@/utils/consts';
@@ -14,18 +15,23 @@ export default function Header() {
 		<div className="flex inline-block items-center justify-between">
 			<div className="flex inline-block items-center gap-6">
 				<Image className="" alt="LastBite logo" src={basePath + '/lastbite.svg'} width={120} height={120} priority></Image>
-				<HeaderButton color={COLORS.primary}>
-					<House size={28} strokeWidth={2.5} />
-					ГЛАВНАЯ
-				</HeaderButton>
-				<HeaderButton color={COLORS.primary}>
-					<Package size={28} strokeWidth={2.5} />
-					БОКСЫ
-				</HeaderButton>
+				<Link href="/">
+					<HeaderButton color={COLORS.primary}>
+						<House size={28} strokeWidth={2.5} />
+						ГЛАВНАЯ
+					</HeaderButton>
+				</Link>
+
+				<Link href="/boxes">
+					<HeaderButton color={COLORS.primary}>
+						<Package size={28} strokeWidth={2.5} />
+						БОКСЫ
+					</HeaderButton>
+				</Link>
 			</div>
 
 			<div className="flex inline-block items-center gap-6">
-				<HeaderButton color={COLORS.primary}>
+				<HeaderButton color={COLORS.primary} modalName="cart">
 					<ShoppingCart size={28} strokeWidth={2.5} />
 					0₽
 				</HeaderButton>
@@ -33,7 +39,7 @@ export default function Header() {
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>
-				<HeaderButton color={COLORS.secondary}>
+				<HeaderButton color={COLORS.secondary} modalName="auth">
 					<CircleUser size={28} strokeWidth={2.5} />
 					Войти
 				</HeaderButton>

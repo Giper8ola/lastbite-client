@@ -40,7 +40,7 @@ const Home = () => {
 	return (
 		<div className="px-20 py-5 ">
 			<Header />
-			<div className="h-[1200px] px-[200px] mt-[100px] flex flex-col flex-wrap gap-6">
+			<div className="h-[1200px] px-[20px] mt-[100px] flex flex-col flex-wrap gap-6">
 				{BoxesList.map((el, ind) => (
 					<BoxList
 						key={ind}
