@@ -33,7 +33,7 @@ export default function Header() {
 			<div className="flex inline-block items-center gap-6">
 				<HeaderButton color={COLORS.primary} modalName="cart">
 					<ShoppingCart size={28} strokeWidth={2.5} />
-					0₽
+					10₽
 				</HeaderButton>
 				<HeaderButton color={COLORS.secondary}>
 					<MapPin size={28} strokeWidth={2.5} />
