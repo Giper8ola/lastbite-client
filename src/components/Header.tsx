@@ -31,7 +31,7 @@ export default function Header() {
 			</div>
 
 			<div className="flex inline-block items-center gap-6">
-				<HeaderButton color={COLORS.primary} modalName="cart">
+				<HeaderButton color={COLORS.primary} modalName="cart" basePath={basePath}>
 					<ShoppingCart size={28} strokeWidth={2.5} />
 					0₽
 				</HeaderButton>

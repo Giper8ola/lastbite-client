@@ -1,6 +1,6 @@
 import getConfig from 'next/config';
 
-import { Button } from '@/components/Boxlist';
+import { BoxList } from '@/components/Boxlist';
 import Header from '@/components/Header';
 
 const { publicRuntimeConfig } = getConfig();
@@ -13,7 +13,8 @@ const BoxesList = [
 		category: ['Хлебобулочные изделия'],
 		restaurant: 'Карак Бамбама',
 		address: 'ул. Пушкина, д. Калатушкина',
-		score: 4.9
+		score: 4.9,
+		price: 100
 	},
 	{
 		url: basePath + '/fish.png',
@@ -21,7 +22,8 @@ const BoxesList = [
 		category: ['Хлебобулочные изделия', 'Японская кухня', 'Мясо', 'Хлебобулочные изделия', 'Японская кухня', 'Мясо'],
 		restaurant: 'Карак Бамбама',
 		address: 'ул. Пушкина, д. Калатушкина',
-		score: 3.6
+		score: 3.6,
+		price: 100
 	},
 	{
 		url: basePath + '/jap.png',
@@ -29,17 +31,18 @@ const BoxesList = [
 		category: ['Морепродукты', 'Молочная продукция'],
 		restaurant: 'Карак Бамбама',
 		address: 'ул. Пушкина, д. Калатушкина',
-		score: 2.0
+		score: 2.0,
+		price: 100
 	}
 ];
 
 const Home = () => {
 	return (
-		<div className="px-20 py-5">
+		<div className="px-20 py-5 ">
 			<Header />
-			<div className="p-10 flex flex-col gap-6">
+			<div className="h-[1200px] px-[20px] mt-[100px] flex flex-col flex-wrap gap-6">
 				{BoxesList.map((el, ind) => (
-					<Button
+					<BoxList
 						key={ind}
 						url={el.url}
 						name={el.name}
@@ -47,6 +50,47 @@ const Home = () => {
 						restaurant={el.restaurant}
 						address={el.address}
 						score={el.score}
+						price={el.price}
+						toCart={true}
+					/>
+				))}
+				{BoxesList.map((el, ind) => (
+					<BoxList
+						key={ind}
+						url={el.url}
+						name={el.name}
+						category={el.category}
+						restaurant={el.restaurant}
+						address={el.address}
+						score={el.score}
+						price={el.price}
+						toCart={true}
+					/>
+				))}
+				{BoxesList.map((el, ind) => (
+					<BoxList
+						key={ind}
+						url={el.url}
+						name={el.name}
+						category={el.category}
+						restaurant={el.restaurant}
+						address={el.address}
+						score={el.score}
+						price={el.price}
+						toCart={true}
+					/>
+				))}
+				{BoxesList.map((el, ind) => (
+					<BoxList
+						key={ind}
+						url={el.url}
+						name={el.name}
+						category={el.category}
+						restaurant={el.restaurant}
+						address={el.address}
+						score={el.score}
+						price={el.price}
+						toCart={true}
 					/>
 				))}
 			</div>

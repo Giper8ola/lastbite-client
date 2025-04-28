@@ -48,7 +48,7 @@ export default function RegModal({ isOpen, onOpenChange }: { isOpen: boolean; on
 								placeholder="Enter your email"
 								variant="bordered"
 							/>
-							<DatePicker variant="underlined" color="success" className="" label="Birth date" />
+							<DatePicker variant="underlined" color="success" className="" label="Дата рождения" />
 						</ModalBody>
 						<ModalFooter>
 							<Button onPress={onClose} variant="faded" className={`bg-[${COLORS.primary}] border-[#89E49D]`}>

@@ -5,16 +5,18 @@ import RegModal from './RegModal';
 export default function ModalManager({
 	modalName,
 	isOpen,
-	onOpenChange
+	onOpenChange,
+	basePath
 }: {
 	modalName: string;
 	isOpen: boolean;
 	onOpenChange: () => void;
+	basePath?: string;
 }) {
 	const MODALS = {
 		auth: <AuthModal isOpen={isOpen} onOpenChange={onOpenChange}></AuthModal>,
 		reg: <RegModal isOpen={isOpen} onOpenChange={onOpenChange}></RegModal>,
-		cart: <CartModal isOpen={isOpen} onOpenChange={onOpenChange}></CartModal>
+		cart: <CartModal isOpen={isOpen} onOpenChange={onOpenChange} basePath={basePath}></CartModal>
 	};
 	if (modalName == 'auth') {
 		return MODALS.auth;
