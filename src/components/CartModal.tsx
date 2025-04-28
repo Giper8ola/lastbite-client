@@ -5,7 +5,7 @@ import { Modal, ModalContent, ModalBody, Button, ScrollShadow } from '@heroui/re
 import HeaderButton from '@/features/HeaderButton';
 import { COLORS } from '@/utils/consts';
 
-import { BoxList } from './Boxlist';
+import { BoxItem } from './BoxItem';
 
 export default function CartModal({
 	isOpen,
@@ -60,7 +60,7 @@ export default function CartModal({
 						<ModalBody className="grid grid-cols-[57%_1fr_40%] pr-0 pt-0">
 							<ScrollShadow hideScrollBar className="h-[800px] col-start-1 p-5">
 								{BoxesList.map((el, ind) => (
-									<BoxList
+									<BoxItem
 										key={ind}
 										url={el.url}
 										name={el.name}
@@ -74,7 +74,7 @@ export default function CartModal({
 									/>
 								))}
 								{BoxesList.map((el, ind) => (
-									<BoxList
+									<BoxItem
 										key={ind}
 										url={el.url}
 										name={el.name}
@@ -88,7 +88,7 @@ export default function CartModal({
 									/>
 								))}
 								{BoxesList.map((el, ind) => (
-									<BoxList
+									<BoxItem
 										key={ind}
 										url={el.url}
 										name={el.name}

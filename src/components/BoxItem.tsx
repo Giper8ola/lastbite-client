@@ -26,7 +26,7 @@ interface BoxProps extends Props {
 	toCart: boolean;
 }
 
-export const BoxList: React.FC<BoxProps> = ({ url, name, category, restaurant, address, score, price, toCart, className }) => {
+export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, address, score, price, toCart, className }) => {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
 		<div
