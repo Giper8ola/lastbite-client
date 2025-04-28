@@ -35,7 +35,7 @@ export const BoxList: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 			onClick={modal ? onOpen : undefined}
 			onKeyDown={modal ? (e) => e.key === 'Enter' && onOpen?.() : undefined}
 			className={
-				` bg-white w-[420px] h-[${modal ? '200' : '170'}px] rounded-[25px] shadow-md ${modal ? 'hover:cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105 origin-center' : ''} p-[15px] grid grid-rows-1 grid-cols-[140px_1fr_65%] gap-[10px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ` +
+				` bg-white w-[420px] h-[${modal ? '200' : '170'}px] rounded-[25px] shadow-md ${modal ? 'hover:cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105 origin-center' : ''} p-[15px] grid grid-rows-1 grid-cols-[140px_1fr_65%] gap-[10px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#89E49D] ` +
 				className
 			}
 		>
