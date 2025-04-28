@@ -8,7 +8,7 @@ import { ChefHat } from 'lucide-react';
 
 import Image from 'next/image';
 
-import { Props } from '@/components/Boxlist';
+import { Props } from '@/components/BoxItem';
 import { Score } from '@/features/Score';
 import { ToCartButton } from '@/features/ToCartButton';
 

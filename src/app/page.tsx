@@ -1,6 +1,6 @@
 import getConfig from 'next/config';
 
-import { BoxList } from '@/components/Boxlist';
+import { BoxItem } from '@/components/BoxItem';
 import Header from '@/components/Header';
 
 const { publicRuntimeConfig } = getConfig();
@@ -42,7 +42,7 @@ const Home = () => {
 			<Header />
 			<div className="h-[1200px] px-[20px] mt-[100px] flex flex-col flex-wrap gap-6">
 				{BoxesList.map((el, ind) => (
-					<BoxList
+					<BoxItem
 						key={ind}
 						url={el.url}
 						name={el.name}
@@ -55,7 +55,7 @@ const Home = () => {
 					/>
 				))}
 				{BoxesList.map((el, ind) => (
-					<BoxList
+					<BoxItem
 						key={ind}
 						url={el.url}
 						name={el.name}
@@ -68,7 +68,7 @@ const Home = () => {
 					/>
 				))}
 				{BoxesList.map((el, ind) => (
-					<BoxList
+					<BoxItem
 						key={ind}
 						url={el.url}
 						name={el.name}
@@ -81,7 +81,7 @@ const Home = () => {
 					/>
 				))}
 				{BoxesList.map((el, ind) => (
-					<BoxList
+					<BoxItem
 						key={ind}
 						url={el.url}
 						name={el.name}
