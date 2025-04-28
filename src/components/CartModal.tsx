@@ -57,7 +57,7 @@ export default function CartModal({
 				{(onClose) => (
 					<>
 						<ModalBody className="grid grid-cols-[57%_1fr_40%] pr-0 pt-0">
-							<ScrollShadow hideScrollBar className="h-[800px] col-start-1 ">
+							<ScrollShadow hideScrollBar className="h-[800px] col-start-1 p-5">
 								{BoxesList.map((el, ind) => (
 									<BoxList
 										key={ind}
@@ -68,8 +68,36 @@ export default function CartModal({
 										address={el.address}
 										score={el.score}
 										price={el.price}
-										modal={false}
-										className="my-2 w-full"
+										toCart={false}
+										className="my-3 w-full"
+									/>
+								))}
+								{BoxesList.map((el, ind) => (
+									<BoxList
+										key={ind}
+										url={el.url}
+										name={el.name}
+										category={el.category}
+										restaurant={el.restaurant}
+										address={el.address}
+										score={el.score}
+										price={el.price}
+										toCart={false}
+										className="my-3 w-full"
+									/>
+								))}
+								{BoxesList.map((el, ind) => (
+									<BoxList
+										key={ind}
+										url={el.url}
+										name={el.name}
+										category={el.category}
+										restaurant={el.restaurant}
+										address={el.address}
+										score={el.score}
+										price={el.price}
+										toCart={false}
+										className="my-3 w-full"
 									/>
 								))}
 							</ScrollShadow>

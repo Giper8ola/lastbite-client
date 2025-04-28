@@ -51,7 +51,7 @@ const Home = () => {
 						address={el.address}
 						score={el.score}
 						price={el.price}
-						modal={true}
+						toCart={true}
 					/>
 				))}
 				{BoxesList.map((el, ind) => (
@@ -64,7 +64,7 @@ const Home = () => {
 						address={el.address}
 						score={el.score}
 						price={el.price}
-						modal={true}
+						toCart={true}
 					/>
 				))}
 				{BoxesList.map((el, ind) => (
@@ -77,7 +77,7 @@ const Home = () => {
 						address={el.address}
 						score={el.score}
 						price={el.price}
-						modal={true}
+						toCart={true}
 					/>
 				))}
 				{BoxesList.map((el, ind) => (
@@ -90,7 +90,7 @@ const Home = () => {
 						address={el.address}
 						score={el.score}
 						price={el.price}
-						modal={true}
+						toCart={true}
 					/>
 				))}
 			</div>

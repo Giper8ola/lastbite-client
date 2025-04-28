@@ -23,19 +23,19 @@ export interface Props {
 }
 
 interface BoxProps extends Props {
-	modal: boolean;
+	toCart: boolean;
 }
 
-export const BoxList: React.FC<BoxProps> = ({ url, name, category, restaurant, address, score, price, modal, className }) => {
+export const BoxList: React.FC<BoxProps> = ({ url, name, category, restaurant, address, score, price, toCart, className }) => {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
 		<div
-			role={modal ? 'button' : undefined}
-			tabIndex={modal ? 0 : undefined}
-			onClick={modal ? onOpen : undefined}
-			onKeyDown={modal ? (e) => e.key === 'Enter' && onOpen?.() : undefined}
+			role={'button'}
+			tabIndex={0}
+			onClick={onOpen}
+			onKeyDown={toCart ? (e) => e.key === 'Enter' && onOpen?.() : undefined}
 			className={
-				` bg-white w-[420px] h-[${modal ? '200' : '170'}px] rounded-[25px] shadow-md ${modal ? 'hover:cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105 origin-center' : ''} p-[15px] grid grid-rows-1 grid-cols-[140px_1fr_65%] gap-[10px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#89E49D] ` +
+				` bg-white w-[420px] h-[200px] rounded-[25px] shadow-md hover:cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105 origin-center p-[15px] grid grid-rows-1 grid-cols-[140px_1fr_65%] gap-[3px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#89E49D] ` +
 				className
 			}
 		>
@@ -43,10 +43,10 @@ export const BoxList: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 				<Image className="rounded-[15px]" alt="Box logo" src={url} width={140} height={140} priority></Image>
 			</div>
 			<div className="col-start-3 row-start-1">
-				<div className="flex flex-col justify-between gap-2 col-span-2 ">
+				<div className="flex flex-col justify-between gap-2 col-span-2 px-2">
 					<div className="flex flex-row justify-between">
 						<h1 className="font-bold text-xl">{name}</h1>
-						<div className="pr-5">
+						<div className="">
 							<Score number={score} />
 						</div>
 					</div>
@@ -59,7 +59,7 @@ export const BoxList: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 							</div>
 						))}
 					</div>
-					<div className="flex items-center justify-between gap-[0px]">
+					<div className="flex items-center justify-between">
 						<div>
 							<div className="flex gap-[3px]">
 								<ChefHat size={18} />
@@ -84,7 +84,7 @@ export const BoxList: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 				score={score}
 				price={price}
 			></BoxlistModal>
-			{modal && (
+			{toCart && (
 				<div className="flex col-span-3 justify-end pr-5">
 					<ToCartButton price={price} />
 				</div>
