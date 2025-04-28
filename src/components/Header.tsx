@@ -31,7 +31,7 @@ export default function Header() {
 			</div>
 
 			<div className="flex inline-block items-center gap-6">
-				<HeaderButton color={COLORS.primary} modalName="cart">
+				<HeaderButton color={COLORS.primary} modalName="cart" basePath={basePath}>
 					<ShoppingCart size={28} strokeWidth={2.5} />
 					0₽
 				</HeaderButton>
@@ -39,7 +39,7 @@ export default function Header() {
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>
-				<HeaderButton color={COLORS.secondary} modalName="auth">
+				<HeaderButton color={COLORS.secondary} modalName="reg">
 					<CircleUser size={28} strokeWidth={2.5} />
 					Войти
 				</HeaderButton>
