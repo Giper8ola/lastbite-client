@@ -5,7 +5,6 @@ import Header from '@/components/Header';
 
 const { publicRuntimeConfig } = getConfig();
 const basePath = publicRuntimeConfig.basePath ?? '';
-
 const BoxesList = [
 	{
 		url: basePath + '/bread.png',
@@ -39,7 +38,7 @@ const BoxesList = [
 const Home = () => {
 	return (
 		<div className="px-20 py-5 ">
-			<Header />
+			<Header basePath={basePath} />
 			<div className="h-[1200px] px-[20px] mt-[100px] flex flex-col flex-wrap gap-6">
 				{BoxesList.map((el, ind) => (
 					<BoxList
