@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { useDisclosure } from '@heroui/react';
+import { ScrollShadow, useDisclosure } from '@heroui/react';
 import { ChefHat } from 'lucide-react';
 
 import Image from 'next/image';
@@ -29,7 +29,6 @@ interface BoxProps extends Props {
 export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, address, score, price, toCart, className }) => {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
-		// eslint-disable-next-line jsx-a11y/click-events-have-key-events
 		<div
 			role="button"
 			tabIndex={0}
@@ -43,18 +42,20 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 		>
 			<div className="flex gap-x-1">
 				<Image className="rounded-2xl" alt="Box logo" src={url} width={130} height={130} priority></Image>
-				<div className="flex flex-col justify-between gap-2 col-span-2 pl-2 w-full">
+				<div className="flex flex-col gap-2 col-span-2 pl-2 w-full">
 					<div className="flex flex-row justify-between">
 						<h1 className="font-bold text-xl">{name}</h1>
 						<Score number={score} />
 					</div>
-					<div className="flex flex-auto flex-wrap">
-						{category.map((el, ind) => (
-							<div key={ind}>
-								<p className="bg-[#D4D4D4] rounded-[15px] px-[6px] py-1 text-xs pl-1.5 text-gray-500 font-thin">{el}</p>
-							</div>
-						))}
-					</div>
+					<ScrollShadow hideScrollBar={true} orientation={'horizontal'} offset={100}>
+						<div className="flex flex-auto flex-wrap max-h-[90px] gap-1">
+							{category.map((el, ind) => (
+								<div key={ind}>
+									<p className="bg-[#D4D4D4] rounded-[15px] px-[6px] py-1 text-xs pl-1.5 text-gray-500 font-thin">{el}</p>
+								</div>
+							))}
+						</div>
+					</ScrollShadow>
 				</div>
 			</div>
 			<div className="flex items-center justify-between mt-3">
