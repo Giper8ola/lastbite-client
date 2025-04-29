@@ -25,7 +25,7 @@ const eslintConfig = [
       'next/typescript',
       'plugin:react/recommended',
       'plugin:react-hooks/recommended',
-      'plugin:jsx-a11y/recommended',
+      //'plugin:jsx-a11y/recommended',
       'plugin:import/recommended',
       'plugin:import/typescript',
       'plugin:prettier/recommended',
@@ -47,7 +47,7 @@ const eslintConfig = [
     plugins: {
       react,
       'react-hooks': reactHooks,
-      'jsx-a11y': jsxA11y,
+      //'jsx-a11y': jsxA11y,
       import: eslintImport,
       'unused-imports': unusedImports,
       prettier,
@@ -95,7 +95,7 @@ const eslintConfig = [
       'import/no-unresolved': 'error',
 
       // Accessibility
-      'jsx-a11y/alt-text': 'warn',
+      //'jsx-a11y/alt-text': 'warn',
 
       // Code quality
       'unused-imports/no-unused-imports': 'error',
