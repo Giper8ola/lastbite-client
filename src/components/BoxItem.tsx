@@ -36,9 +36,9 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 			onClick={onOpen}
 			className={
 				`bg-white rounded-3xl shadow-md
-				   hover:cursor-pointer transition-transform
-				   duration-300 ease-in-out transform
-				   hover:scale-105 origin-center p-4 ` + className
+						hover:cursor-pointer transition-transform
+						duration-300 ease-in-out transform
+						hover:scale-105 origin-center p-4 ` + className
 			}
 		>
 			<div className="flex gap-x-1">
@@ -48,7 +48,7 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 						<h1 className="font-bold text-xl">{name}</h1>
 						<Score number={score} />
 					</div>
-					<div className="flex-1 flex flex-wrap gap-2 w-[250px]">
+					<div className="flex flex-auto flex-wrap">
 						{category.map((el, ind) => (
 							<div key={ind}>
 								<p className="bg-[#D4D4D4] rounded-[15px] px-[6px] py-1 text-xs pl-1.5 text-gray-500 font-thin">{el}</p>
