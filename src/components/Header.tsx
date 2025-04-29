@@ -1,16 +1,36 @@
+'use client';
+import { useState } from 'react';
+
 import { Package, House, ShoppingCart, MapPin, CircleUser } from 'lucide-react';
 
-import getConfig from 'next/config';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import HeaderButton from '@/features/HeaderButton';
 import { COLORS } from '@/utils/consts';
 
-const { publicRuntimeConfig } = getConfig();
-const basePath = publicRuntimeConfig.basePath ?? '';
+export function Auth() {
+	const [isAuth, setAuth] = useState(false);
+	if (isAuth) {
+		return (
+			<HeaderButton color={COLORS.secondary}>
+				<CircleUser size={28} strokeWidth={2.5} />
+				<div className="text-start">
+					<p className="">Пользователь</p>
+					<p className="text-[10px] text-[#BEBEBE] leading-none">email@mail.ru</p>
+				</div>
+			</HeaderButton>
+		);
+	}
+	return (
+		<HeaderButton color={COLORS.secondary} modalName="auth" isAuth={isAuth} setAuth={setAuth}>
+			<CircleUser size={28} strokeWidth={2.5} />
+			Войти
+		</HeaderButton>
+	);
+}
 
-export default function Header() {
+export default function Header({ basePath }: { basePath: string }) {
 	return (
 		<div className="flex inline-block items-center justify-between">
 			<div className="flex inline-block items-center gap-6">
@@ -39,10 +59,7 @@ export default function Header() {
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>
-				<HeaderButton color={COLORS.secondary} modalName="auth">
-					<CircleUser size={28} strokeWidth={2.5} />
-					Войти
-				</HeaderButton>
+				<Auth></Auth>
 			</div>
 		</div>
 	);

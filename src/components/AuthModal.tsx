@@ -1,8 +1,21 @@
 'use client';
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Checkbox, Input } from '@heroui/react';
+import {
+	Modal,
+	ModalContent,
+	ModalHeader,
+	ModalBody,
+	ModalFooter,
+	Button,
+	Checkbox,
+	Input,
+	useDisclosure,
+	Form
+} from '@heroui/react';
 import { Phone } from 'lucide-react';
 
 import { COLORS } from '@/utils/consts';
+
+import ModalManager from './ModalManager';
 
 export const LockIcon = (props: { className: string }) => {
 	return (
@@ -28,15 +41,28 @@ export const LockIcon = (props: { className: string }) => {
 	);
 };
 
-export default function AuthModal({ isOpen, onOpenChange }: { isOpen: boolean; onOpenChange: () => void }) {
+export default function AuthModal({
+	isOpen,
+	onOpenChange,
+	isAuth,
+	setAuth
+}: {
+	isOpen: boolean;
+	onOpenChange?: () => void;
+	isAuth?: boolean;
+	setAuth?: (value: boolean) => void;
+}) {
+	const regModal = useDisclosure();
+	const authCodeModal = useDisclosure();
 	return (
 		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
 			<ModalContent>
 				{(onClose) => (
-					<>
+					<Form onSubmit={authCodeModal.onOpen} autoComplete="on" method="dialog">
 						<ModalHeader className="flex flex-col gap-1">Логин</ModalHeader>
-						<ModalBody>
+						<ModalBody className="w-[100%]">
 							<Input
+								isRequired
 								color="success"
 								endContent={<Phone size={24} className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />}
 								label="Номер телефона"
@@ -54,15 +80,35 @@ export default function AuthModal({ isOpen, onOpenChange }: { isOpen: boolean; o
 								</Checkbox>
 							</div>
 						</ModalBody>
-						<ModalFooter>
-							<Button color="default" variant="flat" onPress={onClose}>
+						<ModalFooter className="w-[100%]">
+							<Button color="default" variant="flat" onPress={regModal.onOpen}>
 								Регистрация
 							</Button>
-							<Button onPress={onClose} variant="faded" className={`bg-[${COLORS.primary}] border-[#89E49D]`}>
+							<ModalManager
+								modalName="reg"
+								isOpen={regModal.isOpen}
+								onOpenChange={() => {
+									regModal.onOpenChange();
+									onClose();
+								}}
+								isAuth={isAuth}
+								setAuth={setAuth}
+							></ModalManager>
+							<Button type="submit" variant="faded" className={`bg-[${COLORS.primary}] border-[#89E49D]`}>
 								Войти
 							</Button>
+							<ModalManager
+								modalName="code"
+								isOpen={authCodeModal.isOpen}
+								onOpenChange={() => {
+									authCodeModal.onOpenChange();
+									onClose();
+								}}
+								isAuth={isAuth}
+								setAuth={setAuth}
+							></ModalManager>
 						</ModalFooter>
-					</>
+					</Form>
 				)}
 			</ModalContent>
 		</Modal>
