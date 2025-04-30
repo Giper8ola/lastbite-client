@@ -7,7 +7,6 @@ import { ChefHat } from 'lucide-react';
 
 import Image from 'next/image';
 
-import { BoxlistModal } from '@/components/BoxlistModal';
 import { Score } from '@/features/Score';
 import { ToCartButton } from '@/features/ToCartButton';
 
@@ -68,17 +67,6 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 						<p className="text-xs font-thin text-gray-500">{address}</p>
 					</div>
 				</div>
-				<BoxlistModal
-					isOpen={isOpen}
-					onOpenChange={onOpenChange}
-					url={url}
-					name={name}
-					category={category}
-					restaurant={restaurant}
-					address={address}
-					score={score}
-					price={price}
-				></BoxlistModal>
 				{toCart && <ToCartButton price={price} />}
 			</div>
 		</div>
