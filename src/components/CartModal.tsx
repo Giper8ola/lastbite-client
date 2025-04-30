@@ -2,7 +2,6 @@
 
 import { Modal, ModalContent, ModalBody, Button, ScrollShadow } from '@heroui/react';
 
-import HeaderButton from '@/features/HeaderButton';
 import { COLORS } from '@/utils/consts';
 
 import { BoxItem } from './BoxItem';
@@ -47,18 +46,15 @@ export default function CartModal({
 	];
 
 	return (
-		<Modal
-			isOpen={isOpen}
-			className="h-[800px] w-[1100px] rounded-[28px]"
-			size="5xl"
-			placement="top-center"
-			onOpenChange={onOpenChange}
-		>
+		<Modal isOpen={isOpen} className="rounded-[28px] pt-5" size="lg" placement="top-center" onOpenChange={onOpenChange}>
 			<ModalContent>
 				{(onClose) => (
 					<>
-						<ModalBody className="grid grid-cols-[57%_1fr_40%] pr-0 pt-0">
-							<ScrollShadow hideScrollBar className="h-[800px] col-start-1 p-5">
+						<ModalBody className="pl-0 pr-0 pt-0 flex items-center gap-1">
+							<div className="w-full justify-start mt-2">
+								<b className="text-[22px] pl-10">Корзина</b>
+							</div>
+							<ScrollShadow hideScrollBar className="h-96 px-5 pb-5 mb-10">
 								{BoxesList.map((el, ind) => (
 									<BoxItem
 										key={ind}
@@ -69,7 +65,7 @@ export default function CartModal({
 										address={el.address}
 										score={el.score}
 										price={el.price}
-										toCart={false}
+										toCart={true}
 										className="my-3 w-full"
 									/>
 								))}
@@ -83,7 +79,7 @@ export default function CartModal({
 										address={el.address}
 										score={el.score}
 										price={el.price}
-										toCart={false}
+										toCart={true}
 										className="my-3 w-full"
 									/>
 								))}
@@ -97,32 +93,21 @@ export default function CartModal({
 										address={el.address}
 										score={el.score}
 										price={el.price}
-										toCart={false}
+										toCart={true}
 										className="my-3 w-full"
 									/>
 								))}
 							</ScrollShadow>
-							<div className="col-start-3 shadow-[-6px_0px_8px_0px_rgba(0,0,0,0.3)] pt-5 pb-8 px-3 grid grid-rows-2">
-								<p className="text-[24px] font-bold px-5 ">Доставить по адресу:</p>
-								<div className="text-[24px] font-bold rows-end-1 px-5 grid grid-rows-4 ">
-									<p className="row-start-1 leading-[80px]">Cпособ оплаты</p>
-									<HeaderButton color={COLORS.primary} className="w-[100%] h-[54px] rounded-full"></HeaderButton>
-									<HeaderButton color={COLORS.primary} className="w-[100%] h-[54px] rounded-full"></HeaderButton>
-									<HeaderButton color={COLORS.primary} className="w-[100%] h-[54px] rounded-full"></HeaderButton>
-								</div>
-								<div className="row-start-3 items-center flex flex-col">
-									<Button
-										onPress={onClose}
-										variant="faded"
-										className="w-[90%] h-20 text-[24px] font-bold border-c-primary"
-										style={{
-											backgroundColor: COLORS.primary
-										}}
-									>
-										ОПЛАТИТЬ
-									</Button>
-								</div>
-							</div>
+							<Button
+								onPress={onClose}
+								variant="faded"
+								className="w-[90%] h-12 text-[20px] font-bold border-c-primary mb-5"
+								style={{
+									backgroundColor: COLORS.primary
+								}}
+							>
+								Оформить заказ
+							</Button>
 						</ModalBody>
 					</>
 				)}

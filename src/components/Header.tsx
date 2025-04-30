@@ -46,12 +46,17 @@ export function Auth({
 						className={`bg-white rounded-[15px] px-2 pr-0 text-black font-bold text-[16px] shadow-md hover:transition-shadow hover:duration-700 hover:shadow-[0_4px_3px_0px_rgba(0,0,0,0.3)]`}
 					>
 						<div className="px-1">
-							<Listbox aria-label="Actions" className={`w-full pl-0 pr-2 text-center`}>
-								<ListboxItem key="history">
-									<Link href={basePath + '/history'}>История заказов</Link>
+							<Listbox className={`w-full pl-0 pr-2 text-center`}>
+								<ListboxItem key="profile" href={basePath + '/profile'}>
+									Профиль
 								</ListboxItem>
-								<ListboxItem key="payments">Способы оплаты</ListboxItem>
-								<ListboxItem key="exit" className="text-danger" color="danger">
+								<ListboxItem key="history" href={basePath + '/history'}>
+									История заказов
+								</ListboxItem>
+								<ListboxItem key="payments" href={basePath + '/payments'}>
+									Способы оплаты
+								</ListboxItem>
+								<ListboxItem key="exit" className="text-danger" color="danger" onPress={() => setAuth}>
 									Выход
 								</ListboxItem>
 							</Listbox>
@@ -81,7 +86,6 @@ export default function Header({ basePath, className }: { basePath: string; clas
 						ГЛАВНАЯ
 					</HeaderButton>
 				</Link>
-
 				<Link href="/boxes">
 					<HeaderButton color={COLORS.primary}>
 						<Package size={28} strokeWidth={2.5} />
