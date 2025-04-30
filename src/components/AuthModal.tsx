@@ -13,8 +13,6 @@ import {
 } from '@heroui/react';
 import { Phone } from 'lucide-react';
 
-import { COLORS } from '@/utils/consts';
-
 import ModalManager from './ModalManager';
 
 export const LockIcon = (props: { className: string }) => {
@@ -94,7 +92,7 @@ export default function AuthModal({
 								isAuth={isAuth}
 								setAuth={setAuth}
 							></ModalManager>
-							<Button type="submit" variant="faded" className={`bg-[${COLORS.primary}] border-[#89E49D]`}>
+							<Button type="submit" variant="faded" className="bg-c-primary border-c-primary">
 								Войти
 							</Button>
 							<ModalManager

@@ -2,8 +2,6 @@
 import { Modal, ModalContent, ModalHeader, ModalBody, Button, Input, DatePicker, Form } from '@heroui/react';
 import { Phone } from 'lucide-react';
 
-import { COLORS } from '@/utils/consts';
-
 export const MailIcon = (props: { className: string }) => {
 	return (
 		<svg
@@ -68,7 +66,7 @@ export default function RegModal({
 								variant="bordered"
 							/>
 							<DatePicker variant="underlined" color="success" className="" label="Дата рождения" />
-							<Button type="submit" variant="faded" className={`bg-[${COLORS.primary}] w-[50%] border-[#89E49D]`}>
+							<Button type="submit" variant="faded" className="bg-c-primary w-[50%] border-c-primary">
 								Зарегистрироваться
 							</Button>
 						</ModalBody>
