@@ -28,7 +28,7 @@ export function Auth({
 
 	if (isAuth) {
 		return (
-			<div className={' ' + className}>
+			<div className={'bg-white ' + className}>
 				<Accordion isCompact>
 					<AccordionItem
 						key="1"
@@ -103,7 +103,7 @@ export default function Header({ basePath, className }: { basePath: string; clas
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>
-				<Auth className="absolute z-0" isAuth={isAuth} setAuth={setAuth}></Auth>
+				<Auth className="absolute z-50" isAuth={isAuth} setAuth={setAuth}></Auth>
 			</div>
 		</div>
 	);
