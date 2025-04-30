@@ -11,8 +11,6 @@ import Link from 'next/link';
 import HeaderButton from '@/features/HeaderButton';
 import { COLORS } from '@/utils/consts';
 
-import ModalManager from './ModalManager';
-
 export function Auth({
 	className,
 	basePath,
@@ -37,8 +35,7 @@ export function Auth({
 							<div className={`flex items-center gap-1  hover:transition-colors hover:text-c-primary`}>
 								<CircleUser size={28} strokeWidth={2.5} />
 								<div className={`text-start`}>
-									<p onClick={onOpen}>Пользователь</p>
-									<ModalManager modalName="auth" isOpen={isOpen} onOpenChange={onOpenChange}></ModalManager>
+									<p>Пользователь</p>
 									<p className="text-[10px] text-[#BEBEBE] leading-none">email@mail.ru</p>
 								</div>
 							</div>
@@ -56,7 +53,7 @@ export function Auth({
 								<ListboxItem key="payments" href={basePath + '/payments'}>
 									Способы оплаты
 								</ListboxItem>
-								<ListboxItem key="exit" className="text-danger" color="danger" onPress={() => setAuth}>
+								<ListboxItem key="exit" className="text-danger" color="danger" onPress={() => (setAuth ? setAuth(false) : {})}>
 									Выход
 								</ListboxItem>
 							</Listbox>
@@ -99,7 +96,7 @@ export default function Header({ basePath, className }: { basePath: string; clas
 					<ShoppingCart size={28} strokeWidth={2.5} />
 					0₽
 				</HeaderButton>
-				<HeaderButton color={COLORS.secondary} className={isAuth ? 'mr-48' : ''}>
+				<HeaderButton color={COLORS.secondary} className={isAuth ? 'mr-48' : ''} modalName="location">
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>

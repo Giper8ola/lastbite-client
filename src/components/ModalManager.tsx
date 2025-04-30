@@ -1,6 +1,7 @@
 import AuthCodeModal from './AuthCodeModal';
 import AuthModal from './AuthModal';
 import CartModal from './CartModal';
+import LocationModal from './LocationModal';
 import RegModal from './RegModal';
 
 export default function ModalManager({
@@ -22,18 +23,11 @@ export default function ModalManager({
 		auth: <AuthModal isOpen={isOpen} onOpenChange={onOpenChange} isAuth={isAuth} setAuth={setAuth}></AuthModal>,
 		reg: <RegModal isOpen={isOpen} onOpenChange={onOpenChange} isAuth={isAuth} setAuth={setAuth}></RegModal>,
 		cart: <CartModal isOpen={isOpen} onOpenChange={onOpenChange} basePath={basePath}></CartModal>,
-		code: <AuthCodeModal isOpen={isOpen} onOpenChange={onOpenChange} isAuth={isAuth} setAuth={setAuth}></AuthCodeModal>
+		code: <AuthCodeModal isOpen={isOpen} onOpenChange={onOpenChange} isAuth={isAuth} setAuth={setAuth}></AuthCodeModal>,
+		location: <LocationModal isOpen={isOpen} onOpenChange={onOpenChange}></LocationModal>
 	};
-	if (modalName == 'auth') {
-		return MODALS.auth;
-	}
-	if (modalName == 'reg') {
-		return MODALS.reg;
-	}
-	if (modalName == 'cart') {
-		return MODALS.cart;
-	}
-	if (modalName == 'code') {
-		return MODALS.code;
+
+	if (modalName && modalName in MODALS) {
+		return MODALS[modalName as keyof typeof MODALS];
 	}
 }
