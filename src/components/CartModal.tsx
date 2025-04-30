@@ -2,7 +2,7 @@
 
 import { Modal, ModalContent, ModalBody, Button, ScrollShadow } from '@heroui/react';
 
-import { COLORS } from '@/utils/consts';
+import Link from 'next/link';
 
 import { BoxItem } from './BoxItem';
 
@@ -51,7 +51,7 @@ export default function CartModal({
 				{(onClose) => (
 					<>
 						<ModalBody className="pl-0 pr-0 pt-0 flex items-center gap-1">
-							<div className="w-full justify-start mt-2">
+							<div className="w-full justify-start mt-2 pb-4">
 								<b className="text-[22px] pl-10">Корзина</b>
 							</div>
 							<ScrollShadow hideScrollBar className="h-96 px-5 pb-5 mb-10">
@@ -98,16 +98,11 @@ export default function CartModal({
 									/>
 								))}
 							</ScrollShadow>
-							<Button
-								onPress={onClose}
-								variant="faded"
-								className="w-[90%] h-12 text-[20px] font-bold border-c-primary mb-5"
-								style={{
-									backgroundColor: COLORS.primary
-								}}
-							>
-								Оформить заказ
-							</Button>
+							<Link href={basePath + '/order'} className="w-[90%] flex justify-center">
+								<Button variant="faded" className="w-full h-12 text-[20px] font-bold border-c-primary bg-c-primary mb-5">
+									Оформить заказ
+								</Button>
+							</Link>
 						</ModalBody>
 					</>
 				)}
