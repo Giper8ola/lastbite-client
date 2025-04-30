@@ -1,8 +1,6 @@
 'use client';
 import { Modal, ModalContent, ModalHeader, ModalBody, Button, InputOtp, Form } from '@heroui/react';
 
-import { COLORS } from '@/utils/consts';
-
 const number = '+79009851322';
 
 export default function AuthCodeModal({
@@ -46,7 +44,7 @@ export default function AuthCodeModal({
 									errorMessage="Минимальное количество символов: 4"
 								/>
 							</div>
-							<Button variant="faded" type="submit" className={`bg-[${COLORS.primary}] border-[#89E49D]`}>
+							<Button variant="faded" type="submit" className="bg-c-primary border-c-primary">
 								ПОДТВЕРДИТЬ ТЕЛЕФОН
 							</Button>
 						</ModalBody>

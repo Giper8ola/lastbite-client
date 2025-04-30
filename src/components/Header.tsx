@@ -38,7 +38,7 @@ export function Auth() {
 					key="1"
 					indicator
 					title={
-						<div className={`flex items-center gap-1 hover:transition-colors hover:text-[${COLORS.primary}]`}>
+						<div className="flex items-center gap-1 hover:transition-colors hover:text-c-primary">
 							<CircleUser size={28} strokeWidth={2.5} />
 							<div className={`text-start`}>
 								<p onClick={onOpen}>Пользователь</p>
@@ -72,8 +72,8 @@ export function Auth() {
 
 export default function Header({ basePath }: { basePath: string }) {
 	return (
-		<div className="flex inline-block items-center justify-between">
-			<div className="flex inline-block items-center gap-6">
+		<div className="flex items-center justify-between">
+			<div className="flex items-center gap-6">
 				<Image className="" alt="LastBite logo" src={basePath + '/lastbite.svg'} width={120} height={120} priority></Image>
 				<Link href="/">
 					<HeaderButton color={COLORS.primary}>
@@ -90,7 +90,7 @@ export default function Header({ basePath }: { basePath: string }) {
 				</Link>
 			</div>
 
-			<div className="flex inline-block items-center gap-6">
+			<div className="flex items-center gap-6">
 				<HeaderButton color={COLORS.primary} modalName="cart" basePath={basePath}>
 					<ShoppingCart size={28} strokeWidth={2.5} />
 					0₽
