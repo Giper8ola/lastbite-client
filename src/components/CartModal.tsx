@@ -114,7 +114,7 @@ export default function CartModal({
 									<Button
 										onPress={onClose}
 										variant="faded"
-										className={`w-[90%] h-20 text-[24px] font-bold border-[#89E49D]`}
+										className="w-[90%] h-20 text-[24px] font-bold border-c-primary"
 										style={{
 											backgroundColor: COLORS.primary
 										}}

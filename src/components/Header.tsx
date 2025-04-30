@@ -34,7 +34,7 @@ export function Auth({
 						key="1"
 						indicator
 						title={
-							<div className={`flex items-center gap-1  hover:transition-colors hover:text-[${COLORS.primary}]`}>
+							<div className={`flex items-center gap-1  hover:transition-colors hover:text-c-primary`}>
 								<CircleUser size={28} strokeWidth={2.5} />
 								<div className={`text-start`}>
 									<p onClick={onOpen}>Пользователь</p>
