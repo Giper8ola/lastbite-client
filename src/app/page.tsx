@@ -58,7 +58,7 @@ const Home = () => {
 	return (
 		<div className="py-5 ">
 			<div className="w-full max-w-[1400px] mx-auto">
-				<Header basePath={basePath} />
+				<Header basePath={basePath} className="" />
 				<div className="px-[20px] mt-[100px] grid grid-cols-3 grid-rows-1 gap-6">
 					{BoxesList.map((el, ind) => (
 						<BoxItem
