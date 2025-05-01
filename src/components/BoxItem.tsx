@@ -33,7 +33,7 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 			tabIndex={0}
 			onClick={onOpen}
 			className={
-				`bg-white rounded-3xl shadow-md
+				`bg-c-secondary rounded-3xl shadow-md
 						hover:cursor-pointer transition-transform
 						duration-300 ease-in-out transform
 						hover:scale-105 origin-center p-4 ` + className

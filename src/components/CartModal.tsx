@@ -1,6 +1,7 @@
 'use client';
 
 import { Modal, ModalContent, ModalBody, Button, ScrollShadow } from '@heroui/react';
+import { ArrowRight } from 'lucide-react';
 
 import Link from 'next/link';
 
@@ -98,9 +99,9 @@ export default function CartModal({
 									/>
 								))}
 							</ScrollShadow>
-							<Link href={basePath + '/order'} className="w-[90%] flex justify-center">
+							<Link href={basePath + '/order'} className="w-[90%]">
 								<Button variant="faded" className="w-full h-12 text-[20px] font-bold border-c-primary bg-c-primary mb-5">
-									Оформить заказ
+									<p>Оформить заказ</p> <ArrowRight className="ml-5 " />
 								</Button>
 							</Link>
 						</ModalBody>

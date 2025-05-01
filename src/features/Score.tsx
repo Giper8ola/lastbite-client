@@ -10,12 +10,12 @@ export const Score: React.FC<Props> = ({ number }) => {
 
 	return (
 		<div
-			className="p-[7px] rounded-[20px]"
+			className="p-2 rounded-[20px]"
 			style={{
 				backgroundColor: `hsl(${hue}, 75%, 50%)`
 			}}
 		>
-			<p className="text-xs font-bold">{number.toFixed(1)}</p>
+			<p className="text-xs leading-5 font-bold">{number.toFixed(1)}</p>
 		</div>
 	);
 };

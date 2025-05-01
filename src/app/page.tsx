@@ -18,26 +18,7 @@ const BoxesList = [
 	{
 		url: basePath + '/fish.png',
 		name: 'Абобус Бокс',
-		category: [
-			'Хлебобулочные изделия',
-			'Японская кухня',
-			'Мясо',
-			'Хлебобулочные изделия',
-			'Японская кухня',
-			'Мясо',
-			'Хлебобулочные изделия',
-			'Японская кухня',
-			'Мясо',
-			'Хлебобулочные изделия',
-			'Японская кухня',
-			'Мясо',
-			'Хлебобулочные изделия',
-			'Японская кухня',
-			'Мясо',
-			'Хлебобулочные изделия',
-			'Японская кухня',
-			'Мясо'
-		],
+		category: ['Хлебобулочные изделия', 'Японская кухня', 'Мясо', 'Хлебобулочные изделия', 'Японская кухня', 'Мясо'],
 		restaurant: 'Карак Бамбама',
 		address: 'ул. Пушкина, д. Калатушкина',
 		score: 3.6,
@@ -56,9 +37,9 @@ const BoxesList = [
 
 const Home = () => {
 	return (
-		<div className="py-5 ">
+		<div className="py-5">
 			<div className="w-full max-w-[1400px] mx-auto">
-				<Header basePath={basePath} className="" />
+				<Header basePath={basePath ?? ''} />
 				<div className="px-[20px] mt-[100px] grid grid-cols-3 grid-rows-1 gap-6">
 					{BoxesList.map((el, ind) => (
 						<BoxItem

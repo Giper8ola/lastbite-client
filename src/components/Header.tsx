@@ -28,21 +28,22 @@ export function Auth({
 
 	if (isAuth) {
 		return (
-			<div className={'bg-white ' + className}>
+			<div className={' ' + className}>
 				<Accordion isCompact>
 					<AccordionItem
 						key="1"
 						indicator
 						title={
-							<div className={`flex items-center gap-1  hover:transition-colors hover:text-c-primary`}>
+							<div className={`flex items-center gap-1 hover:transition-colors hover:text-c-primary`}>
 								<CircleUser size={28} strokeWidth={2.5} />
 								<div className={`text-start`}>
-									<p>Пользователь</p>
+									<p className="">Пользователь</p>
 									<p className="text-[10px] text-[#BEBEBE] leading-none">email@mail.ru</p>
 								</div>
 							</div>
 						}
-						className={`bg-white rounded-[15px] px-2 pr-0 text-black font-bold text-[16px] shadow-md hover:transition-shadow hover:duration-700 hover:shadow-[0_4px_3px_0px_rgba(0,0,0,0.3)]`}
+						className={`bg-c-secondary rounded-[15px] px-2 pr-0 text-black font-bold text-[16px] shadow-md hover:transition-shadow hover:duration-700 hover:shadow-[0_4px_3px_0px_rgba(0,0,0,0.3)]`}
+						classNames={{ trigger: 'py-1 pb-2' }}
 					>
 						<div className="px-1">
 							<Listbox className={`w-full pl-0 pr-2 text-center`}>
@@ -77,19 +78,19 @@ export function Auth({
 export default function Header({ basePath, className }: { basePath: string; className?: string }) {
 	const [isAuth, setAuth] = useState(false);
 	return (
-		<div className={'flex items-center justify-between' + className}>
+		<div className={'flex items-center font-f-primary justify-between ' + className}>
 			<div className="flex items-center gap-6">
 				<Image className="" alt="LastBite logo" src={basePath + '/lastbite.svg'} width={120} height={120} priority></Image>
 				<Link href="/">
 					<HeaderButton color={COLORS.primary}>
 						<House size={28} strokeWidth={2.5} />
-						ГЛАВНАЯ
+						<b>ГЛАВНАЯ</b>
 					</HeaderButton>
 				</Link>
 				<Link href="/boxes">
 					<HeaderButton color={COLORS.primary}>
 						<Package size={28} strokeWidth={2.5} />
-						БОКСЫ
+						<b>БОКСЫ</b>
 					</HeaderButton>
 				</Link>
 			</div>
@@ -103,7 +104,7 @@ export default function Header({ basePath, className }: { basePath: string; clas
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>
-				<Auth className="absolute z-50" isAuth={isAuth} setAuth={setAuth}></Auth>
+				<Auth className="absolute z-50" isAuth={isAuth} setAuth={setAuth} basePath={basePath}></Auth>
 			</div>
 		</div>
 	);
