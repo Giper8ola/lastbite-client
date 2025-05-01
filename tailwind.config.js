@@ -9,12 +9,14 @@ const config = {
 		'./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}'
 	],
 	theme: {
-		colors: {
-			'c-primary': '#89E49D',
-			'c-secondary': '#FFFFFF'
-		},
-		fontFamily: {
-			'f-primary': ['Roboto Mono']
+		extend: {
+			colors: {
+				'c-primary': '#89E49D',
+				'c-secondary': '#FFFFFF'
+			},
+			fontFamily: {
+				'f-primary': ['Roboto Mono']
+			}
 		}
 	},
 	darkMode: 'class',
