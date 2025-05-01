@@ -8,7 +8,17 @@ const config = {
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
 		'./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}'
 	],
-	theme: {},
+	theme: {
+		extend: {
+			colors: {
+				'c-primary': '#89E49D',
+				'c-secondary': '#FFFFFF'
+			},
+			fontFamily: {
+				'f-primary': ['Roboto Mono']
+			}
+		}
+	},
 	darkMode: 'class',
 	plugins: [heroui()]
 };

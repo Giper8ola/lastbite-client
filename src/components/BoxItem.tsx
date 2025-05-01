@@ -2,12 +2,11 @@
 
 import React from 'react';
 
-import { useDisclosure } from '@heroui/react';
+import { ScrollShadow, useDisclosure } from '@heroui/react';
 import { ChefHat } from 'lucide-react';
 
 import Image from 'next/image';
 
-import { BoxlistModal } from '@/components/BoxlistModal';
 import { Score } from '@/features/Score';
 import { ToCartButton } from '@/features/ToCartButton';
 
@@ -29,32 +28,33 @@ interface BoxProps extends Props {
 export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, address, score, price, toCart, className }) => {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
-		// eslint-disable-next-line jsx-a11y/click-events-have-key-events
 		<div
 			role="button"
 			tabIndex={0}
 			onClick={onOpen}
 			className={
-				`bg-white rounded-3xl shadow-md
-				   hover:cursor-pointer transition-transform
-				   duration-300 ease-in-out transform
-				   hover:scale-105 origin-center p-4 ` + className
+				`bg-c-secondary rounded-3xl shadow-md
+						hover:cursor-pointer transition-transform
+						duration-300 ease-in-out transform
+						hover:scale-105 origin-center p-4 ` + className
 			}
 		>
 			<div className="flex gap-x-1">
 				<Image className="rounded-2xl" alt="Box logo" src={url} width={130} height={130} priority></Image>
-				<div className="flex flex-col justify-between gap-2 col-span-2 pl-2 w-full">
+				<div className="flex flex-col gap-2 col-span-2 pl-2 w-full">
 					<div className="flex flex-row justify-between">
 						<h1 className="font-bold text-xl">{name}</h1>
 						<Score number={score} />
 					</div>
-					<div className="flex-1 flex flex-wrap gap-2 w-[250px]">
-						{category.map((el, ind) => (
-							<div key={ind}>
-								<p className="bg-[#D4D4D4] rounded-[15px] px-[6px] py-1 text-xs pl-1.5 text-gray-500 font-thin">{el}</p>
-							</div>
-						))}
-					</div>
+					<ScrollShadow hideScrollBar={true} orientation={'horizontal'} offset={100}>
+						<div className="flex flex-auto flex-wrap max-h-[90px] gap-1">
+							{category.map((el, ind) => (
+								<div key={ind}>
+									<p className="bg-[#D4D4D4] rounded-[15px] px-[6px] py-1 text-xs pl-1.5 text-gray-500 font-thin">{el}</p>
+								</div>
+							))}
+						</div>
+					</ScrollShadow>
 				</div>
 			</div>
 			<div className="flex items-center justify-between mt-3">
@@ -67,17 +67,6 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 						<p className="text-xs font-thin text-gray-500">{address}</p>
 					</div>
 				</div>
-				<BoxlistModal
-					isOpen={isOpen}
-					onOpenChange={onOpenChange}
-					url={url}
-					name={name}
-					category={category}
-					restaurant={restaurant}
-					address={address}
-					score={score}
-					price={price}
-				></BoxlistModal>
 				{toCart && <ToCartButton price={price} />}
 			</div>
 		</div>

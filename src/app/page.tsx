@@ -37,61 +37,24 @@ const BoxesList = [
 
 const Home = () => {
 	return (
-		<div className="px-20 py-5 ">
-			<Header basePath={basePath} />
-			<div className="h-[1200px] px-[20px] mt-[100px] flex flex-col flex-wrap gap-6">
-				{BoxesList.map((el, ind) => (
-					<BoxItem
-						key={ind}
-						url={el.url}
-						name={el.name}
-						category={el.category}
-						restaurant={el.restaurant}
-						address={el.address}
-						score={el.score}
-						price={el.price}
-						toCart={true}
-					/>
-				))}
-				{BoxesList.map((el, ind) => (
-					<BoxItem
-						key={ind}
-						url={el.url}
-						name={el.name}
-						category={el.category}
-						restaurant={el.restaurant}
-						address={el.address}
-						score={el.score}
-						price={el.price}
-						toCart={true}
-					/>
-				))}
-				{BoxesList.map((el, ind) => (
-					<BoxItem
-						key={ind}
-						url={el.url}
-						name={el.name}
-						category={el.category}
-						restaurant={el.restaurant}
-						address={el.address}
-						score={el.score}
-						price={el.price}
-						toCart={true}
-					/>
-				))}
-				{BoxesList.map((el, ind) => (
-					<BoxItem
-						key={ind}
-						url={el.url}
-						name={el.name}
-						category={el.category}
-						restaurant={el.restaurant}
-						address={el.address}
-						score={el.score}
-						price={el.price}
-						toCart={true}
-					/>
-				))}
+		<div className="py-5">
+			<div className="w-full max-w-[1400px] mx-auto">
+				<Header basePath={basePath ?? ''} />
+				<div className="px-[20px] mt-[100px] grid grid-cols-3 grid-rows-1 gap-6">
+					{BoxesList.map((el, ind) => (
+						<BoxItem
+							key={ind}
+							url={el.url}
+							name={el.name}
+							category={el.category}
+							restaurant={el.restaurant}
+							address={el.address}
+							score={el.score}
+							price={el.price}
+							toCart={true}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
