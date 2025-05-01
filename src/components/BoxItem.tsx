@@ -21,7 +21,7 @@ export interface Props {
 	className?: string;
 }
 
-interface BoxProps extends Props {
+export interface BoxProps extends Props {
 	toCart: boolean;
 }
 
