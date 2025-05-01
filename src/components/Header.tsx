@@ -5,9 +5,9 @@ import { Listbox, ListboxItem } from '@heroui/listbox';
 import { Accordion, AccordionItem, useDisclosure } from '@heroui/react';
 import { Package, House, ShoppingCart, MapPin, CircleUser } from 'lucide-react';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
+import CustomImage from '@/features/CustomImage';
 import HeaderButton from '@/features/HeaderButton';
 import { COLORS } from '@/utils/consts';
 
@@ -75,12 +75,12 @@ export function Auth({
 	);
 }
 
-export default function Header({ basePath, className }: { basePath: string; className?: string }) {
+export default function Header({ className }: { className?: string }) {
 	const [isAuth, setAuth] = useState(false);
 	return (
 		<div className={'flex items-center font-f-primary justify-between ' + className}>
 			<div className="flex items-center gap-6">
-				<Image className="" alt="LastBite logo" src={basePath + '/lastbite.svg'} width={120} height={120} priority></Image>
+				<CustomImage className="" alt="LastBite logo" src="/lastbite.svg" width={120} height={120} priority />
 				<Link href="/">
 					<HeaderButton color={COLORS.primary}>
 						<House size={28} strokeWidth={2.5} />
@@ -96,7 +96,7 @@ export default function Header({ basePath, className }: { basePath: string; clas
 			</div>
 
 			<div className="flex items-start gap-5 relative justify-end">
-				<HeaderButton color={COLORS.primary} modalName="cart" basePath={basePath}>
+				<HeaderButton color={COLORS.primary} modalName="cart" basePath={''}>
 					<ShoppingCart size={28} strokeWidth={2.5} />
 					0₽
 				</HeaderButton>
@@ -104,7 +104,7 @@ export default function Header({ basePath, className }: { basePath: string; clas
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>
-				<Auth className="absolute z-50" isAuth={isAuth} setAuth={setAuth} basePath={basePath}></Auth>
+				<Auth className="absolute z-50" isAuth={isAuth} setAuth={setAuth} basePath={''}></Auth>
 			</div>
 		</div>
 	);

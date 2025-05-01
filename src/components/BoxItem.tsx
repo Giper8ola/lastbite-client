@@ -5,8 +5,7 @@ import React from 'react';
 import { ScrollShadow } from '@heroui/react';
 import { ChefHat } from 'lucide-react';
 
-import Image from 'next/image';
-
+import CustomImage from '@/features/CustomImage';
 import { Score } from '@/features/Score';
 import { ToCartButton } from '@/features/ToCartButton';
 
@@ -36,7 +35,7 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 			}
 		>
 			<div className="flex gap-x-1">
-				<Image className="rounded-2xl" alt="Box logo" src={url} width={130} height={130} priority></Image>
+				<CustomImage className="rounded-2xl" alt="Box logo" src={url} width={130} height={130} priority />
 				<div className="flex flex-col gap-2 col-span-2 pl-2 w-full">
 					<div className="flex flex-row justify-between">
 						<h1 className="font-bold text-xl">{name}</h1>
