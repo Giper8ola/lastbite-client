@@ -43,7 +43,7 @@ const BoxesList = [
 
 const Order = () => {
 	return (
-		<div className="py-5 font-f-primary">
+		<div className="py-5 font-f-primary min-w-[1100px] max-w-full">
 			<div className="w-full max-w-[1400px] mx-auto">
 				<Header basePath={basePath}></Header>
 				<div className="px-32 grid grid-cols-[60%_40%] gap-4 pt-10">
