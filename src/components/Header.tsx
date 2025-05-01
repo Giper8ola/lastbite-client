@@ -11,6 +11,8 @@ import Link from 'next/link';
 import HeaderButton from '@/features/HeaderButton';
 import { COLORS } from '@/utils/consts';
 
+import ModalManager from './ModalManager';
+
 export function Auth({
 	className,
 	basePath,
@@ -44,7 +46,7 @@ export function Auth({
 					>
 						<div className="px-1">
 							<Listbox className={`w-full pl-0 pr-2 text-center`}>
-								<ListboxItem key="profile" href={basePath + '/profile'}>
+								<ListboxItem key="profile" onPress={onOpen}>
 									Профиль
 								</ListboxItem>
 								<ListboxItem key="history" href={basePath + '/history'}>
@@ -57,6 +59,7 @@ export function Auth({
 									Выход
 								</ListboxItem>
 							</Listbox>
+							<ModalManager modalName="profile" isOpen={isOpen} onOpenChange={onOpenChange}></ModalManager>
 						</div>
 					</AccordionItem>
 				</Accordion>

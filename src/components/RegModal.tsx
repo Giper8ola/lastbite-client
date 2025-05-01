@@ -62,7 +62,7 @@ export default function RegModal({
 								color="success"
 								endContent={<MailIcon className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />}
 								label="Email"
-								placeholder="Enter your email"
+								placeholder="Введите адрес электронной почты"
 								variant="bordered"
 							/>
 							<DatePicker variant="underlined" color="success" className="" label="Дата рождения" />
