@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { ScrollShadow, useDisclosure } from '@heroui/react';
+import { ScrollShadow } from '@heroui/react';
 import { ChefHat } from 'lucide-react';
 
 import Image from 'next/image';
@@ -26,12 +26,8 @@ interface BoxProps extends Props {
 }
 
 export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, address, score, price, toCart, className }) => {
-	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
 		<div
-			role="button"
-			tabIndex={0}
-			onClick={onOpen}
 			className={
 				`bg-c-secondary rounded-3xl shadow-md
 						hover:cursor-pointer transition-transform
@@ -46,7 +42,7 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 						<h1 className="font-bold text-xl">{name}</h1>
 						<Score number={score} />
 					</div>
-					<ScrollShadow hideScrollBar={true} orientation={'horizontal'} offset={100}>
+					<ScrollShadow hideScrollBar={true} orientation="horizontal" offset={100}>
 						<div className="flex flex-auto flex-wrap max-h-[90px] gap-1">
 							{category.map((el, ind) => (
 								<div key={ind}>
