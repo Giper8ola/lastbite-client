@@ -1,5 +1,5 @@
 'use client';
-import { Button, useDisclosure } from '@heroui/react';
+import { Button, PressEvent, useDisclosure } from '@heroui/react';
 
 import ModalManager from '@/components/ModalManager';
 import { COLORS } from '@/utils/consts';
@@ -11,7 +11,8 @@ export default function HeaderButton({
 	className,
 	basePath,
 	isAuth,
-	setAuth
+	setAuth,
+	onPress
 }: {
 	children?: React.ReactNode;
 	color?: string;
@@ -20,6 +21,7 @@ export default function HeaderButton({
 	basePath?: string;
 	isAuth?: boolean;
 	setAuth?: (value: boolean) => void;
+	onPress?: (e: PressEvent) => void;
 }) {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
@@ -32,7 +34,7 @@ export default function HeaderButton({
 				style={{
 					backgroundColor: color
 				}}
-				onPress={onOpen}
+				onPress={onPress ? onPress : onOpen}
 			>
 				{children}
 			</Button>
