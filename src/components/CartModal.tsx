@@ -47,18 +47,15 @@ export default function CartModal({
 	];
 
 	return (
-		<Modal
-			isOpen={isOpen}
-			className="h-[800px] w-[1100px] rounded-[28px]"
-			size="5xl"
-			placement="top-center"
-			onOpenChange={onOpenChange}
-		>
+		<Modal isOpen={isOpen} className="rounded-[28px] pt-5" size="lg" placement="top-center" onOpenChange={onOpenChange}>
 			<ModalContent>
 				{(onClose) => (
 					<>
-						<ModalBody className="grid grid-cols-[57%_1fr_40%] pr-0 pt-0">
-							<ScrollShadow hideScrollBar className="h-[800px] col-start-1 p-5">
+						<ModalBody className="pl-0 pr-0 pt-0 flex items-center gap-1">
+							<div className="w-full justify-start mt-2 pb-4">
+								<b className="text-[22px] pl-10">Корзина</b>
+							</div>
+							<ScrollShadow hideScrollBar className="h-96 px-5 pb-5 mb-10">
 								{BoxesList.map((el, ind) => (
 									<BoxItem
 										key={ind}
@@ -69,7 +66,7 @@ export default function CartModal({
 										address={el.address}
 										score={el.score}
 										price={el.price}
-										toCart={false}
+										toCart={true}
 										className="my-3 w-full"
 									/>
 								))}
@@ -83,7 +80,7 @@ export default function CartModal({
 										address={el.address}
 										score={el.score}
 										price={el.price}
-										toCart={false}
+										toCart={true}
 										className="my-3 w-full"
 									/>
 								))}
@@ -97,7 +94,7 @@ export default function CartModal({
 										address={el.address}
 										score={el.score}
 										price={el.price}
-										toCart={false}
+										toCart={true}
 										className="my-3 w-full"
 									/>
 								))}
