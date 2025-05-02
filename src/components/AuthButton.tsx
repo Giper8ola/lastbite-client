@@ -2,7 +2,7 @@ import { Listbox, ListboxItem } from '@heroui/listbox';
 import { Accordion, AccordionItem, useDisclosure } from '@heroui/react';
 import { CircleUser } from 'lucide-react';
 
-import ModalManager from '@/components/ModalManager';
+import ModalManager from '@/components/modals/ModalManager';
 import HeaderButton from '@/features/HeaderButton';
 import { ModalTypesEnum } from '@/types/enum';
 import { COLORS } from '@/utils/consts';

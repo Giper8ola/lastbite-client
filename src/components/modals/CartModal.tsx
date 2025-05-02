@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { CommonModalProps } from '@/types';
 import { BOXES_LIST } from '@/utils/consts';
 
-import { BoxItem } from './BoxItem';
+import { BoxItem } from '../BoxItem';
 
 export default function CartModal({ isOpen, onOpenChange }: CommonModalProps) {
 	return (

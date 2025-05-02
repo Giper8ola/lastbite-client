@@ -1,7 +1,7 @@
 'use client';
 import { Button, useDisclosure } from '@heroui/react';
 
-import ModalManager from '@/components/ModalManager';
+import ModalManager from '@/components/modals/ModalManager';
 import { HeaderButtonProps } from '@/types';
 import { COLORS } from '@/utils/consts';
 
