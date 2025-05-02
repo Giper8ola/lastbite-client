@@ -20,9 +20,9 @@ const Order = () => {
 							{BOXES_LIST.map((el, ind) => (
 								<BoxItem
 									key={ind}
-									url={el.url}
+									imageUrl={el.imageUrl}
 									name={el.name}
-									category={el.category}
+									categories={el.categories}
 									restaurant={el.restaurant}
 									address={el.address}
 									score={el.score}

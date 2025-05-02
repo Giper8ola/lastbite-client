@@ -5,6 +5,8 @@ import { Modal, ModalContent, ModalHeader, ModalBody, Button, Input, DatePicker,
 import { parseDate } from '@internationalized/date';
 import { CircleUser, Phone } from 'lucide-react';
 
+import { CommonModalProps } from '@/types';
+
 export const MailIcon = (props: { className: string }) => {
 	return (
 		<svg
@@ -25,18 +27,9 @@ export const MailIcon = (props: { className: string }) => {
 	);
 };
 
-export default function ProfileModal({
-	isOpen,
-	onOpenChange,
-	isAuth,
-	setAuth
-}: {
-	isOpen: boolean;
-	onOpenChange: () => void;
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
-}) {
+export default function ProfileModal({ isOpen, onOpenChange }: CommonModalProps) {
 	const [isDisabled, setDisabled] = useState(true);
+
 	return (
 		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
 			<ModalContent>

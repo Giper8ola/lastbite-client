@@ -15,12 +15,10 @@ import ModalManager from './ModalManager';
 
 export function Auth({
 	className,
-	basePath,
 	isAuth,
 	setAuth
 }: {
 	className?: string;
-	basePath?: string;
 	isAuth?: boolean;
 	setAuth?: (value: boolean) => void;
 }) {
@@ -50,10 +48,10 @@ export function Auth({
 								<ListboxItem key="profile" onPress={onOpen}>
 									Профиль
 								</ListboxItem>
-								<ListboxItem key="history" href={basePath + '/history'}>
+								<ListboxItem key="history" href={process.env.NEXT_PUBLIC_BASE_PATH + '/history'}>
 									История заказов
 								</ListboxItem>
-								<ListboxItem key="payments" href={basePath + '/payments'}>
+								<ListboxItem key="payments" href={process.env.NEXT_PUBLIC_BASE_PATH + '/payments'}>
 									Способы оплаты
 								</ListboxItem>
 								<ListboxItem key="exit" className="text-danger" color="danger" onPress={() => (setAuth ? setAuth(false) : {})}>
@@ -96,7 +94,7 @@ export default function Header({ className }: { className?: string }) {
 			</div>
 
 			<div className="flex items-start gap-5 relative justify-end">
-				<HeaderButton color={COLORS.primary} modalName="cart" basePath={''}>
+				<HeaderButton color={COLORS.primary} modalName="cart">
 					<ShoppingCart size={28} strokeWidth={2.5} />
 					0₽
 				</HeaderButton>
@@ -104,7 +102,7 @@ export default function Header({ className }: { className?: string }) {
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>
-				<Auth className="absolute z-50" isAuth={isAuth} setAuth={setAuth} basePath={''}></Auth>
+				<Auth className="absolute z-50" isAuth={isAuth} setAuth={setAuth}></Auth>
 			</div>
 		</div>
 	);

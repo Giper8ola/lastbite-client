@@ -1,6 +1,7 @@
-'use client';
 import { Modal, ModalContent, ModalHeader, ModalBody, Button, Input, DatePicker, Form } from '@heroui/react';
 import { Phone } from 'lucide-react';
+
+import { AuthModalProps } from '@/types';
 
 export const MailIcon = (props: { className: string }) => {
 	return (
@@ -22,17 +23,7 @@ export const MailIcon = (props: { className: string }) => {
 	);
 };
 
-export default function RegModal({
-	isOpen,
-	onOpenChange,
-	isAuth,
-	setAuth
-}: {
-	isOpen: boolean;
-	onOpenChange: () => void;
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
-}) {
+export default function RegModal({ isOpen, onOpenChange, setAuth }: AuthModalProps) {
 	return (
 		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
 			<ModalContent>

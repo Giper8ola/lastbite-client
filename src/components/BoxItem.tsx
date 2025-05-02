@@ -8,23 +8,19 @@ import { ChefHat } from 'lucide-react';
 import CustomImage from '@/features/CustomImage';
 import { Score } from '@/features/Score';
 import { ToCartButton } from '@/features/ToCartButton';
+import { BoxItemProps } from '@/types';
 
-export interface Props {
-	url: string;
-	name: string;
-	category: string[];
-	restaurant: string;
-	address: string;
-	score: number;
-	price: number;
-	className?: string;
-}
-
-interface BoxProps extends Props {
-	toCart: boolean;
-}
-
-export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, address, score, price, toCart, className }) => {
+export const BoxItem: React.FC<BoxItemProps> = ({
+	imageUrl,
+	name,
+	categories,
+	restaurant,
+	address,
+	score,
+	price,
+	toCart,
+	className
+}) => {
 	return (
 		<div
 			className={
@@ -35,7 +31,7 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 			}
 		>
 			<div className="flex gap-x-1">
-				<CustomImage className="rounded-2xl" alt="Box logo" src={url} width={130} height={130} priority />
+				<CustomImage className="rounded-2xl" alt="Box logo" src={imageUrl} width={130} height={130} priority />
 				<div className="flex flex-col gap-2 col-span-2 pl-2 w-full">
 					<div className="flex flex-row justify-between">
 						<h1 className="font-bold text-xl">{name}</h1>
@@ -43,7 +39,7 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 					</div>
 					<ScrollShadow hideScrollBar={true} orientation="horizontal" offset={100}>
 						<div className="flex flex-auto flex-wrap max-h-[90px] gap-1">
-							{category.map((el, ind) => (
+							{categories.map((el, ind) => (
 								<div key={ind}>
 									<p className="bg-[#D4D4D4] rounded-[15px] px-[6px] py-1 text-xs pl-1.5 text-gray-500 font-thin">{el}</p>
 								</div>

@@ -1,7 +1,8 @@
-'use client';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, Input, Form } from '@heroui/react';
 
-export default function LocationModal({ isOpen, onOpenChange }: { isOpen: boolean; onOpenChange?: () => void }) {
+import { CommonModalProps } from '@/types';
+
+export default function LocationModal({ isOpen, onOpenChange }: CommonModalProps) {
 	return (
 		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
 			<ModalContent>

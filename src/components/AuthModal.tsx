@@ -13,6 +13,8 @@ import {
 } from '@heroui/react';
 import { Phone } from 'lucide-react';
 
+import { AuthModalProps } from '@/types';
+
 import ModalManager from './ModalManager';
 
 export const LockIcon = (props: { className: string }) => {
@@ -39,17 +41,7 @@ export const LockIcon = (props: { className: string }) => {
 	);
 };
 
-export default function AuthModal({
-	isOpen,
-	onOpenChange,
-	isAuth,
-	setAuth
-}: {
-	isOpen: boolean;
-	onOpenChange?: () => void;
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
-}) {
+export default function AuthModal({ isOpen, onOpenChange, isAuth, setAuth }: AuthModalProps) {
 	const regModal = useDisclosure();
 	const authCodeModal = useDisclosure();
 	return (

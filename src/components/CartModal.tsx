@@ -1,27 +1,18 @@
-'use client';
-
 import { Modal, ModalContent, ModalBody, Button, ScrollShadow } from '@heroui/react';
 import { ArrowRight } from 'lucide-react';
 
 import Link from 'next/link';
 
+import { CommonModalProps } from '@/types';
 import { BOXES_LIST } from '@/utils/consts';
 
 import { BoxItem } from './BoxItem';
 
-export default function CartModal({
-	isOpen,
-	onOpenChange,
-	basePath
-}: {
-	isOpen: boolean;
-	onOpenChange: () => void;
-	basePath?: string;
-}) {
+export default function CartModal({ isOpen, onOpenChange }: CommonModalProps) {
 	return (
 		<Modal isOpen={isOpen} className="rounded-[28px] pt-5" size="lg" placement="top-center" onOpenChange={onOpenChange}>
 			<ModalContent>
-				{(onClose) => (
+				{() => (
 					<>
 						<ModalBody className="pl-0 pr-0 pt-0 flex items-center gap-1">
 							<div className="w-full justify-start mt-2 pb-4">
@@ -31,9 +22,9 @@ export default function CartModal({
 								{BOXES_LIST.map((el, ind) => (
 									<BoxItem
 										key={ind}
-										url={el.url}
+										imageUrl={el.imageUrl}
 										name={el.name}
-										category={el.category}
+										categories={el.categories}
 										restaurant={el.restaurant}
 										address={el.address}
 										score={el.score}
@@ -45,9 +36,9 @@ export default function CartModal({
 								{BOXES_LIST.map((el, ind) => (
 									<BoxItem
 										key={ind}
-										url={el.url}
+										imageUrl={el.imageUrl}
 										name={el.name}
-										category={el.category}
+										categories={el.categories}
 										restaurant={el.restaurant}
 										address={el.address}
 										score={el.score}
@@ -59,9 +50,9 @@ export default function CartModal({
 								{BOXES_LIST.map((el, ind) => (
 									<BoxItem
 										key={ind}
-										url={el.url}
+										imageUrl={el.imageUrl}
 										name={el.name}
-										category={el.category}
+										categories={el.categories}
 										restaurant={el.restaurant}
 										address={el.address}
 										score={el.score}
@@ -71,7 +62,7 @@ export default function CartModal({
 									/>
 								))}
 							</ScrollShadow>
-							<Link href={basePath + '/order'} className="w-[90%]">
+							<Link href={process.env.NEXT_PUBLIC_BASE_PATH + '/order'} className="w-[90%]">
 								<Button variant="faded" className="w-full h-12 text-[20px] font-bold border-c-primary bg-c-primary mb-5">
 									<p>Оформить заказ</p> <ArrowRight className="ml-5 " />
 								</Button>
