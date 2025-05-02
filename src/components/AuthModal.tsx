@@ -1,19 +1,20 @@
 'use client';
 import {
-	Modal,
-	ModalContent,
-	ModalHeader,
-	ModalBody,
-	ModalFooter,
 	Button,
 	Checkbox,
+	Form,
 	Input,
-	useDisclosure,
-	Form
+	Modal,
+	ModalBody,
+	ModalContent,
+	ModalFooter,
+	ModalHeader,
+	useDisclosure
 } from '@heroui/react';
 import { Phone } from 'lucide-react';
 
 import { AuthModalProps } from '@/types';
+import { ModalTypesEnum } from '@/types/enum';
 
 import ModalManager from './ModalManager';
 
@@ -75,7 +76,7 @@ export default function AuthModal({ isOpen, onOpenChange, isAuth, setAuth }: Aut
 								Регистрация
 							</Button>
 							<ModalManager
-								modalName="reg"
+								modalName={ModalTypesEnum.Reg}
 								isOpen={regModal.isOpen}
 								onOpenChange={() => {
 									regModal.onOpenChange();
@@ -88,7 +89,7 @@ export default function AuthModal({ isOpen, onOpenChange, isAuth, setAuth }: Aut
 								Войти
 							</Button>
 							<ModalManager
-								modalName="code"
+								modalName={ModalTypesEnum.Code}
 								isOpen={authCodeModal.isOpen}
 								onOpenChange={() => {
 									authCodeModal.onOpenChange();

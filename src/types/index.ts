@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 
 import { PressEvent } from '@heroui/react';
 
+import { ModalTypesEnum } from '@/types/enum';
+
 export interface IBox {
 	imageUrl: string;
 	name: string;
@@ -28,14 +30,14 @@ export interface AuthModalProps extends CommonModalProps {
 }
 
 export interface ModalManagerProps extends AuthModalProps {
-	modalName: string;
+	modalName: ModalTypesEnum;
 }
 
 export interface BoxItemModalProps extends IBox, CommonModalProps {}
 
 export interface HeaderButtonProps {
 	children: ReactNode;
-	modalName?: string;
+	modalName?: ModalTypesEnum;
 	color?: string;
 	className?: string;
 	isAuth?: boolean;

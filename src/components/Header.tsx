@@ -3,12 +3,13 @@ import { useState } from 'react';
 
 import { Listbox, ListboxItem } from '@heroui/listbox';
 import { Accordion, AccordionItem, useDisclosure } from '@heroui/react';
-import { Package, House, ShoppingCart, MapPin, CircleUser } from 'lucide-react';
+import { CircleUser, House, MapPin, Package, ShoppingCart } from 'lucide-react';
 
 import Link from 'next/link';
 
 import CustomImage from '@/features/CustomImage';
 import HeaderButton from '@/features/HeaderButton';
+import { ModalTypesEnum } from '@/types/enum';
 import { COLORS } from '@/utils/consts';
 
 import ModalManager from './ModalManager';
@@ -58,7 +59,7 @@ export function Auth({
 									Выход
 								</ListboxItem>
 							</Listbox>
-							<ModalManager modalName="profile" isOpen={isOpen} onOpenChange={onOpenChange}></ModalManager>
+							<ModalManager modalName={ModalTypesEnum.Profile} isOpen={isOpen} onOpenChange={onOpenChange}></ModalManager>
 						</div>
 					</AccordionItem>
 				</Accordion>
@@ -66,7 +67,7 @@ export function Auth({
 		);
 	}
 	return (
-		<HeaderButton color={COLORS.secondary} modalName="auth" isAuth={isAuth} setAuth={setAuth}>
+		<HeaderButton color={COLORS.secondary} modalName={ModalTypesEnum.Auth} isAuth={isAuth} setAuth={setAuth}>
 			<CircleUser size={28} strokeWidth={2.5} />
 			Войти
 		</HeaderButton>
@@ -94,11 +95,11 @@ export default function Header({ className }: { className?: string }) {
 			</div>
 
 			<div className="flex items-start gap-5 relative justify-end">
-				<HeaderButton color={COLORS.primary} modalName="cart">
+				<HeaderButton color={COLORS.primary} modalName={ModalTypesEnum.Cart}>
 					<ShoppingCart size={28} strokeWidth={2.5} />
 					0₽
 				</HeaderButton>
-				<HeaderButton color={COLORS.secondary} className={isAuth ? 'mr-48' : ''} modalName="location">
+				<HeaderButton color={COLORS.secondary} className={isAuth ? 'mr-48' : ''} modalName={ModalTypesEnum.Location}>
 					<MapPin size={28} strokeWidth={2.5} />
 					Воронеж
 				</HeaderButton>
