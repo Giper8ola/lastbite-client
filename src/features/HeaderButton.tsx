@@ -1,7 +1,8 @@
 'use client';
-import { Button, PressEvent, useDisclosure } from '@heroui/react';
+import { Button, useDisclosure } from '@heroui/react';
 
-import ModalManager from '@/components/ModalManager';
+import ModalManager from '@/components/modals/ModalManager';
+import { HeaderButtonProps } from '@/types';
 import { COLORS } from '@/utils/consts';
 
 export default function HeaderButton({
@@ -9,22 +10,11 @@ export default function HeaderButton({
 	color = COLORS.primary,
 	modalName,
 	className,
-	basePath,
 	isAuth,
 	setAuth,
 	onPress,
-	type = 'button'
-}: {
-	children?: React.ReactNode;
-	color?: string;
-	modalName?: string;
-	className?: string;
-	basePath?: string;
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
-	onPress?: (e: PressEvent) => void;
-	type?: 'button' | 'submit' | 'reset';
-}) {
+	type
+}: HeaderButtonProps) {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
 		<div>
@@ -41,14 +31,15 @@ export default function HeaderButton({
 			>
 				{children}
 			</Button>
-			<ModalManager
-				modalName={modalName}
-				isOpen={isOpen}
-				onOpenChange={onOpenChange}
-				basePath={basePath}
-				isAuth={isAuth}
-				setAuth={setAuth}
-			></ModalManager>
+			{modalName && (
+				<ModalManager
+					modalName={modalName}
+					isOpen={isOpen}
+					onOpenChange={onOpenChange}
+					isAuth={isAuth}
+					setAuth={setAuth}
+				></ModalManager>
+			)}
 		</div>
 	);
 }

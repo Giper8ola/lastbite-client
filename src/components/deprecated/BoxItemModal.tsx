@@ -6,23 +6,17 @@ import { Divider } from '@heroui/divider';
 import { Modal, ModalContent, ModalBody } from '@heroui/react';
 import { ChefHat } from 'lucide-react';
 
-import Image from 'next/image';
-
-import { Props } from '@/components/BoxItem';
+import CustomImage from '@/features/CustomImage';
 import { Score } from '@/features/Score';
 import { ToCartButton } from '@/features/ToCartButton';
+import { BoxItemModalProps } from '@/types';
 
-interface ModalProps extends Props {
-	isOpen: boolean;
-	onOpenChange: () => void;
-}
-
-export const BoxlistModal: React.FC<ModalProps> = ({
+export const BoxItemModal: React.FC<BoxItemModalProps> = ({
 	isOpen,
 	onOpenChange,
-	url,
+	imageUrl,
 	name,
-	category,
+	categories,
 	restaurant,
 	address,
 	score,
@@ -35,12 +29,19 @@ export const BoxlistModal: React.FC<ModalProps> = ({
 					<>
 						<ModalBody className="p-10 flex gap-10">
 							<div className="flex flex-row gap-[20px]">
-								<Image className="rounded-[15px]" alt="LastBite logo" src={url} width={200} height={200} priority></Image>
+								<CustomImage
+									className="rounded-[15px]"
+									alt="LastBite logo"
+									src={imageUrl}
+									width={200}
+									height={200}
+									priority
+								></CustomImage>
 								<div>
 									<h1 className="font-bold text-xl">{name}</h1>
 									<Divider className="my-4" />
 									<div className="w-[280px] flex flex-wrap gap-2">
-										{category.map((el, ind) => (
+										{categories.map((el, ind) => (
 											<p
 												key={ind}
 												className="bg-[#D4D4D4] rounded-[15px] px-[6px] py-[4px] text-xs pl-1.5 text-gray-500 font-thin"

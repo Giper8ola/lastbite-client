@@ -1,70 +1,22 @@
 import { Textarea, Input } from '@heroui/input';
 import { RadioGroup, Radio, Form } from '@heroui/react';
 
-import getConfig from 'next/config';
-import Image from 'next/image';
-
-import { BoxItem } from '@/components/BoxItem';
-import Header from '@/components/Header';
+import { BoxList } from '@/components/BoxList';
+import Container from '@/features/Container';
+import CustomImage from '@/features/CustomImage';
 import HeaderButton from '@/features/HeaderButton';
-
-const { publicRuntimeConfig } = getConfig();
-const basePath = publicRuntimeConfig.basePath ?? '';
-
-const BoxesList = [
-	{
-		url: basePath + '/bread.png',
-		name: 'Абобус Бокс',
-		category: ['Хлебобулочные изделия'],
-		restaurant: 'Карак Бамбама',
-		address: 'ул. Пушкина, д. Калатушкина',
-		score: 4.9,
-		price: 100
-	},
-	{
-		url: basePath + '/fish.png',
-		name: 'Абобус Бокс',
-		category: ['Хлебобулочные изделия', 'Японская кухня', 'Мясо', 'Хлебобулочные изделия', 'Японская кухня', 'Мясо'],
-		restaurant: 'Карак Бамбама',
-		address: 'ул. Пушкина, д. Калатушкина',
-		score: 3.6,
-		price: 100
-	},
-	{
-		url: basePath + '/jap.png',
-		name: 'Абобус Бокс',
-		category: ['Морепродукты', 'Молочная продукция'],
-		restaurant: 'Карак Бамбама',
-		address: 'ул. Пушкина, д. Калатушкина',
-		score: 2.0,
-		price: 100
-	}
-];
+import { BOXES_LIST } from '@/utils/consts';
 
 const Order = () => {
 	return (
-		<div className="py-5 font-f-primary min-w-[1100px] max-w-full">
-			<div className="w-full max-w-[1400px] mx-auto">
-				<Header basePath={basePath}></Header>
-				<Form className="px-32 grid grid-cols-[60%_40%] gap-4 pt-10">
+		<div className="py-5 font-f-primary min-w-[1100px]">
+			<Container width={1250}>
+				<Form className="grid grid-cols-[60%_40%] gap-4 pt-10">
 					<b className="font-bold text-[32px] pb-5">Формирование заказа</b>
 					<div className="col-start-1 grid grid-rows-none gap-4 text-[24px]">
 						<div className="bg-c-secondary rounded-[25px] p-4 shadow-md px-7">
 							<b>Корзина</b>
-							{BoxesList.map((el, ind) => (
-								<BoxItem
-									key={ind}
-									url={el.url}
-									name={el.name}
-									category={el.category}
-									restaurant={el.restaurant}
-									address={el.address}
-									score={el.score}
-									price={el.price}
-									toCart={false}
-									className="my-3 w-full"
-								/>
-							))}
+							<BoxList list={BOXES_LIST} />
 						</div>
 						<div className="bg-c-secondary rounded-[25px] p-4 shadow-md">
 							<div className="w-full h-full">
@@ -107,7 +59,7 @@ const Order = () => {
 									classNames={{ wrapper: 'invisible absolute z-50', base: 'px-0' }}
 									className="w-40 h-28 border-foreground-200 hover:border-foreground-300 data-[selected=true]:border-c-primary border-3 rounded-[15px]"
 								>
-									<Image src={basePath + '/tpay.svg'} alt="tpay logo" width={100} height={100} className="mr-2"></Image>
+									<CustomImage src="/tpay.svg" alt="tpay logo" width={100} height={100} className="mr-2" />
 								</Radio>
 								<Radio
 									value="sbp"
@@ -115,7 +67,7 @@ const Order = () => {
 									classNames={{ wrapper: 'invisible absolute z-50', base: 'px-0' }}
 									className="w-40 h-28 border-foreground-200 hover:border-foreground-300 data-[selected=true]:border-c-primary border-3 rounded-[15px]"
 								>
-									<Image src={basePath + '/sbp.svg'} alt="tpay logo" width={100} height={100} className="mr-2"></Image>
+									<CustomImage src="/sbp.svg" alt="tpay logo" width={100} height={100} className="mr-2" />
 								</Radio>
 							</RadioGroup>
 						</div>
@@ -142,7 +94,7 @@ const Order = () => {
 						</HeaderButton>
 					</div>
 				</Form>
-			</div>
+			</Container>
 		</div>
 	);
 };

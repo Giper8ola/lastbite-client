@@ -1,10 +1,6 @@
 import React from 'react';
 
-interface Props {
-	number: number;
-}
-
-export const Score: React.FC<Props> = ({ number }) => {
+export const Score = ({ number }: { number: number }) => {
 	const normalized = number / 5;
 	const hue = normalized * 120;
 

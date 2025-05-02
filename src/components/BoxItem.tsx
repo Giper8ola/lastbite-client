@@ -5,38 +5,21 @@ import React from 'react';
 import { ScrollShadow } from '@heroui/react';
 import { ChefHat } from 'lucide-react';
 
-import Image from 'next/image';
-
+import CustomImage from '@/features/CustomImage';
 import { Score } from '@/features/Score';
 import { ToCartButton } from '@/features/ToCartButton';
+import { BoxItemProps } from '@/types';
 
-export interface Props {
-	url: string;
-	name: string;
-	category: string[];
-	restaurant: string;
-	address: string;
-	score: number;
-	price: number;
-	className?: string;
-}
-
-export interface BoxProps extends Props {
-	toCart: boolean;
-	Count?: number;
-}
-
-export const BoxItem: React.FC<BoxProps> = ({
-	url,
+export const BoxItem: React.FC<BoxItemProps> = ({
+	imageUrl,
 	name,
-	category,
+	categories,
 	restaurant,
 	address,
 	score,
 	price,
 	toCart,
-	className,
-	Count
+	className
 }) => {
 	return (
 		<div
@@ -48,7 +31,7 @@ export const BoxItem: React.FC<BoxProps> = ({
 			}
 		>
 			<div className="flex gap-x-1">
-				<Image className="rounded-2xl" alt="Box logo" src={url} width={130} height={130} priority></Image>
+				<CustomImage className="rounded-2xl" alt="Box logo" src={imageUrl} width={130} height={130} priority />
 				<div className="flex flex-col gap-2 col-span-2 pl-2 w-full">
 					<div className="flex flex-row justify-between">
 						<h1 className="font-bold text-xl">{name}</h1>
@@ -56,7 +39,7 @@ export const BoxItem: React.FC<BoxProps> = ({
 					</div>
 					<ScrollShadow hideScrollBar={true} orientation="horizontal" offset={100}>
 						<div className="flex flex-auto flex-wrap max-h-[90px] gap-1">
-							{category.map((el, ind) => (
+							{categories.map((el, ind) => (
 								<div key={ind}>
 									<p className="bg-[#D4D4D4] rounded-[15px] px-[6px] py-1 text-xs pl-1.5 text-gray-500 font-thin">{el}</p>
 								</div>
@@ -75,7 +58,7 @@ export const BoxItem: React.FC<BoxProps> = ({
 						<p className="text-xs font-thin text-gray-500">{address}</p>
 					</div>
 				</div>
-				{toCart && <ToCartButton price={price} count={Count} />}
+				{toCart && <ToCartButton price={price} />}
 			</div>
 		</div>
 	);

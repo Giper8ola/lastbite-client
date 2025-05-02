@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Plus, Minus } from 'lucide-react';
 
-import styles from '@/features/ToCartButton.module.css';
+import styles from '@/assets/styles/ToCartButton.module.css';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -13,10 +13,8 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	count?: number;
 }
 
-export const ToCartButton: React.FC<Props> = ({ onClick, price, count }) => {
-	const [Count, setCount] = useState(() => {
-		return typeof count === 'number' && count >= 0 ? count : 0;
-	});
+export const ToCartButton: React.FC<Props> = ({ price }) => {
+	const [Count, setCount] = useState(0);
 
 	return (
 		<AnimatePresence>
