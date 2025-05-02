@@ -1,12 +1,11 @@
 import { BoxItem } from '@/components/BoxItem';
-import Header from '@/components/Header';
+import Container from '@/features/Container';
 import { BOXES_LIST } from '@/utils/consts';
 
 const Home = () => {
 	return (
 		<div className="py-5">
-			<div className="w-full max-w-[1400px] mx-auto">
-				<Header />
+			<Container>
 				<div className="px-[20px] mt-[100px] grid grid-cols-3 grid-rows-1 gap-6">
 					{BOXES_LIST.map((el, ind) => (
 						<BoxItem
@@ -19,10 +18,11 @@ const Home = () => {
 							score={el.score}
 							price={el.price}
 							toCart={true}
+							Count={1}
 						/>
 					))}
 				</div>
-			</div>
+			</Container>
 		</div>
 	);
 };

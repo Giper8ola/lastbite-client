@@ -12,7 +12,8 @@ export default function HeaderButton({
 	className,
 	isAuth,
 	setAuth,
-	onPress
+	onPress,
+	type
 }: HeaderButtonProps) {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
@@ -26,6 +27,7 @@ export default function HeaderButton({
 					backgroundColor: color
 				}}
 				onPress={onPress ? onPress : onOpen}
+				type={type}
 			>
 				{children}
 			</Button>

@@ -4,5 +4,12 @@ export enum ModalTypesEnum {
 	Cart = 'cart',
 	Code = 'code',
 	Location = 'location',
-	Profile = 'profile'
+	Profile = 'profile',
+	Rate = 'rate'
+}
+
+export enum OrderStatusEnum {
+	Complete = 'complete',
+	Process = 'process',
+	Cancel = 'cancel'
 }

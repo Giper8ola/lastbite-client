@@ -12,10 +12,10 @@ export default function ProfileModal({ isOpen, onOpenChange }: CommonModalProps)
 	const [isDisabled, setDisabled] = useState(true);
 
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
+		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-5 mr-5' }}>
 			<ModalContent>
 				{(onClose) => (
-					<Form method="dialog">
+					<Form method="dialog" onSubmit={() => setDisabled(!isDisabled)}>
 						<ModalHeader className="flex flex-col gap-1 pb-2">
 							<div className="flex gap-3 items-center text-[24px]">
 								<CircleUser size={42} strokeWidth={2.5} />
@@ -31,6 +31,7 @@ export default function ProfileModal({ isOpen, onOpenChange }: CommonModalProps)
 								defaultValue="Матвей"
 								isDisabled={isDisabled}
 								variant="bordered"
+								isRequired
 							/>
 							<Input
 								color="success"
@@ -40,6 +41,7 @@ export default function ProfileModal({ isOpen, onOpenChange }: CommonModalProps)
 								defaultValue="Многопуков"
 								isDisabled={isDisabled}
 								variant="bordered"
+								isRequired
 							/>
 							<Input
 								color="success"
@@ -50,6 +52,7 @@ export default function ProfileModal({ isOpen, onOpenChange }: CommonModalProps)
 								placeholder="Введите номер телефона"
 								defaultValue="+79009851322"
 								isDisabled={isDisabled}
+								isRequired
 							/>
 							<Input
 								color="success"
@@ -62,6 +65,7 @@ export default function ProfileModal({ isOpen, onOpenChange }: CommonModalProps)
 								placeholder="Введите адрес электронной почты"
 								defaultValue="email@mail.ru"
 								isDisabled={isDisabled}
+								isRequired
 							/>
 							<DatePicker
 								isDisabled={isDisabled}
@@ -70,13 +74,9 @@ export default function ProfileModal({ isOpen, onOpenChange }: CommonModalProps)
 								color="success"
 								className="w-[98%]"
 								label="Дата рождения"
+								isRequired
 							/>
-							<Button
-								type="submit"
-								variant="faded"
-								className="bg-c-primary w-[100%] border-c-primary"
-								onPress={() => setDisabled(!isDisabled)}
-							>
+							<Button type="submit" variant="faded" className="bg-c-primary w-[100%] border-c-primary">
 								{isDisabled ? 'Изменить' : 'Подтвердить изменения'}
 							</Button>
 						</ModalBody>

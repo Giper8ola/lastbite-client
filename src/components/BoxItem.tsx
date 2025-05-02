@@ -19,7 +19,8 @@ export const BoxItem: React.FC<BoxItemProps> = ({
 	score,
 	price,
 	toCart,
-	className
+	className,
+	Count
 }) => {
 	return (
 		<div
@@ -58,7 +59,7 @@ export const BoxItem: React.FC<BoxItemProps> = ({
 						<p className="text-xs font-thin text-gray-500">{address}</p>
 					</div>
 				</div>
-				{toCart && <ToCartButton price={price} />}
+				{toCart && <ToCartButton price={price} count={Count} />}
 			</div>
 		</div>
 	);

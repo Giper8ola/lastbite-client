@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 
+import RateModal from '@/components/modals/RateModal';
 import { ModalManagerProps } from '@/types';
 import { ModalTypesEnum } from '@/types/enum';
 
@@ -19,7 +20,8 @@ export default function ModalManager({ modalName, isOpen, onOpenChange, isAuth, 
 			<AuthCodeModal isOpen={isOpen} onOpenChange={onOpenChange} isAuth={isAuth} setAuth={setAuth}></AuthCodeModal>
 		),
 		[ModalTypesEnum.Location]: <LocationModal isOpen={isOpen} onOpenChange={onOpenChange}></LocationModal>,
-		[ModalTypesEnum.Profile]: <ProfileModal isOpen={isOpen} onOpenChange={onOpenChange}></ProfileModal>
+		[ModalTypesEnum.Profile]: <ProfileModal isOpen={isOpen} onOpenChange={onOpenChange}></ProfileModal>,
+		[ModalTypesEnum.Rate]: <RateModal isOpen={isOpen} onOpenChange={onOpenChange}></RateModal>
 	};
 
 	if (modalName && modalName in MODALS) {

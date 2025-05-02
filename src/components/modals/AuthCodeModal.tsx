@@ -6,7 +6,7 @@ const number = '+79009851322';
 
 export default function AuthCodeModal({ isOpen, onOpenChange, setAuth }: AuthModalProps) {
 	return (
-		<Modal isOpen={isOpen} placement="top-center" size="xs" onOpenChange={onOpenChange}>
+		<Modal isOpen={isOpen} placement="top-center" size="xs" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
 			<ModalContent>
 				{(onClose) => (
 					<Form

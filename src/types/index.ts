@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { PressEvent } from '@heroui/react';
 
-import { ModalTypesEnum } from '@/types/enum';
+import { ModalTypesEnum, OrderStatusEnum } from '@/types/enum';
 
 export interface IBox {
 	imageUrl: string;
@@ -12,6 +12,13 @@ export interface IBox {
 	address: string;
 	score: number;
 	price: number;
+	Count?: number;
+}
+
+export interface IOrder {
+	id: number;
+	boxes: IBox[];
+	status: OrderStatusEnum;
 }
 
 export interface BoxItemProps extends IBox {
@@ -43,4 +50,16 @@ export interface HeaderButtonProps {
 	isAuth?: boolean;
 	setAuth?: (value: boolean) => void;
 	onPress?: (e: PressEvent) => void;
+	type?: 'button' | 'submit' | 'reset';
+}
+
+export interface OrderStatusProps {
+	status: OrderStatusEnum;
+	className?: string;
+	children?: ReactNode;
+}
+
+export interface OrderListProps {
+	orders: IOrder[];
+	className?: string;
 }

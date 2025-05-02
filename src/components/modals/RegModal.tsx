@@ -6,7 +6,7 @@ import { AuthModalProps } from '@/types';
 
 export default function RegModal({ isOpen, onOpenChange, setAuth }: AuthModalProps) {
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
+		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
 			<ModalContent>
 				{(onClose) => (
 					<Form

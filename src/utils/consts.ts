@@ -1,4 +1,5 @@
-import { IBox } from '@/types';
+import { IBox, IOrder } from '@/types';
+import { OrderStatusEnum } from '@/types/enum';
 
 export const COLORS = {
 	primary: '#89E49D',
@@ -33,4 +34,10 @@ export const BOXES_LIST: IBox[] = [
 		score: 2.0,
 		price: 100
 	}
+];
+
+export const ORDERS_LIST: Array<IOrder> = [
+	{ id: 1, boxes: BOXES_LIST, status: OrderStatusEnum.Complete },
+	{ id: 2, boxes: BOXES_LIST, status: OrderStatusEnum.Cancel },
+	{ id: 3, boxes: BOXES_LIST, status: OrderStatusEnum.Process }
 ];

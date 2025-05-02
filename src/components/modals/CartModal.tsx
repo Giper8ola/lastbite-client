@@ -10,12 +10,19 @@ import { BoxItem } from '../BoxItem';
 
 export default function CartModal({ isOpen, onOpenChange }: CommonModalProps) {
 	return (
-		<Modal isOpen={isOpen} className="rounded-[28px] pt-5" size="lg" placement="top-center" onOpenChange={onOpenChange}>
+		<Modal
+			isOpen={isOpen}
+			className="rounded-[28px] pt-5"
+			size="lg"
+			placement="top-center"
+			classNames={{ closeButton: 'mt-4 mr-4' }}
+			onOpenChange={onOpenChange}
+		>
 			<ModalContent>
 				{() => (
 					<>
 						<ModalBody className="pl-0 pr-0 pt-0 flex items-center gap-1">
-							<div className="w-full justify-start mt-2 pb-4">
+							<div className="w-full justify-start pb-2">
 								<b className="text-[22px] pl-10">Корзина</b>
 							</div>
 							<ScrollShadow hideScrollBar className="h-96 px-5 pb-5 mb-10">

@@ -1,5 +1,6 @@
 import { Roboto_Mono } from 'next/font/google';
 
+import Header from '@/components/Header';
 import { Providers } from '@/components/Provider';
 
 import type { Metadata } from 'next';
@@ -24,6 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${robotoSans.variable} antialiased`}>
+				<Header />
 				<Providers>{children}</Providers>
 			</body>
 		</html>

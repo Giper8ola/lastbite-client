@@ -1,8 +1,8 @@
 import { Textarea, Input } from '@heroui/input';
-import { RadioGroup, Radio } from '@heroui/react';
+import { RadioGroup, Radio, Form } from '@heroui/react';
 
 import { BoxItem } from '@/components/BoxItem';
-import Header from '@/components/Header';
+import Container from '@/features/Container';
 import CustomImage from '@/features/CustomImage';
 import HeaderButton from '@/features/HeaderButton';
 import { BOXES_LIST } from '@/utils/consts';
@@ -10,9 +10,8 @@ import { BOXES_LIST } from '@/utils/consts';
 const Order = () => {
 	return (
 		<div className="py-5 font-f-primary min-w-[1100px] max-w-full">
-			<div className="w-full max-w-[1400px] mx-auto">
-				<Header />
-				<div className="px-32 grid grid-cols-[60%_40%] gap-4 pt-10">
+			<Container>
+				<Form className="px-32 grid grid-cols-[60%_40%] gap-4 pt-10">
 					<b className="font-bold text-[32px] pb-5">Формирование заказа</b>
 					<div className="col-start-1 grid grid-rows-none gap-4 text-[24px]">
 						<div className="bg-c-secondary rounded-[25px] p-4 shadow-md px-7">
@@ -44,6 +43,7 @@ const Order = () => {
 									labelPlacement="outside"
 									placeholder=" "
 									variant="bordered"
+									isRequired
 								></Input>
 								<Textarea
 									className=""
@@ -61,6 +61,7 @@ const Order = () => {
 						<div className="bg-c-secondary rounded-[25px] p-4 shadow-md">
 							<b>Оплата</b>
 							<RadioGroup
+								isRequired
 								label="Выберите способ оплаты"
 								className="text-[16px] w-full"
 								classNames={{ label: 'text-[#000000] pb-2', wrapper: 'px-2 gap-8 flex flex-row pb-2' }}
@@ -101,10 +102,12 @@ const Order = () => {
 								<b>800₽</b>
 							</div>
 						</div>
-						<HeaderButton className="w-full ">Перейти к оплате</HeaderButton>
+						<HeaderButton type="submit" className="w-full ">
+							Перейти к оплате
+						</HeaderButton>
 					</div>
-				</div>
-			</div>
+				</Form>
+			</Container>
 		</div>
 	);
 };
