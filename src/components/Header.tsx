@@ -80,13 +80,13 @@ export default function Header({ className }: { className?: string }) {
 		<div className={'flex items-center font-f-primary justify-between ' + className}>
 			<div className="flex items-center gap-6">
 				<CustomImage className="" alt="LastBite logo" src="/lastbite.svg" width={120} height={120} priority />
-				<Link href="/">
+				<Link href={process.env.NEXT_PUBLIC_BASE_PATH + '/'}>
 					<HeaderButton color={COLORS.primary}>
 						<House size={28} strokeWidth={2.5} />
 						<b>ГЛАВНАЯ</b>
 					</HeaderButton>
 				</Link>
-				<Link href="/boxes">
+				<Link href={process.env.NEXT_PUBLIC_BASE_PATH + '/boxes'}>
 					<HeaderButton color={COLORS.primary}>
 						<Package size={28} strokeWidth={2.5} />
 						<b>БОКСЫ</b>
