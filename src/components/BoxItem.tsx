@@ -19,8 +19,7 @@ export const BoxItem: React.FC<BoxItemProps> = ({
 	score,
 	price,
 	toCart,
-	className,
-	Count
+	className
 }) => {
 	return (
 		<div
