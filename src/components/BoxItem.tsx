@@ -23,9 +23,21 @@ export interface Props {
 
 interface BoxProps extends Props {
 	toCart: boolean;
+	Count?: number;
 }
 
-export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, address, score, price, toCart, className }) => {
+export const BoxItem: React.FC<BoxProps> = ({
+	url,
+	name,
+	category,
+	restaurant,
+	address,
+	score,
+	price,
+	toCart,
+	Count,
+	className
+}) => {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
 		<div
@@ -67,7 +79,7 @@ export const BoxItem: React.FC<BoxProps> = ({ url, name, category, restaurant, a
 						<p className="text-xs font-thin text-gray-500">{address}</p>
 					</div>
 				</div>
-				{toCart && <ToCartButton price={price} />}
+				{toCart && <ToCartButton price={price} count={Count} />}
 			</div>
 		</div>
 	);

@@ -52,6 +52,7 @@ const Home = () => {
 							score={el.score}
 							price={el.price}
 							toCart={true}
+							Count={1}
 						/>
 					))}
 				</div>
