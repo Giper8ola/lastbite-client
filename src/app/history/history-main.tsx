@@ -2,10 +2,11 @@
 
 import { JSX, ReactNode } from 'react';
 
-import { Accordion, AccordionItem, Button } from '@heroui/react';
+import { Accordion, AccordionItem, Button, useDisclosure } from '@heroui/react';
 import { AlarmClock, Ban, CircleCheck, RotateCcw, Star } from 'lucide-react';
 
 import { BoxItem, Props } from '@/components/BoxItem';
+import ModalManager from '@/components/ModalManager';
 
 export interface OrderListProps {
 	id: string;
@@ -58,7 +59,8 @@ export function Order(BoxesList: Props[]) {
 	));
 }
 
-export function OrdersList({ Orders, className }: { Orders: OrderListProps[]; className?: string }) {
+export function OrdersList({ Orders, className, basePath }: { Orders: OrderListProps[]; className?: string; basePath?: string }) {
+	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
 		<div className={' ' + className}>
 			<Accordion variant="splitted">
@@ -73,10 +75,12 @@ export function OrdersList({ Orders, className }: { Orders: OrderListProps[]; cl
 							<Button
 								className="text-c-primary shadow-md border-c-primary data-[hover=true]:!bg-c-primary hover:text-c-secondary px-14"
 								variant="ghost"
+								onPress={onOpen}
 							>
 								<Star />
 								<p>Оценить товары</p>
 							</Button>
+							<ModalManager modalName="rate" isOpen={isOpen} onOpenChange={onOpenChange} basePath={basePath}></ModalManager>
 							<Button className="bg-c-primary shadow-md min-w-0 px-2">
 								<RotateCcw />
 							</Button>
@@ -128,7 +132,7 @@ export default function Body({ basePath, className }: { basePath: string; classN
 	return (
 		<div className={'w-[60%] h-full ' + className}>
 			<b className="text-[32px]">История заказов</b>
-			<OrdersList Orders={ORDERS} className="mt-10"></OrdersList>
+			<OrdersList Orders={ORDERS} className="mt-10" basePath={basePath}></OrdersList>
 		</div>
 	);
 }
