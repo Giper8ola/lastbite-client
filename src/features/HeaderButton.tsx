@@ -12,7 +12,8 @@ export default function HeaderButton({
 	basePath,
 	isAuth,
 	setAuth,
-	onPress
+	onPress,
+	type = 'button'
 }: {
 	children?: React.ReactNode;
 	color?: string;
@@ -22,6 +23,7 @@ export default function HeaderButton({
 	isAuth?: boolean;
 	setAuth?: (value: boolean) => void;
 	onPress?: (e: PressEvent) => void;
+	type?: 'button' | 'submit' | 'reset';
 }) {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
@@ -35,6 +37,7 @@ export default function HeaderButton({
 					backgroundColor: color
 				}}
 				onPress={onPress ? onPress : onOpen}
+				type={type}
 			>
 				{children}
 			</Button>
