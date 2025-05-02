@@ -11,16 +11,9 @@ import {
 } from '@heroui/react';
 
 import { CommonModalProps } from '@/types';
+import { CITIES_LIST } from '@/utils/consts';
 
 export default function LocationModal({ isOpen, onOpenChange }: CommonModalProps) {
-	const cities = [
-		{ key: 'moscow', label: 'Москва' },
-		{ key: 'voronezh', label: 'Воронеж' },
-		{ key: 'saint-p', label: 'Санкт-Петербург' },
-		{ key: 'volgograd', label: 'Волгоград' },
-		{ key: 'liski', label: 'Лиски' },
-		{ key: 'rossosh', label: 'Россошь' }
-	];
 	return (
 		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
 			<ModalContent>
@@ -29,7 +22,7 @@ export default function LocationModal({ isOpen, onOpenChange }: CommonModalProps
 						<ModalHeader className="flex flex-col gap-1">Где вы находитесь?</ModalHeader>
 						<ModalBody className="w-[100%]">
 							<Autocomplete isRequired label="Город проживания" defaultInputValue="Воронеж">
-								{cities.map((city) => (
+								{CITIES_LIST.map((city) => (
 									<AutocompleteItem key={city.key}>{city.label}</AutocompleteItem>
 								))}
 							</Autocomplete>

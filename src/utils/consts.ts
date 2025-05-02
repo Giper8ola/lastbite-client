@@ -41,3 +41,12 @@ export const ORDERS_LIST: Array<IOrder> = [
 	{ id: 2, boxes: BOXES_LIST, status: OrderStatusEnum.Cancel },
 	{ id: 3, boxes: BOXES_LIST, status: OrderStatusEnum.Process }
 ];
+
+export const CITIES_LIST = [
+	{ key: 'moscow', label: 'Москва' },
+	{ key: 'voronezh', label: 'Воронеж' },
+	{ key: 'saint-p', label: 'Санкт-Петербург' },
+	{ key: 'volgograd', label: 'Волгоград' },
+	{ key: 'liski', label: 'Лиски' },
+	{ key: 'rossosh', label: 'Россошь' }
+];

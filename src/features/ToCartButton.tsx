@@ -13,8 +13,8 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	count?: number;
 }
 
-export const ToCartButton: React.FC<Props> = ({ price, count }) => {
-	const [Count, setCount] = useState(count ?? 1);
+export const ToCartButton: React.FC<Props> = ({ price }) => {
+	const [Count, setCount] = useState(0);
 
 	return (
 		<AnimatePresence>

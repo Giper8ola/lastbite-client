@@ -1,7 +1,7 @@
 import { BoxItem } from '@/components/BoxItem';
 import { IBox } from '@/types';
 
-export function BoxList({ list }: { list: IBox[] }) {
+export function BoxList({ list, toCart }: { list: IBox[]; toCart?: boolean }) {
 	return list.map((el, ind) => (
 		<BoxItem
 			key={ind}
@@ -12,7 +12,7 @@ export function BoxList({ list }: { list: IBox[] }) {
 			address={el.address}
 			score={el.score}
 			price={el.price}
-			toCart={false}
+			toCart={toCart ?? false}
 			className="my-3 w-full"
 		/>
 	));
