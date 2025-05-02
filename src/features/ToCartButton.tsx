@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import { ShoppingCart, Check, Plus, Minus } from 'lucide-react';
 
-import styles from '@/features/ToCartButton.module.css';
+import styles from '@/assets/styles/ToCartButton.module.css';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;

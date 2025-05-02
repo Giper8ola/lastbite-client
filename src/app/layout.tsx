@@ -4,7 +4,7 @@ import { Providers } from '@/components/Provider';
 
 import type { Metadata } from 'next';
 
-import './globals.css';
+import '../assets/styles/globals.css';
 
 const robotoSans = Roboto_Mono({
 	variable: '--font-roboto-sans',
