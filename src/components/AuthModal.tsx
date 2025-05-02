@@ -53,7 +53,7 @@ export default function AuthModal({
 	const regModal = useDisclosure();
 	const authCodeModal = useDisclosure();
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
+		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
 			<ModalContent>
 				{(onClose) => (
 					<Form onSubmit={authCodeModal.onOpen} autoComplete="on" method="dialog">

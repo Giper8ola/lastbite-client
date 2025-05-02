@@ -21,7 +21,7 @@ export default function LocationModal({ isOpen, onOpenChange }: { isOpen: boolea
 		{ key: 'rossosh', label: 'Россошь' }
 	];
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
+		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
 			<ModalContent>
 				{(onClose) => (
 					<Form onSubmit={onClose} autoComplete="on" method="dialog">

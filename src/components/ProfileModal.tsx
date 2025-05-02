@@ -38,7 +38,7 @@ export default function ProfileModal({
 }) {
 	const [isDisabled, setDisabled] = useState(true);
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange}>
+		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-5 mr-5' }}>
 			<ModalContent>
 				{(onClose) => (
 					<Form method="dialog" onSubmit={() => setDisabled(!isDisabled)}>

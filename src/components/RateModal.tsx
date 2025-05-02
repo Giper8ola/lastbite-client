@@ -45,7 +45,14 @@ export default function RateModal({
 		}
 	];
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} size="md" className="rounded-[28px]">
+		<Modal
+			isOpen={isOpen}
+			placement="top-center"
+			classNames={{ closeButton: 'mt-4 mr-3' }}
+			onOpenChange={onOpenChange}
+			size="md"
+			className="rounded-[28px]"
+		>
 			<ModalContent>
 				{(onClose) => (
 					<div>
