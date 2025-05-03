@@ -1,83 +1,170 @@
-'use client';
-import {
-	Button,
-	Checkbox,
-	Form,
-	Input,
-	Modal,
-	ModalBody,
-	ModalContent,
-	ModalFooter,
-	ModalHeader,
-	useDisclosure
-} from '@heroui/react';
-import { Phone } from 'lucide-react';
+import React from 'react';
 
-import { AuthModalProps } from '@/types';
-import { ModalTypesEnum } from '@/types/enum';
+import { Modal, ModalContent, ModalHeader, ModalBody, Card, CardBody, Tabs, Tab, Input, Button, Link } from '@heroui/react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Camera } from 'lucide-react';
 
-import ModalManager from './ModalManager';
+interface LoginModalProps {
+	isOpen: boolean;
+	onOpenChange: (isOpen: boolean) => void;
+}
 
-export default function AuthModal({ isOpen, onOpenChange, isAuth, setAuth }: AuthModalProps) {
-	const regModal = useDisclosure();
-	const authCodeModal = useDisclosure();
+export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) => {
+	const [selected, setSelected] = React.useState('login');
+
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
+		<Modal isOpen={isOpen} onOpenChange={onOpenChange} size="md" placement="center" backdrop="blur">
 			<ModalContent>
 				{(onClose) => (
-					<Form onSubmit={authCodeModal.onOpen} autoComplete="on" method="dialog">
-						<ModalHeader className="flex flex-col gap-1">Логин</ModalHeader>
-						<ModalBody className="w-[100%]">
-							<Input
-								isRequired
-								color="success"
-								endContent={<Phone size={24} className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />}
-								label="Номер телефона"
-								placeholder="Введите номер телефона"
-								variant="bordered"
-							/>
-							<div className="flex py-2 px-1 justify-between">
-								<Checkbox
-									color="success"
-									classNames={{
-										label: 'text-small'
-									}}
-								>
-									Запомнить меня
-								</Checkbox>
-							</div>
+					<>
+						<ModalHeader className="flex items-center gap-2">
+							<Camera color="red" size={48} />
+							<span>Account Access</span>
+						</ModalHeader>
+						<ModalBody className="pb-6">
+							<Card className="max-w-full border-none shadow-none">
+								<CardBody className="overflow-hidden px-0">
+									<Tabs
+										fullWidth
+										aria-label="Login options"
+										selectedKey={selected}
+										size="md"
+										onSelectionChange={(key) => setSelected(String(key))}
+										disableAnimation={false}
+										classNames={{
+											tabList: 'gap-6',
+											cursor: 'bg-primary',
+											tab: 'max-w-full px-0 h-12'
+										}}
+									>
+										<Tab key="login" title="Login">
+											<div className="relative">
+												<AnimatePresence mode="wait">
+													<motion.div
+														key="login-form"
+														initial={{ opacity: 0 }}
+														animate={{ opacity: 1 }}
+														exit={{ opacity: 0 }}
+														transition={{ duration: 0.3, ease: 'easeInOut' }}
+														className="w-full"
+													>
+														<form className="flex flex-col gap-4">
+															<motion.div
+																initial={{ opacity: 0, y: -10 }}
+																animate={{ opacity: 1, y: 0 }}
+																transition={{ duration: 0.3, delay: 0.1 }}
+															>
+																<Input
+																	isRequired
+																	label="Email"
+																	placeholder="Enter your email"
+																	type="email"
+																	startContent={<Camera color="red" size={48} />}
+																/>
+															</motion.div>
+															<motion.div
+																initial={{ opacity: 0, y: -10 }}
+																animate={{ opacity: 1, y: 0 }}
+																transition={{ duration: 0.3, delay: 0.2 }}
+															>
+																<Input
+																	isRequired
+																	label="Password"
+																	placeholder="Enter your password"
+																	type="password"
+																	startContent={<Camera color="red" size={48} />}
+																/>
+															</motion.div>
+															<p className="text-center text-small">
+																Need to create an account?{' '}
+																<Link size="sm" onPress={() => setSelected('sign-up')}>
+																	Sign up
+																</Link>
+															</p>
+															<div className="flex gap-2 justify-end">
+																<Button fullWidth color="primary">
+																	Login
+																</Button>
+															</div>
+														</form>
+													</motion.div>
+												</AnimatePresence>
+											</div>
+										</Tab>
+										<Tab key="sign-up" title="Sign up">
+											<div className="relative">
+												<AnimatePresence mode="wait">
+													<motion.div
+														key="signup-form"
+														initial={{ opacity: 0 }}
+														animate={{ opacity: 1 }}
+														exit={{ opacity: 0 }}
+														transition={{ duration: 0.3, ease: 'easeInOut' }}
+														className="w-full"
+													>
+														<form className="flex flex-col gap-4">
+															<motion.div
+																initial={{ opacity: 0, y: -10 }}
+																animate={{ opacity: 1, y: 0 }}
+																transition={{ duration: 0.3, delay: 0.1 }}
+															>
+																<Input
+																	isRequired
+																	label="Name"
+																	placeholder="Enter your name"
+																	type="text"
+																	startContent={<Camera color="red" size={48} />}
+																/>
+															</motion.div>
+															<motion.div
+																initial={{ opacity: 0, y: -10 }}
+																animate={{ opacity: 1, y: 0 }}
+																transition={{ duration: 0.3, delay: 0.2 }}
+															>
+																<Input
+																	isRequired
+																	label="Email"
+																	placeholder="Enter your email"
+																	type="email"
+																	startContent={<Camera color="red" size={48} />}
+																/>
+															</motion.div>
+															<motion.div
+																initial={{ opacity: 0, y: -10 }}
+																animate={{ opacity: 1, y: 0 }}
+																transition={{ duration: 0.3, delay: 0.3 }}
+															>
+																<Input
+																	isRequired
+																	label="Password"
+																	placeholder="Enter your password"
+																	type="password"
+																	startContent={<Camera color="red" size={48} />}
+																/>
+															</motion.div>
+															<p className="text-center text-small">
+																Already have an account?{' '}
+																<Link size="sm" onPress={() => setSelected('login')}>
+																	Login
+																</Link>
+															</p>
+															<div className="flex gap-2 justify-end">
+																<Button fullWidth color="primary">
+																	Sign up
+																</Button>
+															</div>
+														</form>
+													</motion.div>
+												</AnimatePresence>
+											</div>
+										</Tab>
+									</Tabs>
+								</CardBody>
+							</Card>
 						</ModalBody>
-						<ModalFooter className="w-[100%]">
-							<Button color="default" variant="flat" onPress={regModal.onOpen}>
-								Регистрация
-							</Button>
-							<ModalManager
-								modalName={ModalTypesEnum.Reg}
-								isOpen={regModal.isOpen}
-								onOpenChange={() => {
-									regModal.onOpenChange();
-									onClose();
-								}}
-								isAuth={isAuth}
-								setAuth={setAuth}
-							></ModalManager>
-							<Button type="submit" variant="faded" className="bg-c-primary border-c-primary">
-								Войти
-							</Button>
-							<ModalManager
-								modalName={ModalTypesEnum.Code}
-								isOpen={authCodeModal.isOpen}
-								onOpenChange={() => {
-									authCodeModal.onOpenChange();
-									onClose();
-								}}
-								isAuth={isAuth}
-								setAuth={setAuth}
-							></ModalManager>
-						</ModalFooter>
-					</Form>
+					</>
 				)}
 			</ModalContent>
 		</Modal>
 	);
-}
+};
