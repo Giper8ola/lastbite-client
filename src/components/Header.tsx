@@ -14,11 +14,12 @@ import { COLORS } from '@/utils/consts';
 
 export default function Header() {
 	const [isAuth, setAuth] = useState(false);
+
 	return (
 		<Container>
 			<div className={'flex items-center font-f-primary justify-between'}>
 				<div className="flex items-center gap-6">
-					<CustomImage className="" alt="LastBite logo" src="/lastbite.svg" width={120} height={120} priority />
+					<CustomImage alt="LastBite logo" src="/lastbite.svg" width={120} height={120} priority />
 					<Link href={process.env.NEXT_PUBLIC_BASE_PATH + '/'}>
 						<HeaderButton color={COLORS.primary}>
 							<House size={28} strokeWidth={2.5} />
@@ -33,7 +34,7 @@ export default function Header() {
 					</Link>
 				</div>
 
-				<div className="flex items-start gap-5 relative justify-end">
+				<div className="flex items-start gap-5 relative">
 					<HeaderButton color={COLORS.primary} modalName={ModalTypesEnum.Cart}>
 						<ShoppingCart size={28} strokeWidth={2.5} />
 						0₽
@@ -42,7 +43,7 @@ export default function Header() {
 						<MapPin size={28} strokeWidth={2.5} />
 						Воронеж
 					</HeaderButton>
-					<AuthButton className="absolute z-50" isAuth={isAuth} setAuth={setAuth} />
+					<AuthButton className="absolute z-50 right-0" isAuth={isAuth} setAuth={setAuth} />
 				</div>
 			</div>
 		</Container>
