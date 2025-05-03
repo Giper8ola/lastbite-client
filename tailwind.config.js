@@ -15,7 +15,7 @@ const config = {
 				'c-secondary': '#FFFFFF'
 			},
 			fontFamily: {
-				'f-primary': ['Roboto Mono']
+				'f-primary': ['Roboto']
 			}
 		}
 	},

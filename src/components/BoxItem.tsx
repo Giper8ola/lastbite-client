@@ -24,7 +24,7 @@ export const BoxItem: React.FC<BoxItemProps> = ({
 	return (
 		<div
 			className={
-				`bg-c-secondary rounded-3xl shadow-md
+				`font-f-primary bg-c-secondary rounded-3xl shadow-md
 						hover:cursor-pointer transition-transform
 						duration-300 ease-in-out transform
 						hover:scale-105 origin-center p-4 ` + className
