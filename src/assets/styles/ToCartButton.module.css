@@ -11,15 +11,15 @@
 		0 2px 4px -2px rgb(0 0 0 / 0.1);
 	border: solid;
 	border-color: #89e49d;
-	border-width: 3px;
+	border-width: 2px;
 
 	color: #89e49d;
 }
 
 .btn {
-	padding: 10px;
+	padding: 8px;
 
-	border-radius: 6px;
+	border-radius: 5px;
 
 	transition-property: color, background-color;
 	transition-timing-function: ease-in-out;

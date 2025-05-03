@@ -35,8 +35,7 @@ export default function Header() {
 
 				<div className="flex items-start gap-5 relative justify-end">
 					<HeaderButton color={COLORS.primary} modalName={ModalTypesEnum.Cart}>
-						<ShoppingCart size={28} strokeWidth={2.5} />
-						0₽
+						<ShoppingCart size={28} strokeWidth={2.5} />0 ₽
 					</HeaderButton>
 					<HeaderButton color={COLORS.secondary} className={isAuth ? 'mr-48' : ''} modalName={ModalTypesEnum.Location}>
 						<MapPin size={28} strokeWidth={2.5} />
