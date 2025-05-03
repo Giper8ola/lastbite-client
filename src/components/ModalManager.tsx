@@ -3,6 +3,7 @@ import AuthModal from './AuthModal';
 import CartModal from './CartModal';
 import LocationModal from './LocationModal';
 import ProfileModal from './ProfileModal';
+import RateModal from './RateModal';
 import RegModal from './RegModal';
 
 export default function ModalManager({
@@ -26,7 +27,8 @@ export default function ModalManager({
 		cart: <CartModal isOpen={isOpen} onOpenChange={onOpenChange} basePath={basePath}></CartModal>,
 		code: <AuthCodeModal isOpen={isOpen} onOpenChange={onOpenChange} isAuth={isAuth} setAuth={setAuth}></AuthCodeModal>,
 		location: <LocationModal isOpen={isOpen} onOpenChange={onOpenChange}></LocationModal>,
-		profile: <ProfileModal isOpen={isOpen} onOpenChange={onOpenChange}></ProfileModal>
+		profile: <ProfileModal isOpen={isOpen} onOpenChange={onOpenChange}></ProfileModal>,
+		rate: <RateModal isOpen={isOpen} onOpenChange={onOpenChange} basePath={basePath}></RateModal>
 	};
 
 	if (modalName && modalName in MODALS) {
