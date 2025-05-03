@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { JSX, ReactNode } from 'react';
 
 import { PressEvent } from '@heroui/react';
 
@@ -62,4 +62,15 @@ export interface OrderStatusProps {
 export interface OrderListProps {
 	orders: IOrder[];
 	className?: string;
+}
+
+export interface ListProps {
+	key: string;
+	value: string;
+}
+
+export interface FilterTypesProps {
+	key: string;
+	title: JSX.Element;
+	list: ListProps[];
 }

@@ -23,7 +23,7 @@ export default function LocationModal({ isOpen, onOpenChange }: CommonModalProps
 						<ModalBody className="w-[100%]">
 							<Autocomplete isRequired label="Город проживания" defaultInputValue="Воронеж">
 								{CITIES_LIST.map((city) => (
-									<AutocompleteItem key={city.key}>{city.label}</AutocompleteItem>
+									<AutocompleteItem key={city.key}>{city.value}</AutocompleteItem>
 								))}
 							</Autocomplete>
 						</ModalBody>
