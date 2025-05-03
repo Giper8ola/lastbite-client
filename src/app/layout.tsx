@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${robotoSans.variable} antialiased overflow-y-hidden`}>
+			<body className={`${robotoSans.variable} antialiased`}>
 				<Header />
 				<Providers>{children}</Providers>
 			</body>
