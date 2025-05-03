@@ -49,7 +49,7 @@ const Boxes = () => {
 		<div className="py-5">
 			<Container>
 				<div className="grid grid-cols-[25%_75%]">
-					<div className={`bg-white rounded-[28px] shadow-m ${isFilter ? 'h-fit' : ''}`}>
+					<div className={`bg-white rounded-[28px] shadow-md h-[80vh]`}>
 						<Input
 							classNames={{
 								label: 'text-black/50 dark:text-white/90',
@@ -84,7 +84,9 @@ const Boxes = () => {
 							startContent={<Search />}
 							className="p-4"
 						/>
-						{isFilter ? FilterList(FILTER_TYPES) : FilterAccordion(FILTER_TYPES)}
+						<div className="overflow-y-auto h-[70vh] rounded-2xl [&::-webkit-scrollbar]:w-0">
+							{isFilter ? FilterList(FILTER_TYPES) : FilterAccordion(FILTER_TYPES)}
+						</div>
 					</div>
 					<ScrollShadow
 						hideScrollBar
