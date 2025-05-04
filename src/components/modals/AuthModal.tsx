@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../assets/styles/globals.css';
+
 import {
 	Modal,
 	ModalContent,
