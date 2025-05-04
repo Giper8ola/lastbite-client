@@ -38,7 +38,7 @@ export default function RegModal({ isOpen, onOpenChange, setAuth }: AuthModalPro
 								variant="bordered"
 							/>
 							<DatePicker variant="underlined" color="success" className="" label="Дата рождения" />
-							<Button type="submit" variant="faded" className="bg-c-primary w-[50%] border-c-primary">
+							<Button type="submit" variant="faded" className="bg-c-primary w-1/2 border-c-primary">
 								Зарегистрироваться
 							</Button>
 						</ModalBody>

@@ -26,7 +26,7 @@ export default function AuthModal({ isOpen, onOpenChange, isAuth, setAuth }: Aut
 			<ModalContent>
 				{(onClose) => (
 					<Form onSubmit={authCodeModal.onOpen} autoComplete="on" method="dialog">
-						<ModalHeader className="flex flex-col gap-1">Логин</ModalHeader>
+						<ModalHeader>Логин</ModalHeader>
 						<ModalBody className="w-[100%]">
 							<Input
 								isRequired
@@ -36,7 +36,7 @@ export default function AuthModal({ isOpen, onOpenChange, isAuth, setAuth }: Aut
 								placeholder="Введите номер телефона"
 								variant="bordered"
 							/>
-							<div className="flex py-2 px-1 justify-between">
+							<div className="py-2 px-1">
 								<Checkbox
 									color="success"
 									classNames={{
@@ -47,7 +47,7 @@ export default function AuthModal({ isOpen, onOpenChange, isAuth, setAuth }: Aut
 								</Checkbox>
 							</div>
 						</ModalBody>
-						<ModalFooter className="w-[100%]">
+						<ModalFooter className="w-full">
 							<Button color="default" variant="flat" onPress={regModal.onOpen}>
 								Регистрация
 							</Button>
