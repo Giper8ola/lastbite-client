@@ -13,7 +13,7 @@ const Home = () => {
 				<div className="mt-[5vh]">
 					<div className="flex flex-row justify-between items-center">
 						<p className="font-bold text-[36px]">Выгодно</p>
-						<Link href={process.env.NEXT_PUBLIC_BASE_PATH + '/boxes'}>
+						<Link href={'/boxes'}>
 							<button
 								className="px-4 py-2 bg-white rounded-[15px] hover:transition-colors text-black hover:text-[${color == COLORS.primary ? COLORS.secondary : COLORS.primary}] font-bold text-[16px]  shadow-md hover:transition-shadow hover:duration-700 hover:shadow-[0_4px_3px_0px_rgba(0,0,0,0.3)]"
 								style={{ backgroundColor: COLORS.primary }}
@@ -30,7 +30,7 @@ const Home = () => {
 				<div className="mt-[5vh]">
 					<div className="flex flex-row justify-between items-center">
 						<p className="font-bold text-[36px]">С лучшей оценкой</p>
-						<Link href={process.env.NEXT_PUBLIC_BASE_PATH + '/boxes'}>
+						<Link href={'/boxes'}>
 							<button
 								className="px-4 py-2 bg-white rounded-[15px] hover:transition-colors text-black hover:text-[${color == COLORS.primary ? COLORS.secondary : COLORS.primary}] font-bold text-[16px]  shadow-md hover:transition-shadow hover:duration-700 hover:shadow-[0_4px_3px_0px_rgba(0,0,0,0.3)]"
 								style={{ backgroundColor: COLORS.primary }}

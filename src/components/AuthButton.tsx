@@ -42,7 +42,7 @@ export function AuthButton({
 								<ListboxItem key="profile" onPress={ProfileModal.onOpen}>
 									Профиль
 								</ListboxItem>
-								<ListboxItem key="history" href={process.env.NEXT_PUBLIC_BASE_PATH + '/history'}>
+								<ListboxItem key="history" href={'/history'}>
 									История заказов
 								</ListboxItem>
 								<ListboxItem key="exit" className="text-danger" color="danger" onPress={() => (setAuth ? setAuth(false) : {})}>
