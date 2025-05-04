@@ -27,7 +27,7 @@ export default function CartModal({ modalDisclosure }: CommonModalProps) {
 							<ScrollShadow hideScrollBar className="h-96 px-5 pb-5 mb-10">
 								<BoxList list={BOXES_LIST} />
 							</ScrollShadow>
-							<Link href={'/order'} className="w-[90%]">
+							<Link href="/order" className="w-[90%]">
 								<Button variant="faded" className="w-full h-12 text-[20px] font-bold border-c-primary bg-c-primary mb-5 hover:">
 									<p>Оформить заказ</p> <ArrowRight className="ml-5 " />
 								</Button>
