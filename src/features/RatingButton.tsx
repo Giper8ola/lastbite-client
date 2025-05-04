@@ -3,7 +3,9 @@
 import React, { useState } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Star, RotateCcw } from 'lucide-react';
+
+import styles from '@/assets/styles/ToCartButton.module.css';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -18,7 +20,7 @@ export const RatingButton: React.FC<Props> = ({}) => {
 	return (
 		<AnimatePresence mode="wait">
 			<motion.div
-				className="flex flex-row items-center"
+				className="flex flex-row items-center justify-center"
 				transition={{ type: 'spring', stiffness: 300, damping: 20, duration: 0.15 }}
 				layout
 			>
@@ -35,6 +37,12 @@ export const RatingButton: React.FC<Props> = ({}) => {
 						{rating >= el ? <Star fill="#89e49d" /> : <Star />}
 					</motion.button>
 				))}
+
+				{rating > 0 && (
+					<motion.button onClick={() => setRating(0)} className={`${styles.btn} ${styles.container} ml-2`}>
+						<RotateCcw size={16} />
+					</motion.button>
+				)}
 			</motion.div>
 		</AnimatePresence>
 	);
