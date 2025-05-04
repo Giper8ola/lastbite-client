@@ -1,8 +1,22 @@
 import React from 'react';
 
-import { Modal, ModalContent, ModalHeader, ModalBody, Card, CardBody, Tabs, Tab, Input, Button, Link } from '@heroui/react';
+import {
+	Modal,
+	ModalContent,
+	ModalHeader,
+	ModalBody,
+	Card,
+	CardBody,
+	Tabs,
+	Tab,
+	Input,
+	Button,
+	Link,
+	DatePicker,
+	Form
+} from '@heroui/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Camera } from 'lucide-react';
+import { CircleUserRound, Mail, Phone } from 'lucide-react';
 
 interface LoginModalProps {
 	isOpen: boolean;
@@ -13,13 +27,20 @@ export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) =
 	const [selected, setSelected] = React.useState('login');
 
 	return (
-		<Modal isOpen={isOpen} onOpenChange={onOpenChange} size="md" placement="center" backdrop="blur">
+		<Modal
+			isOpen={isOpen}
+			onOpenChange={onOpenChange}
+			size="md"
+			placement="center"
+			backdrop="blur"
+			classNames={{ closeButton: 'mr-4 mt-4' }}
+		>
 			<ModalContent>
 				{(onClose) => (
 					<>
 						<ModalHeader className="flex items-center gap-2">
-							<Camera color="red" size={48} />
-							<span>Account Access</span>
+							<CircleUserRound size={38} />
+							<span>Учетная запись</span>
 						</ModalHeader>
 						<ModalBody className="pb-6">
 							<Card className="max-w-full border-none shadow-none">
@@ -33,11 +54,11 @@ export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) =
 										disableAnimation={false}
 										classNames={{
 											tabList: 'gap-6',
-											cursor: 'bg-primary',
+											cursor: 'bg-c-primary',
 											tab: 'max-w-full px-0 h-12'
 										}}
 									>
-										<Tab key="login" title="Login">
+										<Tab key="login" title="Логин">
 											<div className="relative">
 												<AnimatePresence mode="wait">
 													<motion.div
@@ -48,50 +69,39 @@ export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) =
 														transition={{ duration: 0.3, ease: 'easeInOut' }}
 														className="w-full"
 													>
-														<form className="flex flex-col gap-4">
+														<Form className="flex flex-col gap-4">
 															<motion.div
 																initial={{ opacity: 0, y: -10 }}
 																animate={{ opacity: 1, y: 0 }}
 																transition={{ duration: 0.3, delay: 0.1 }}
+																className="w-full"
 															>
 																<Input
+																	labelPlacement="outside"
 																	isRequired
-																	label="Email"
-																	placeholder="Enter your email"
-																	type="email"
-																	startContent={<Camera color="red" size={48} />}
-																/>
-															</motion.div>
-															<motion.div
-																initial={{ opacity: 0, y: -10 }}
-																animate={{ opacity: 1, y: 0 }}
-																transition={{ duration: 0.3, delay: 0.2 }}
-															>
-																<Input
-																	isRequired
-																	label="Password"
-																	placeholder="Enter your password"
-																	type="password"
-																	startContent={<Camera color="red" size={48} />}
+																	label="Номер телефона"
+																	placeholder="Введите номер телефона"
+																	type="tel"
+																	startContent={<Phone />}
 																/>
 															</motion.div>
 															<p className="text-center text-small">
-																Need to create an account?{' '}
-																<Link size="sm" onPress={() => setSelected('sign-up')}>
-																	Sign up
+																Необходимо создать учетную запись?{' '}
+																<Link size="sm" className="cursor-pointer" onPress={() => setSelected('sign-up')}>
+																	Регистрация
 																</Link>
 															</p>
-															<div className="flex gap-2 justify-end">
-																<Button fullWidth color="primary">
-																	Login
+															<div className="flex gap-2 justify-end w-full">
+																<Button type="submit" fullWidth className="bg-c-primary shadow-md">
+																	Логин
 																</Button>
 															</div>
-														</form>
+														</Form>
 													</motion.div>
 												</AnimatePresence>
 											</div>
 										</Tab>
-										<Tab key="sign-up" title="Sign up">
+										<Tab key="sign-up" title="Регистрация">
 											<div className="relative">
 												<AnimatePresence mode="wait">
 													<motion.div
@@ -102,58 +112,79 @@ export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) =
 														transition={{ duration: 0.3, ease: 'easeInOut' }}
 														className="w-full"
 													>
-														<form className="flex flex-col gap-4">
+														<Form className="flex gap-4">
 															<motion.div
 																initial={{ opacity: 0, y: -10 }}
 																animate={{ opacity: 1, y: 0 }}
 																transition={{ duration: 0.3, delay: 0.1 }}
+																className="w-full"
+															>
+																<Input labelPlacement="outside" isRequired label="Имя" placeholder="Введите имя" type="text" />
+															</motion.div>
+															<motion.div
+																initial={{ opacity: 0, y: -10 }}
+																animate={{ opacity: 1, y: 0 }}
+																transition={{ duration: 0.3, delay: 0.1 }}
+																className="w-full"
 															>
 																<Input
+																	labelPlacement="outside"
 																	isRequired
-																	label="Name"
-																	placeholder="Enter your name"
+																	label="Фамилия"
+																	placeholder="Введите фамилию"
 																	type="text"
-																	startContent={<Camera color="red" size={48} />}
+																/>
+															</motion.div>
+															<motion.div
+																initial={{ opacity: 0, y: -10 }}
+																animate={{ opacity: 1, y: 0 }}
+																transition={{ duration: 0.3, delay: 0.1 }}
+																className="w-full"
+															>
+																<Input
+																	labelPlacement="outside"
+																	isRequired
+																	label="Номер телефона"
+																	placeholder="Введите номер телефона"
+																	startContent={<Phone />}
+																	type="text"
 																/>
 															</motion.div>
 															<motion.div
 																initial={{ opacity: 0, y: -10 }}
 																animate={{ opacity: 1, y: 0 }}
 																transition={{ duration: 0.3, delay: 0.2 }}
+																className="w-full"
 															>
 																<Input
+																	labelPlacement="outside"
 																	isRequired
-																	label="Email"
-																	placeholder="Enter your email"
+																	label="Электронная почта"
+																	placeholder="Введите электронную почту"
 																	type="email"
-																	startContent={<Camera color="red" size={48} />}
+																	startContent={<Mail />}
 																/>
 															</motion.div>
 															<motion.div
 																initial={{ opacity: 0, y: -10 }}
 																animate={{ opacity: 1, y: 0 }}
-																transition={{ duration: 0.3, delay: 0.3 }}
+																transition={{ duration: 0.3, delay: 0.2 }}
+																className="w-full"
 															>
-																<Input
-																	isRequired
-																	label="Password"
-																	placeholder="Enter your password"
-																	type="password"
-																	startContent={<Camera color="red" size={48} />}
-																/>
+																<DatePicker labelPlacement="outside" isRequired label="Дата рождения" className="" />
 															</motion.div>
 															<p className="text-center text-small">
-																Already have an account?{' '}
-																<Link size="sm" onPress={() => setSelected('login')}>
-																	Login
+																У вас уже есть учетная запись?{' '}
+																<Link size="sm" className="cursor-pointer" onPress={() => setSelected('login')}>
+																	Логин
 																</Link>
 															</p>
-															<div className="flex gap-2 justify-end">
-																<Button fullWidth color="primary">
-																	Sign up
+															<div className="flex gap-2 justify-end w-full">
+																<Button type="submit" fullWidth className="bg-c-primary">
+																	Регистрация
 																</Button>
 															</div>
-														</form>
+														</Form>
 													</motion.div>
 												</AnimatePresence>
 											</div>
