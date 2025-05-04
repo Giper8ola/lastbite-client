@@ -19,7 +19,7 @@ export default function RateModal({ isOpen, onOpenChange }: AuthModalProps) {
 				{(onClose) => (
 					<div>
 						<ModalHeader className="flex flex-col text-[22px] font-bold">Оценка</ModalHeader>
-						<ModalBody className="w-[100%] px-10 py-5">
+						<ModalBody className="w-full px-10 py-5">
 							{BOXES_LIST.map((el, ind) => (
 								<BoxItem
 									key={ind}
