@@ -15,7 +15,7 @@ export default function HeaderButton({
 	onPress,
 	type
 }: HeaderButtonProps) {
-	const { isOpen, onOpen, onOpenChange } = useDisclosure();
+	const LoginModal = useDisclosure();
 	return (
 		<div>
 			<Button
@@ -26,19 +26,13 @@ export default function HeaderButton({
 				style={{
 					backgroundColor: color
 				}}
-				onPress={onPress ? onPress : onOpen}
+				onPress={onPress ? onPress : LoginModal.onOpen}
 				type={type}
 			>
 				{children}
 			</Button>
 			{modalName && (
-				<ModalManager
-					modalName={modalName}
-					isOpen={isOpen}
-					onOpenChange={onOpenChange}
-					isAuth={isAuth}
-					setAuth={setAuth}
-				></ModalManager>
+				<ModalManager modalName={modalName} modalDisclosure={LoginModal} isAuth={isAuth} setAuth={setAuth}></ModalManager>
 			)}
 		</div>
 	);

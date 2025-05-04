@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
+import { JSX, ReactNode } from 'react';
 
 import { PressEvent } from '@heroui/react';
+import { UseDisclosureReturn } from '@heroui/use-disclosure';
 
 import { ModalTypesEnum, OrderStatusEnum } from '@/types/enum';
 
@@ -27,8 +28,7 @@ export interface BoxItemProps extends IBox {
 }
 
 export interface CommonModalProps {
-	isOpen: boolean;
-	onOpenChange: () => void;
+	modalDisclosure: UseDisclosureReturn;
 }
 
 export interface AuthModalProps extends CommonModalProps {
@@ -62,4 +62,15 @@ export interface OrderStatusProps {
 export interface OrderListProps {
 	orders: IOrder[];
 	className?: string;
+}
+
+export interface ListProps {
+	key: string;
+	value: string;
+}
+
+export interface FilterTypesProps {
+	key: string;
+	title: JSX.Element;
+	list: ListProps[];
 }

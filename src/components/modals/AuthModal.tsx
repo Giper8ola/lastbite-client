@@ -1,83 +1,233 @@
-'use client';
+import React from 'react';
+
+import '../../assets/styles/globals.css';
+
 import {
-	Button,
-	Checkbox,
-	Form,
-	Input,
 	Modal,
-	ModalBody,
 	ModalContent,
-	ModalFooter,
 	ModalHeader,
+	ModalBody,
+	Card,
+	CardBody,
+	Tabs,
+	Tab,
+	Input,
+	Button,
+	Link,
+	DatePicker,
+	Form,
 	useDisclosure
 } from '@heroui/react';
-import { Phone } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { CircleUserRound, Mail, Phone } from 'lucide-react';
 
 import { AuthModalProps } from '@/types';
 import { ModalTypesEnum } from '@/types/enum';
 
 import ModalManager from './ModalManager';
 
-export default function AuthModal({ isOpen, onOpenChange, isAuth, setAuth }: AuthModalProps) {
-	const regModal = useDisclosure();
-	const authCodeModal = useDisclosure();
+export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, setAuth }) => {
+	const [selected, setSelected] = React.useState('login');
+
+	const AuthCodeModal = useDisclosure();
+
+	const openCodeModal = () => {
+		modalDisclosure.onClose();
+		AuthCodeModal.onOpen();
+	};
+
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
-			<ModalContent>
-				{(onClose) => (
-					<Form onSubmit={authCodeModal.onOpen} autoComplete="on" method="dialog">
-						<ModalHeader className="flex flex-col gap-1">Логин</ModalHeader>
-						<ModalBody className="w-[100%]">
-							<Input
-								isRequired
-								color="success"
-								endContent={<Phone size={24} className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />}
-								label="Номер телефона"
-								placeholder="Введите номер телефона"
-								variant="bordered"
-							/>
-							<div className="flex py-2 px-1 justify-between">
-								<Checkbox
-									color="success"
-									classNames={{
-										label: 'text-small'
-									}}
-								>
-									Запомнить меня
-								</Checkbox>
-							</div>
-						</ModalBody>
-						<ModalFooter className="w-[100%]">
-							<Button color="default" variant="flat" onPress={regModal.onOpen}>
-								Регистрация
-							</Button>
-							<ModalManager
-								modalName={ModalTypesEnum.Reg}
-								isOpen={regModal.isOpen}
-								onOpenChange={() => {
-									regModal.onOpenChange();
-									onClose();
-								}}
-								isAuth={isAuth}
-								setAuth={setAuth}
-							></ModalManager>
-							<Button type="submit" variant="faded" className="bg-c-primary border-c-primary">
-								Войти
-							</Button>
-							<ModalManager
-								modalName={ModalTypesEnum.Code}
-								isOpen={authCodeModal.isOpen}
-								onOpenChange={() => {
-									authCodeModal.onOpenChange();
-									onClose();
-								}}
-								isAuth={isAuth}
-								setAuth={setAuth}
-							></ModalManager>
-						</ModalFooter>
-					</Form>
-				)}
-			</ModalContent>
-		</Modal>
+		<>
+			<Modal
+				isOpen={modalDisclosure.isOpen}
+				onOpenChange={modalDisclosure.onOpenChange}
+				size="md"
+				placement="center"
+				backdrop="blur"
+				classNames={{ closeButton: 'mr-4 mt-4' }}
+			>
+				<ModalContent>
+					{() => (
+						<>
+							<ModalHeader className="flex items-center gap-2">
+								<CircleUserRound size={38} />
+								<span>Учетная запись</span>
+							</ModalHeader>
+							<ModalBody className="pb-6">
+								<Card className="max-w-full border-none shadow-none">
+									<CardBody className="overflow-hidden px-0">
+										<Tabs
+											fullWidth
+											aria-label="Login options"
+											selectedKey={selected}
+											size="md"
+											onSelectionChange={(key) => setSelected(String(key))}
+											disableAnimation={false}
+											classNames={{
+												tabList: 'gap-6',
+												cursor: 'bg-c-primary',
+												tab: 'max-w-full px-0 h-12'
+											}}
+										>
+											<Tab key="login" title="Логин">
+												<div className="relative">
+													<AnimatePresence mode="wait">
+														<motion.div
+															key="login-form"
+															initial={{ opacity: 0 }}
+															animate={{ opacity: 1 }}
+															exit={{ opacity: 0 }}
+															transition={{ duration: 0.3, ease: 'easeInOut' }}
+															className="w-full"
+														>
+															<Form
+																className="flex flex-col gap-4"
+																onSubmit={(e) => {
+																	e.preventDefault(); // temp
+																	openCodeModal();
+																}}
+																method="dialog"
+															>
+																<motion.div
+																	initial={{ opacity: 0, y: -10 }}
+																	animate={{ opacity: 1, y: 0 }}
+																	transition={{ duration: 0.3, delay: 0.1 }}
+																	className="w-full"
+																>
+																	<Input
+																		labelPlacement="outside"
+																		isRequired
+																		label="Номер телефона"
+																		placeholder="Введите номер телефона"
+																		type="tel"
+																		startContent={<Phone />}
+																	/>
+																</motion.div>
+																<p className="text-center text-small">
+																	Необходимо создать учетную запись?{' '}
+																	<Link size="sm" className="cursor-pointer" onPress={() => setSelected('sign-up')}>
+																		Регистрация
+																	</Link>
+																</p>
+																<div className="flex gap-2 justify-end w-full">
+																	<Button type="submit" fullWidth className="bg-c-primary shadow-md">
+																		Логин
+																	</Button>
+																</div>
+															</Form>
+														</motion.div>
+													</AnimatePresence>
+												</div>
+											</Tab>
+											<Tab key="sign-up" title="Регистрация">
+												<div className="relative">
+													<AnimatePresence mode="wait">
+														<motion.div
+															key="signup-form"
+															initial={{ opacity: 0 }}
+															animate={{ opacity: 1 }}
+															exit={{ opacity: 0 }}
+															transition={{ duration: 0.3, ease: 'easeInOut' }}
+															className="w-full"
+														>
+															<Form
+																className="flex gap-4"
+																onSubmit={(e) => {
+																	e.preventDefault();
+																	openCodeModal();
+																}}
+																method="dialog"
+															>
+																<motion.div
+																	initial={{ opacity: 0, y: -10 }}
+																	animate={{ opacity: 1, y: 0 }}
+																	transition={{ duration: 0.3, delay: 0.1 }}
+																	className="w-full"
+																>
+																	<Input labelPlacement="outside" isRequired label="Имя" placeholder="Введите имя" type="text" />
+																</motion.div>
+																<motion.div
+																	initial={{ opacity: 0, y: -10 }}
+																	animate={{ opacity: 1, y: 0 }}
+																	transition={{ duration: 0.3, delay: 0.1 }}
+																	className="w-full"
+																>
+																	<Input
+																		labelPlacement="outside"
+																		isRequired
+																		label="Фамилия"
+																		placeholder="Введите фамилию"
+																		type="text"
+																	/>
+																</motion.div>
+																<motion.div
+																	initial={{ opacity: 0, y: -10 }}
+																	animate={{ opacity: 1, y: 0 }}
+																	transition={{ duration: 0.3, delay: 0.1 }}
+																	className="w-full"
+																>
+																	<Input
+																		labelPlacement="outside"
+																		isRequired
+																		label="Номер телефона"
+																		placeholder="Введите номер телефона"
+																		startContent={<Phone />}
+																		type="text"
+																	/>
+																</motion.div>
+																<motion.div
+																	initial={{ opacity: 0, y: -10 }}
+																	animate={{ opacity: 1, y: 0 }}
+																	transition={{ duration: 0.3, delay: 0.2 }}
+																	className="w-full"
+																>
+																	<Input
+																		labelPlacement="outside"
+																		isRequired
+																		label="Электронная почта"
+																		placeholder="Введите электронную почту"
+																		type="email"
+																		startContent={<Mail />}
+																	/>
+																</motion.div>
+																<motion.div
+																	initial={{ opacity: 0, y: -10 }}
+																	animate={{ opacity: 1, y: 0 }}
+																	transition={{ duration: 0.3, delay: 0.2 }}
+																	className="w-full"
+																>
+																	<DatePicker labelPlacement="outside" isRequired label="Дата рождения" className="" />
+																</motion.div>
+																<p className="text-center text-small">
+																	У вас уже есть учетная запись?{' '}
+																	<Link size="sm" className="cursor-pointer" onPress={() => setSelected('login')}>
+																		Логин
+																	</Link>
+																</p>
+																<div className="flex gap-2 justify-end w-full">
+																	<Button type="submit" fullWidth className="bg-c-primary">
+																		Регистрация
+																	</Button>
+																</div>
+															</Form>
+														</motion.div>
+													</AnimatePresence>
+												</div>
+											</Tab>
+										</Tabs>
+									</CardBody>
+								</Card>
+							</ModalBody>
+						</>
+					)}
+				</ModalContent>
+			</Modal>
+			<ModalManager
+				modalName={ModalTypesEnum.Code}
+				isAuth={isAuth}
+				setAuth={setAuth}
+				modalDisclosure={AuthCodeModal}
+			></ModalManager>
+		</>
 	);
-}
+};

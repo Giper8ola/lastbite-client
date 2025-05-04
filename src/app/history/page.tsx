@@ -4,10 +4,10 @@ import { ORDERS_LIST } from '@/utils/consts';
 
 const History = () => {
 	return (
-		<div className="py-5 font-f-primary min-w-[1100px] max-w-full">
+		<div className="py-5 font-f-primary">
 			<Container>
-				<div className="w-[60%] h-full p-16">
-					<b className="text-[32px]">История заказов</b>
+				<div className="max-w-screen-md h-full pt-16">
+					<b className="text-3xl">История заказов</b>
 					<OrdersList orders={ORDERS_LIST} className="mt-10" />
 				</div>
 			</Container>

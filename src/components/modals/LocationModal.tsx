@@ -13,9 +13,14 @@ import {
 import { CommonModalProps } from '@/types';
 import { CITIES_LIST } from '@/utils/consts';
 
-export default function LocationModal({ isOpen, onOpenChange }: CommonModalProps) {
+export default function LocationModal({ modalDisclosure }: CommonModalProps) {
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
+		<Modal
+			isOpen={modalDisclosure.isOpen}
+			placement="top-center"
+			onOpenChange={modalDisclosure.onOpenChange}
+			classNames={{ closeButton: 'mt-3 mr-3' }}
+		>
 			<ModalContent>
 				{(onClose) => (
 					<Form onSubmit={onClose} autoComplete="on" method="dialog">
@@ -23,7 +28,7 @@ export default function LocationModal({ isOpen, onOpenChange }: CommonModalProps
 						<ModalBody className="w-[100%]">
 							<Autocomplete isRequired label="Город проживания" defaultInputValue="Воронеж">
 								{CITIES_LIST.map((city) => (
-									<AutocompleteItem key={city.key}>{city.label}</AutocompleteItem>
+									<AutocompleteItem key={city.key}>{city.value}</AutocompleteItem>
 								))}
 							</Autocomplete>
 						</ModalBody>

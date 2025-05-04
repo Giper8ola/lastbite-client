@@ -26,7 +26,7 @@ export const BoxItem: React.FC<BoxItemProps> = ({
 			<div className="flex gap-x-1">
 				<CustomImage className="rounded-2xl" alt="Box logo" src={imageUrl} width={130} height={130} priority />
 				<div className="flex flex-col gap-2 col-span-2 pl-2 w-full">
-					<div className="flex flex-row justify-between items-center">
+					<div className="flex justify-between items-center">
 						<h1 className="font-bold text-xl">{name}</h1>
 						<Score number={score} />
 					</div>
