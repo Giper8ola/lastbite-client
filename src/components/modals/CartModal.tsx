@@ -7,15 +7,15 @@ import { BoxList } from '@/components/BoxList';
 import { CommonModalProps } from '@/types';
 import { BOXES_LIST } from '@/utils/consts';
 
-export default function CartModal({ isOpen, onOpenChange }: CommonModalProps) {
+export default function CartModal({ modalDisclosure }: CommonModalProps) {
 	return (
 		<Modal
-			isOpen={isOpen}
+			isOpen={modalDisclosure.isOpen}
 			className="rounded-[28px] pt-5 font-f-primary"
 			size="lg"
 			placement="top-center"
 			classNames={{ closeButton: 'mt-4 mr-4' }}
-			onOpenChange={onOpenChange}
+			onOpenChange={modalDisclosure.onOpenChange}
 		>
 			<ModalContent>
 				{() => (

@@ -8,13 +8,18 @@ import { CircleUser, Phone } from 'lucide-react';
 import { MailIcon } from '@/features/icons/MailIcon';
 import { CommonModalProps } from '@/types';
 
-export default function ProfileModal({ isOpen, onOpenChange }: CommonModalProps) {
+export default function ProfileModal({ modalDisclosure }: CommonModalProps) {
 	const [isDisabled, setDisabled] = useState(true);
 
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-5 mr-5' }}>
+		<Modal
+			isOpen={modalDisclosure.isOpen}
+			placement="top-center"
+			onOpenChange={modalDisclosure.onOpenChange}
+			classNames={{ closeButton: 'mt-5 mr-5' }}
+		>
 			<ModalContent>
-				{(onClose) => (
+				{() => (
 					<Form method="dialog" onSubmit={() => setDisabled(!isDisabled)}>
 						<ModalHeader className="flex flex-col gap-1 pb-2">
 							<div className="flex gap-3 items-center text-[24px]">

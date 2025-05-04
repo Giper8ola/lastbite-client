@@ -16,7 +16,7 @@ export function AuthButton({
 	isAuth?: boolean;
 	setAuth?: (value: boolean) => void;
 }) {
-	const { isOpen, onOpen, onOpenChange } = useDisclosure();
+	const ProfileModal = useDisclosure();
 
 	if (isAuth) {
 		return (
@@ -39,7 +39,7 @@ export function AuthButton({
 					>
 						<div className="px-1">
 							<Listbox className={`w-full pl-0 pr-2 text-center`}>
-								<ListboxItem key="profile" onPress={onOpen}>
+								<ListboxItem key="profile" onPress={ProfileModal.onOpen}>
 									Профиль
 								</ListboxItem>
 								<ListboxItem key="history" href={process.env.NEXT_PUBLIC_BASE_PATH + '/history'}>
@@ -49,7 +49,12 @@ export function AuthButton({
 									Выход
 								</ListboxItem>
 							</Listbox>
-							<ModalManager modalName={ModalTypesEnum.Profile} isOpen={isOpen} onOpenChange={onOpenChange}></ModalManager>
+							<ModalManager
+								modalName={ModalTypesEnum.Profile}
+								modalDisclosure={ProfileModal}
+								isAuth={isAuth}
+								setAuth={setAuth}
+							></ModalManager>
 						</div>
 					</AccordionItem>
 				</Accordion>
