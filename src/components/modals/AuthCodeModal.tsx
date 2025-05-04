@@ -1,21 +1,19 @@
-'use client';
 import { Modal, ModalContent, ModalHeader, ModalBody, Button, InputOtp, Form } from '@heroui/react';
+
+import { AuthModalProps } from '@/types';
 
 const number = '+79009851322';
 
-export default function AuthCodeModal({
-	isOpen,
-	onOpenChange,
-	isAuth,
-	setAuth
-}: {
-	isOpen: boolean;
-	onOpenChange: () => void;
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
-}) {
+export default function AuthCodeModal({ modalDisclosure, setAuth }: AuthModalProps) {
 	return (
-		<Modal isOpen={isOpen} placement="top-center" size="xs" onOpenChange={onOpenChange}>
+		<Modal
+			isOpen={modalDisclosure.isOpen}
+			placement="top-center"
+			size="xs"
+			backdrop="blur"
+			onOpenChange={modalDisclosure.onOpenChange}
+			classNames={{ closeButton: 'mt-3 mr-3' }}
+		>
 			<ModalContent>
 				{(onClose) => (
 					<Form

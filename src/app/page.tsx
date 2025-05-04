@@ -1,61 +1,50 @@
-import getConfig from 'next/config';
+import { ScrollShadow } from '@heroui/react';
 
-import { BoxItem } from '@/components/BoxItem';
-import Header from '@/components/Header';
+import Link from 'next/link';
 
-const { publicRuntimeConfig } = getConfig();
-const basePath = publicRuntimeConfig.basePath ?? '';
-const BoxesList = [
-	{
-		url: basePath + '/bread.png',
-		name: 'Абобус Бокс',
-		category: ['Хлебобулочные изделия'],
-		restaurant: 'Карак Бамбама',
-		address: 'ул. Пушкина, д. Калатушкина',
-		score: 4.9,
-		price: 100
-	},
-	{
-		url: basePath + '/fish.png',
-		name: 'Абобус Бокс',
-		category: ['Хлебобулочные изделия', 'Японская кухня', 'Мясо', 'Хлебобулочные изделия', 'Японская кухня', 'Мясо'],
-		restaurant: 'Карак Бамбама',
-		address: 'ул. Пушкина, д. Калатушкина',
-		score: 3.6,
-		price: 100
-	},
-	{
-		url: basePath + '/jap.png',
-		name: 'Абобус Бокс',
-		category: ['Морепродукты', 'Молочная продукция'],
-		restaurant: 'Карак Бамбама',
-		address: 'ул. Пушкина, д. Калатушкина',
-		score: 2.0,
-		price: 100
-	}
-];
+import { BoxList } from '@/components/BoxList';
+import Container from '@/features/Container';
+import { BOXES_LIST, COLORS } from '@/utils/consts';
 
 const Home = () => {
 	return (
-		<div className="py-5">
-			<div className="w-full max-w-[1400px] mx-auto">
-				<Header basePath={basePath ?? ''} />
-				<div className="px-[20px] mt-[100px] grid grid-cols-3 grid-rows-1 gap-6">
-					{BoxesList.map((el, ind) => (
-						<BoxItem
-							key={ind}
-							url={el.url}
-							name={el.name}
-							category={el.category}
-							restaurant={el.restaurant}
-							address={el.address}
-							score={el.score}
-							price={el.price}
-							toCart={true}
-						/>
-					))}
+		<div className="font-f-primary py-5">
+			<Container>
+				<div className="mt-[5vh]">
+					<div className="flex flex-row justify-between items-center">
+						<p className="font-bold text-[36px]">Выгодно</p>
+						<Link href={process.env.NEXT_PUBLIC_BASE_PATH + '/boxes'}>
+							<button
+								className="px-4 py-2 bg-white rounded-[15px] hover:transition-colors text-black hover:text-[${color == COLORS.primary ? COLORS.secondary : COLORS.primary}] font-bold text-[16px]  shadow-md hover:transition-shadow hover:duration-700 hover:shadow-[0_4px_3px_0px_rgba(0,0,0,0.3)]"
+								style={{ backgroundColor: COLORS.primary }}
+							>
+								Все
+							</button>
+						</Link>
+					</div>
+					<ScrollShadow hideScrollBar orientation="horizontal" className="h-auto flex flex-row gap-2">
+						<BoxList list={BOXES_LIST} toCart={true} className="my-3 w-[400px] flex-none" />
+						<BoxList list={BOXES_LIST} toCart={true} className="my-3 w-[400px] flex-none" />
+					</ScrollShadow>
 				</div>
-			</div>
+				<div className="mt-[5vh]">
+					<div className="flex flex-row justify-between items-center">
+						<p className="font-bold text-[36px]">С лучшей оценкой</p>
+						<Link href={process.env.NEXT_PUBLIC_BASE_PATH + '/boxes'}>
+							<button
+								className="px-4 py-2 bg-white rounded-[15px] hover:transition-colors text-black hover:text-[${color == COLORS.primary ? COLORS.secondary : COLORS.primary}] font-bold text-[16px]  shadow-md hover:transition-shadow hover:duration-700 hover:shadow-[0_4px_3px_0px_rgba(0,0,0,0.3)]"
+								style={{ backgroundColor: COLORS.primary }}
+							>
+								Все
+							</button>
+						</Link>
+					</div>
+					<ScrollShadow hideScrollBar orientation="horizontal" className="h-auto flex flex-row gap-2">
+						<BoxList list={BOXES_LIST} toCart={true} className="my-3 w-[400px] flex-none" />
+						<BoxList list={BOXES_LIST} toCart={true} className="my-3 w-[400px] flex-none" />
+					</ScrollShadow>
+				</div>
+			</Container>
 		</div>
 	);
 };
