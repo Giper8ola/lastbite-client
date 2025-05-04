@@ -10,6 +10,7 @@ export default function AuthCodeModal({ modalDisclosure, setAuth }: AuthModalPro
 			isOpen={modalDisclosure.isOpen}
 			placement="top-center"
 			size="xs"
+			backdrop="blur"
 			onOpenChange={modalDisclosure.onOpenChange}
 			classNames={{ closeButton: 'mt-3 mr-3' }}
 		>

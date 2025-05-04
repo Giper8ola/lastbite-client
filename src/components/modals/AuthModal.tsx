@@ -130,7 +130,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 															transition={{ duration: 0.3, ease: 'easeInOut' }}
 															className="w-full"
 														>
-															<Form className="flex gap-4" onSubmit={AuthCodeModal.onOpen} method="dialog">
+															<Form
+																className="flex gap-4"
+																onSubmit={(e) => {
+																	e.preventDefault();
+																	openCodeModal();
+																}}
+																method="dialog"
+															>
 																<motion.div
 																	initial={{ opacity: 0, y: -10 }}
 																	animate={{ opacity: 1, y: 0 }}
