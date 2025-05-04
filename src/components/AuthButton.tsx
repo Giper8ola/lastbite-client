@@ -2,6 +2,8 @@ import { Listbox, ListboxItem } from '@heroui/listbox';
 import { Accordion, AccordionItem, useDisclosure } from '@heroui/react';
 import { CircleUser } from 'lucide-react';
 
+import Link from 'next/link';
+
 import ModalManager from '@/components/modals/ModalManager';
 import HeaderButton from '@/features/HeaderButton';
 import { ModalTypesEnum } from '@/types/enum';
@@ -42,8 +44,8 @@ export function AuthButton({
 								<ListboxItem key="profile" onPress={ProfileModal.onOpen}>
 									Профиль
 								</ListboxItem>
-								<ListboxItem key="history" href={'/history'}>
-									История заказов
+								<ListboxItem key="history">
+									<Link href="/history">История заказов</Link>
 								</ListboxItem>
 								<ListboxItem key="exit" className="text-danger" color="danger" onPress={() => (setAuth ? setAuth(false) : {})}>
 									Выход
