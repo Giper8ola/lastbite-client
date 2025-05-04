@@ -15,18 +15,26 @@ import {
 	Button,
 	Link,
 	DatePicker,
-	Form
+	Form,
+	useDisclosure
 } from '@heroui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CircleUserRound, Mail, Phone } from 'lucide-react';
 
+import { ModalTypesEnum } from '@/types/enum';
+
+import ModalManager from './ModalManager';
+
 interface LoginModalProps {
 	isOpen: boolean;
 	onOpenChange: (isOpen: boolean) => void;
+	isAuth?: boolean;
+	setAuth?: (value: boolean) => void;
 }
 
-export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) => {
+export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange, isAuth, setAuth }) => {
 	const [selected, setSelected] = React.useState('login');
+	const AuthCode = useDisclosure();
 
 	return (
 		<Modal
@@ -71,7 +79,7 @@ export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) =
 														transition={{ duration: 0.3, ease: 'easeInOut' }}
 														className="w-full"
 													>
-														<Form className="flex flex-col gap-4">
+														<Form className="flex flex-col gap-4" onSubmit={AuthCode.onOpen} method="dialog">
 															<motion.div
 																initial={{ opacity: 0, y: -10 }}
 																animate={{ opacity: 1, y: 0 }}
@@ -99,6 +107,16 @@ export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) =
 																</Button>
 															</div>
 														</Form>
+														<ModalManager
+															modalName={ModalTypesEnum.Code}
+															isAuth={isAuth}
+															setAuth={setAuth}
+															isOpen={AuthCode.isOpen}
+															onOpenChange={() => {
+																onClose();
+																AuthCode.onOpenChange();
+															}}
+														></ModalManager>
 													</motion.div>
 												</AnimatePresence>
 											</div>
@@ -114,7 +132,7 @@ export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) =
 														transition={{ duration: 0.3, ease: 'easeInOut' }}
 														className="w-full"
 													>
-														<Form className="flex gap-4">
+														<Form className="flex gap-4" onSubmit={AuthCode.onOpen} method="dialog">
 															<motion.div
 																initial={{ opacity: 0, y: -10 }}
 																animate={{ opacity: 1, y: 0 }}
@@ -187,6 +205,16 @@ export const AuthModal: React.FC<LoginModalProps> = ({ isOpen, onOpenChange }) =
 																</Button>
 															</div>
 														</Form>
+														<ModalManager
+															modalName={ModalTypesEnum.Code}
+															isAuth={isAuth}
+															setAuth={setAuth}
+															isOpen={AuthCode.isOpen}
+															onOpenChange={() => {
+																onClose();
+																AuthCode.onOpenChange();
+															}}
+														></ModalManager>
 													</motion.div>
 												</AnimatePresence>
 											</div>

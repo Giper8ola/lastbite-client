@@ -12,7 +12,7 @@ import RegModal from './RegModal';
 
 export default function ModalManager({ modalName, isOpen, onOpenChange, isAuth, setAuth }: ModalManagerProps) {
 	const MODALS: Record<ModalTypesEnum, ReactElement> = {
-		[ModalTypesEnum.Auth]: <AuthModal isOpen={isOpen} onOpenChange={onOpenChange}></AuthModal>,
+		[ModalTypesEnum.Auth]: <AuthModal isOpen={isOpen} onOpenChange={onOpenChange} isAuth={isAuth} setAuth={setAuth}></AuthModal>,
 		[ModalTypesEnum.Reg]: <RegModal isOpen={isOpen} onOpenChange={onOpenChange} isAuth={isAuth} setAuth={setAuth}></RegModal>,
 		[ModalTypesEnum.Cart]: <CartModal isOpen={isOpen} onOpenChange={onOpenChange}></CartModal>,
 		[ModalTypesEnum.Code]: (

@@ -49,7 +49,13 @@ export function AuthButton({
 									Выход
 								</ListboxItem>
 							</Listbox>
-							<ModalManager modalName={ModalTypesEnum.Profile} isOpen={isOpen} onOpenChange={onOpenChange}></ModalManager>
+							<ModalManager
+								modalName={ModalTypesEnum.Profile}
+								isOpen={isOpen}
+								onOpenChange={onOpenChange}
+								isAuth={isAuth}
+								setAuth={setAuth}
+							></ModalManager>
 						</div>
 					</AccordionItem>
 				</Accordion>
