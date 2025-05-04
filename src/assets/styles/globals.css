@@ -5,3 +5,11 @@
 :root {
 	background-color: #f2f2f2;
 }
+
+td[role='gridcell'] [data-selected='true'],
+td[role='gridcell'] [data-focus-visible='true'],
+td[role='gridcell'] span:hover {
+	background-color: #89e49d !important;
+	color: white !important;
+	outline: none !important;
+}

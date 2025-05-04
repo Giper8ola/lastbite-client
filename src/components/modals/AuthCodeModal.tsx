@@ -4,9 +4,15 @@ import { AuthModalProps } from '@/types';
 
 const number = '+79009851322';
 
-export default function AuthCodeModal({ isOpen, onOpenChange, setAuth }: AuthModalProps) {
+export default function AuthCodeModal({ modalDisclosure, setAuth }: AuthModalProps) {
 	return (
-		<Modal isOpen={isOpen} placement="top-center" size="xs" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
+		<Modal
+			isOpen={modalDisclosure.isOpen}
+			placement="top-center"
+			size="xs"
+			onOpenChange={modalDisclosure.onOpenChange}
+			classNames={{ closeButton: 'mt-3 mr-3' }}
+		>
 			<ModalContent>
 				{(onClose) => (
 					<Form
