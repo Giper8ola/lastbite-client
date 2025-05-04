@@ -9,18 +9,18 @@ import { BOXES_LIST } from '@/utils/consts';
 
 const Order = () => {
 	return (
-		<div className="py-5 font-f-primary min-w-[1100px]">
+		<div className="py-5 font-f-primary">
 			<Container width={1250}>
-				<Form className="grid grid-cols-[60%_40%] gap-4 pt-10">
-					<b className="font-bold text-[32px] pb-5">Формирование заказа</b>
-					<div className="col-start-1 grid grid-rows-none gap-4 text-[24px]">
+				<b className="font-bold text-3xl pb-5">Формирование заказа</b>
+				<Form className="grid grid-cols-[60%_40%] grid-rows-1 flex-none gap-4 pt-10">
+					<div className="grid grid-cols-1 gap-4 text-[24px]">
 						<div className="bg-c-secondary rounded-[25px] p-4 shadow-md px-7">
 							<b>Корзина</b>
 							<BoxList list={BOXES_LIST} />
 						</div>
 						<div className="bg-c-secondary rounded-[25px] p-4 shadow-md">
 							<div className="w-full h-full">
-								<b className="">Адрес доставки</b>
+								<b>Адрес доставки</b>
 								<Input
 									label="Введите адрес"
 									className="py-5"
@@ -35,7 +35,7 @@ const Order = () => {
 								<Textarea
 									className=""
 									classNames={{
-										label: 'text-[#000000]',
+										label: 'text-black',
 										inputWrapper: 'group-data-[focus=true]:border-c-primary'
 									}}
 									label="Добавьте комментарий"
@@ -72,9 +72,9 @@ const Order = () => {
 							</RadioGroup>
 						</div>
 					</div>
-					<div className="bg-c-secondary rounded-[25px] h-fit col-start-2 shadow-md p-10 text-[20px]">
+					<div className="bg-c-secondary rounded-[25px] shadow-md p-10 text-[20px]">
 						<p>ИТОГО:</p>
-						<b className="font-bold text-[32px]">1000₽</b>
+						<b className="font-bold text-3xl">1000₽</b>
 						<div className="py-14">
 							<div className="flex justify-between">
 								<p>Стоимость товаров:</p>

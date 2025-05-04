@@ -8,7 +8,7 @@ import { OrderListProps } from '@/types';
 
 export function OrdersList({ orders, className }: OrderListProps) {
 	return (
-		<div className={' ' + className}>
+		<div className={className}>
 			<Accordion variant="splitted">
 				{orders.map(({ id, boxes, status }) => (
 					<AccordionItem
@@ -17,7 +17,7 @@ export function OrdersList({ orders, className }: OrderListProps) {
 						className="bg-c-secondary mb-4 shadow-md rounded-[25px] px-5 py-2"
 					>
 						<BoxList list={boxes} />
-						<div className="flex gap-4 py-1 w-full">
+						<div className="flex gap-x-4 py-1">
 							<Button
 								className="text-c-primary shadow-md border-c-primary data-[hover=true]:!bg-c-primary hover:text-c-secondary px-14"
 								variant="ghost"
