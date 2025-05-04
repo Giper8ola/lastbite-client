@@ -1,4 +1,3 @@
-import { BigBoxItem } from '@/components/BigBoxItem';
 import { BoxItem } from '@/components/BoxItem';
 
 const Home = () => {
@@ -13,9 +12,9 @@ const Home = () => {
 				score={3.6}
 				price={100}
 				toCart={true}
-				className="my-3 w-full"
+				className="my-3 w-[400px]"
 			/>
-			<BigBoxItem
+			<BoxItem
 				imageUrl={'/fish.png'}
 				name={'Абобус Бокс'}
 				categories={['Хлебобулочные изделия', 'Японская кухня', 'Мясо', 'Хлебобулочные изделия', 'Японская кухня', 'Мясо']}
@@ -23,8 +22,8 @@ const Home = () => {
 				address="ул. Пушкина, д. Калатушкина"
 				score={3.6}
 				price={100}
-				toCart={false}
-				className="my-3 w-full"
+				toCart={true}
+				className="my-3 w-[400px]"
 			/>
 		</div>
 	);
