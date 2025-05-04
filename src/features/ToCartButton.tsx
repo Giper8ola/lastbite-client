@@ -31,20 +31,20 @@ export const ToCartButton: React.FC<Props> = ({ price }) => {
 					}
 				}}
 			>
-				<p className="font-bold whitespace-nowrap text-[16px] mx-[10px]">{Count < 1 ? price : price * Count}₽</p>
+				<p className="font-bold whitespace-nowrap text-[14px] mx-[10px]">{Count < 1 ? price : price * Count} ₽</p>
 				<AnimatePresence mode="wait">
 					{Count < 1 ? (
 						<motion.button className={`${styles.btn}`} onClick={() => setCount(Count + 1)}>
-							<ShoppingCart size={20} strokeWidth={3} />
+							<ShoppingCart size={16} strokeWidth={3} />
 						</motion.button>
 					) : (
 						<>
 							<motion.button className={`${styles.btn}`} onClick={() => setCount(Count - 1)}>
-								<Minus size={20} strokeWidth={3} />
+								<Minus size={16} strokeWidth={3} />
 							</motion.button>
-							<p className={`font-bold whitespace-nowrap text-[16px] mx-[10px]`}>{Count > 0 ? Count : ''}</p>
+							<p className={`font-bold whitespace-nowrap text-[14px] mx-[10px]`}>{Count > 0 ? Count : ''}</p>
 							<motion.button className={`${styles.btn}`} onClick={() => setCount(Count + 1)}>
-								<Plus size={20} strokeWidth={3} />
+								<Plus size={16} strokeWidth={3} />
 							</motion.button>
 						</>
 					)}

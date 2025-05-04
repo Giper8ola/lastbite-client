@@ -1,4 +1,4 @@
-import { Roboto_Mono } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 
 import Header from '@/components/Header';
 import { Providers } from '@/components/Provider';
@@ -7,9 +7,9 @@ import type { Metadata } from 'next';
 
 import '../assets/styles/globals.css';
 
-const robotoSans = Roboto_Mono({
-	variable: '--font-roboto-sans',
-	subsets: ['latin']
+const roboto = Roboto({
+	weight: '400',
+	subsets: ['cyrillic']
 });
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${robotoSans.variable} antialiased`}>
+			<body className={`${roboto.style.fontFamily} antialiased`}>
 				<Header />
 				<Providers>{children}</Providers>
 			</body>
