@@ -13,9 +13,14 @@ import {
 import { CommonModalProps } from '@/types';
 import { CITIES_LIST } from '@/utils/consts';
 
-export default function LocationModal({ isOpen, onOpenChange }: CommonModalProps) {
+export default function LocationModal({ modalDisclosure }: CommonModalProps) {
 	return (
-		<Modal isOpen={isOpen} placement="top-center" onOpenChange={onOpenChange} classNames={{ closeButton: 'mt-3 mr-3' }}>
+		<Modal
+			isOpen={modalDisclosure.isOpen}
+			placement="top-center"
+			onOpenChange={modalDisclosure.onOpenChange}
+			classNames={{ closeButton: 'mt-3 mr-3' }}
+		>
 			<ModalContent>
 				{(onClose) => (
 					<Form onSubmit={onClose} autoComplete="on" method="dialog">
