@@ -45,9 +45,6 @@ export function AuthButton({
 								<ListboxItem key="history" href={process.env.NEXT_PUBLIC_BASE_PATH + '/history'}>
 									История заказов
 								</ListboxItem>
-								<ListboxItem key="payments" href={process.env.NEXT_PUBLIC_BASE_PATH + '/payments'}>
-									Способы оплаты
-								</ListboxItem>
 								<ListboxItem key="exit" className="text-danger" color="danger" onPress={() => (setAuth ? setAuth(false) : {})}>
 									Выход
 								</ListboxItem>
