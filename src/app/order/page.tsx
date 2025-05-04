@@ -16,7 +16,7 @@ const Order = () => {
 					<div className="col-start-1 grid grid-rows-none gap-4 text-[24px]">
 						<div className="bg-c-secondary rounded-[25px] p-4 shadow-md px-7">
 							<b>Корзина</b>
-							<BoxList list={BOXES_LIST} />
+							<BoxList list={BOXES_LIST} big={true} toCart={true} />
 						</div>
 						<div className="bg-c-secondary rounded-[25px] p-4 shadow-md">
 							<div className="w-full h-full">

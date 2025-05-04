@@ -19,7 +19,7 @@ export function OrdersList({ orders, className }: OrderListProps) {
 						title={<OrderStatus status={status}>Заказ №{id}</OrderStatus>}
 						className="bg-c-secondary mb-4 shadow-md rounded-[25px] px-5 py-2"
 					>
-						<BoxList list={boxes} />
+						<BoxList list={boxes} big={true} />
 						<div className="flex gap-4 py-1 w-full">
 							<Button
 								className="text-c-primary shadow-md border-c-primary data-[hover=true]:!bg-c-primary hover:text-c-secondary px-14"
