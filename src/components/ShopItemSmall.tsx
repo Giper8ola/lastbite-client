@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChefHat } from 'lucide-react';
 
+import { useRouter } from 'next/navigation';
+
 import CustomImage from '@/features/CustomImage';
 import { Score } from '@/features/Score';
 import { IShopProps } from '@/types';
@@ -15,9 +17,21 @@ export const ShopItemSmall: React.FC<IShopProps> = ({ item, className }) => {
 	const { key, value } = item;
 	const { name, address, imageUrl, rating } = value;
 
+	const router = useRouter();
+
+	const handleClick = () => {
+		router.push(`/shops/${key}`);
+	};
+
 	return (
 		<AnimatePresence mode="wait">
-			<motion.div
+			<motion.button
+				initial={{ opacity: 0, scale: 0 }}
+				animate={{
+					opacity: 1,
+					scale: 1
+				}}
+				onClick={handleClick}
 				className={`relative font-f-primary bg-c-secondary rounded-3xl shadow-md ` + className}
 				onHoverStart={() => setHover(true)}
 				onHoverEnd={() => setHover(false)}
@@ -29,6 +43,7 @@ export const ShopItemSmall: React.FC<IShopProps> = ({ item, className }) => {
 						damping: 15
 					}
 				}}
+				whileTap={{ scale: 0.97 }}
 				layout
 			>
 				<motion.div layout="position">
@@ -38,7 +53,7 @@ export const ShopItemSmall: React.FC<IShopProps> = ({ item, className }) => {
 				<AnimatePresence mode="popLayout">
 					{isHover && (
 						<motion.div
-							className={`font-f-primary bg-c-secondary rounded-3xl shadow-md p-4 flex flex-col gap-1 w-full mt-2 absolute top-0 left-0 -z-10`}
+							className={`font-f-primary bg-c-secondary rounded-3xl shadow-md p-4 flex flex-col gap-1 justify-normal w-full mt-2 absolute top-0 left-0 -z-10`}
 							initial={{ opacity: 0, y: 0 }}
 							exit={{ opacity: 0, y: 0 }}
 							animate={{
@@ -55,11 +70,11 @@ export const ShopItemSmall: React.FC<IShopProps> = ({ item, className }) => {
 								</div>
 								<Score number={rating} className="flex-shrink-0 -translate-y-[1px]" />
 							</div>
-							<p className="text-xs font-thin text-gray-500 ml-1.5">{address}</p>
+							<p className="text-xs font-thin text-gray-500 ml-1.5 text-left">{address}</p>
 						</motion.div>
 					)}
 				</AnimatePresence>
-			</motion.div>
+			</motion.button>
 		</AnimatePresence>
 	);
 };

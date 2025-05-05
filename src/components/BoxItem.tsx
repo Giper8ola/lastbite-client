@@ -38,7 +38,7 @@ export const BoxItem: React.FC<BoxItemProps> = ({
 				/>
 				<div className="flex flex-col gap-2 pl-2 w-full min-w-0 flex-1">
 					<div className="flex justify-between items-center gap-2">
-						<h1 className="font-bold text-xl truncate min-w-[50px] max-w-[calc(100%-60px)]">{name}</h1>
+						<h1 className="font-bold text-xl">{name}</h1>
 						<Score number={score} className="flex-shrink-0" />
 					</div>
 					<div className="w-full max-h-[90px] min-h-[40px] flex-shrink">
