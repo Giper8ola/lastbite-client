@@ -16,7 +16,7 @@ export default function Header() {
 	const [isAuth, setAuth] = useState(false);
 
 	return (
-		<Container>
+		<Container className="max-w-[1700px] min-w-[915px] py-6 px-10">
 			<div className={'flex items-center font-f-primary justify-between'}>
 				<div className="flex items-center gap-6">
 					<CustomImage alt="LastBite logo" src="/lastbite.svg" width={120} height={120} priority />

@@ -10,9 +10,9 @@ import { BOXES_LIST } from '@/utils/consts';
 const Order = () => {
 	return (
 		<div className="py-5 font-f-primary">
-			<Container width={1250}>
-				<b className="font-bold text-3xl pb-5">Формирование заказа</b>
-				<Form className="grid grid-cols-[60%_40%] grid-rows-1 flex-none gap-4 pt-10">
+			<Container className="max-w-[1300px] min-w-[915px] px-10 pb-5">
+				<b className="font-bold text-3xl">Формирование заказа</b>
+				<Form className="grid grid-cols-[65%_35%] grid-rows-1 flex-none gap-4 pt-10">
 					<div className="grid grid-cols-1 gap-4 text-[24px]">
 						<div className="bg-c-secondary rounded-[25px] p-4 shadow-md px-7">
 							<b>Корзина</b>
@@ -72,7 +72,7 @@ const Order = () => {
 							</RadioGroup>
 						</div>
 					</div>
-					<div className="bg-c-secondary rounded-[25px] shadow-md p-10 text-[20px]">
+					<div className="bg-c-secondary rounded-[25px] shadow-md p-10 text-[16px]">
 						<p>ИТОГО:</p>
 						<b className="font-bold text-3xl">1000₽</b>
 						<div className="py-14">
