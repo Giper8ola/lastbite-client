@@ -14,8 +14,8 @@ export function generateStaticParams() {
 	}));
 }
 
-export default async function Shops({ params }: { params: { shopKey: string } }) {
-	const { shopKey } = params;
+export default async function Shops({ params }: { params: Promise<{ shopKey: string }> }) {
+	const { shopKey } = await params;
 
 	const item = SHOPS.find((shopItem: ShopItem) => shopItem.key === shopKey);
 
