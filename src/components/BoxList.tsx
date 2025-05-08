@@ -6,11 +6,11 @@ export function BoxList({ list, toCart, big, className }: { list: IBox[]; toCart
 	if (!className) {
 		className = 'my-3 w-full';
 	}
-
 	return list.map((el, ind) =>
 		big ? (
 			<BigBoxItem
 				key={ind}
+				id={el.id}
 				imageUrl={el.imageUrl}
 				name={el.name}
 				categories={el.categories}
@@ -18,12 +18,14 @@ export function BoxList({ list, toCart, big, className }: { list: IBox[]; toCart
 				address={el.address}
 				score={el.score}
 				price={el.price}
+				Count={el.Count}
 				toCart={toCart ?? false}
 				className={className}
 			/>
 		) : (
 			<BoxItem
 				key={ind}
+				id={el.id}
 				imageUrl={el.imageUrl}
 				name={el.name}
 				categories={el.categories}
@@ -31,6 +33,7 @@ export function BoxList({ list, toCart, big, className }: { list: IBox[]; toCart
 				address={el.address}
 				score={el.score}
 				price={el.price}
+				Count={el.Count}
 				toCart={toCart ?? false}
 				className={className}
 			/>

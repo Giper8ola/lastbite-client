@@ -1,25 +1,19 @@
 import { Listbox, ListboxItem } from '@heroui/listbox';
 import { Accordion, AccordionItem, useDisclosure } from '@heroui/react';
 import { CircleUser } from 'lucide-react';
+import { useShallow } from 'zustand/shallow';
 
 import Link from 'next/link';
 
 import ModalManager from '@/components/modals/ModalManager';
 import HeaderButton from '@/features/HeaderButton';
+import { useAuthStore } from '@/stores/AuthStore';
 import { ModalTypesEnum } from '@/types/enum';
 import { COLORS } from '@/utils/consts';
 
-export function AuthButton({
-	className,
-	isAuth,
-	setAuth
-}: {
-	className?: string;
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
-}) {
+export function AuthButton({ className }: { className?: string }) {
 	const ProfileModal = useDisclosure();
-
+	const { isAuth, changeAuth } = useAuthStore(useShallow((state) => ({ isAuth: state.isAuth, changeAuth: state.changeAuth })));
 	if (isAuth) {
 		return (
 			<div className={' ' + className}>
@@ -47,16 +41,16 @@ export function AuthButton({
 								<ListboxItem key="history">
 									<Link href="/history">История заказов</Link>
 								</ListboxItem>
-								<ListboxItem key="exit" className="text-danger" color="danger" onPress={() => (setAuth ? setAuth(false) : {})}>
+								<ListboxItem
+									key="exit"
+									className="text-danger"
+									color="danger"
+									onPress={() => (changeAuth ? changeAuth(false) : {})}
+								>
 									Выход
 								</ListboxItem>
 							</Listbox>
-							<ModalManager
-								modalName={ModalTypesEnum.Profile}
-								modalDisclosure={ProfileModal}
-								isAuth={isAuth}
-								setAuth={setAuth}
-							></ModalManager>
+							<ModalManager modalName={ModalTypesEnum.Profile} modalDisclosure={ProfileModal}></ModalManager>
 						</div>
 					</AccordionItem>
 				</Accordion>
@@ -64,7 +58,7 @@ export function AuthButton({
 		);
 	}
 	return (
-		<HeaderButton color={COLORS.secondary} modalName={ModalTypesEnum.Auth} isAuth={isAuth} setAuth={setAuth}>
+		<HeaderButton color={COLORS.secondary} modalName={ModalTypesEnum.Auth}>
 			<CircleUser size={28} strokeWidth={2.5} />
 			Войти
 		</HeaderButton>

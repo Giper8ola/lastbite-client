@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 
 import { House, MapPin, Package, ShoppingCart } from 'lucide-react';
 
@@ -9,12 +8,14 @@ import { AuthButton } from '@/components/AuthButton';
 import Container from '@/features/Container';
 import CustomImage from '@/features/CustomImage';
 import HeaderButton from '@/features/HeaderButton';
+import { useAuthStore } from '@/stores/AuthStore';
+import { useCartStore } from '@/stores/CartStore';
 import { ModalTypesEnum } from '@/types/enum';
 import { COLORS } from '@/utils/consts';
 
 export default function Header() {
-	const [isAuth, setAuth] = useState(false);
-
+	const isAuth = useAuthStore((state) => state.isAuth);
+	const cost = useCartStore((state) => state.cost);
 	return (
 		<Container>
 			<div className={'flex items-center font-f-primary justify-between'}>
@@ -36,13 +37,14 @@ export default function Header() {
 
 				<div className="flex items-start gap-5 relative">
 					<HeaderButton color={COLORS.primary} modalName={ModalTypesEnum.Cart}>
-						<ShoppingCart size={28} strokeWidth={2.5} />0 ₽
+						<ShoppingCart size={28} strokeWidth={2.5} />
+						{cost} ₽
 					</HeaderButton>
 					<HeaderButton color={COLORS.secondary} className={isAuth ? 'mr-48' : ''} modalName={ModalTypesEnum.Location}>
 						<MapPin size={28} strokeWidth={2.5} />
 						Воронеж
 					</HeaderButton>
-					<AuthButton className="absolute z-50 right-0" isAuth={isAuth} setAuth={setAuth} />
+					<AuthButton className="absolute z-50 right-0" />
 				</div>
 			</div>
 		</Container>

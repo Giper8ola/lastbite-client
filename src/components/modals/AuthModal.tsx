@@ -21,12 +21,12 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { CircleUserRound, Mail, Phone } from 'lucide-react';
 
-import { AuthModalProps } from '@/types';
+import { CommonModalProps } from '@/types';
 import { ModalTypesEnum } from '@/types/enum';
 
 import ModalManager from './ModalManager';
 
-export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, setAuth }) => {
+export const AuthModal: React.FC<CommonModalProps> = ({ modalDisclosure }) => {
 	const [selected, setSelected] = React.useState('login');
 
 	const AuthCodeModal = useDisclosure();
@@ -84,6 +84,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 																className="flex flex-col gap-4"
 																onSubmit={(e) => {
 																	e.preventDefault(); // temp
+																	const data = Object.fromEntries(new FormData(e.currentTarget));
+
 																	openCodeModal();
 																}}
 																method="dialog"
@@ -222,12 +224,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 					)}
 				</ModalContent>
 			</Modal>
-			<ModalManager
-				modalName={ModalTypesEnum.Code}
-				isAuth={isAuth}
-				setAuth={setAuth}
-				modalDisclosure={AuthCodeModal}
-			></ModalManager>
+			<ModalManager modalName={ModalTypesEnum.Code} modalDisclosure={AuthCodeModal}></ModalManager>
 		</>
 	);
 };

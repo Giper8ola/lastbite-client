@@ -1,10 +1,10 @@
 import { Modal, ModalContent, ModalHeader, ModalBody, Button, InputOtp, Form } from '@heroui/react';
 
-import { AuthModalProps } from '@/types';
+import { useAuthStore } from '@/stores/AuthStore';
+import { CommonModalProps } from '@/types';
 
-const number = '+79009851322';
-
-export default function AuthCodeModal({ modalDisclosure, setAuth }: AuthModalProps) {
+export default function AuthCodeModal({ modalDisclosure }: CommonModalProps) {
+	const changeAuth = useAuthStore((state) => state.changeAuth);
 	return (
 		<Modal
 			isOpen={modalDisclosure.isOpen}
@@ -18,8 +18,8 @@ export default function AuthCodeModal({ modalDisclosure, setAuth }: AuthModalPro
 				{(onClose) => (
 					<Form
 						onSubmit={() => {
-							if (setAuth) {
-								setAuth(true);
+							if (changeAuth) {
+								changeAuth(true);
 							}
 							onClose();
 						}}
@@ -29,7 +29,7 @@ export default function AuthCodeModal({ modalDisclosure, setAuth }: AuthModalPro
 						<ModalBody className="pb-5">
 							<div className="w-full flex flex-wrap gap-4 justify-center text-default-500 text-center">
 								<p>
-									На номер <b>{number}</b> был отправлен SMS код. Для подтверждения введите полученный код в поле ниже.
+									На номер <b>+79009851322</b> был отправлен SMS код. Для подтверждения введите полученный код в поле ниже.
 								</p>
 								<InputOtp
 									isRequired
