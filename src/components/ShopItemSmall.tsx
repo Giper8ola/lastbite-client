@@ -11,7 +11,7 @@ import CustomImage from '@/features/CustomImage';
 import { Score } from '@/features/Score';
 import { IShopProps } from '@/types';
 
-export const ShopItemSmall: React.FC<IShopProps> = ({ item, className }) => {
+export const ShopItemSmall: React.FC<IShopProps> = ({ item }) => {
 	const [isHover, setHover] = useState(false);
 
 	const { key, value } = item;
@@ -32,7 +32,7 @@ export const ShopItemSmall: React.FC<IShopProps> = ({ item, className }) => {
 					scale: 1
 				}}
 				onClick={handleClick}
-				className={`relative font-f-primary bg-c-secondary rounded-3xl shadow-md ` + className}
+				className={`relative font-f-primary bg-c-secondary rounded-3xl shadow-md`}
 				onHoverStart={() => setHover(true)}
 				onHoverEnd={() => setHover(false)}
 				whileHover={{
