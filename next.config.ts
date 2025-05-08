@@ -9,7 +9,7 @@ const nextConfig = (phase: never): NextConfig => {
 	return {
 		output: 'export',
 		basePath: isDev ? undefined : basePath,
-		assetPrefix: isDev ? undefined : basePath + '/',
+		assetPrefix: isDev ? undefined : basePath,
 		images: {
 			unoptimized: true
 		}
