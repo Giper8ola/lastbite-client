@@ -25,40 +25,42 @@ export default async function Shops({ params }: { params: Promise<{ shopKey: str
 
 	return (
 		<div className="font-f-primary py-5">
-			<Container className="max-w-[1500px] min-w-[915px] px-10">
-				<div className="grid grid-cols-[35%_65%] gap-2">
-					<div className="bg-white rounded-3xl shadow-md flex flex-col">
-						<CustomImage
-							className="rounded-3xl shadow-md"
-							alt="Shop logo"
-							src={item.value.imageUrl}
-							width={600}
-							height={350}
-							priority
-						/>
-						<div className="overflow-hidden p-7">
-							<div className="flex justify-between items-center gap-2">
-								<div className="flex flex-row">
-									<ChefHat size={38} />
-									<p className="font-bold text-[30px] ml-1">{item.value.name}</p>
+			<Container width={1500}>
+				<div className="min-w-[915px] px-10">
+					<div className="grid grid-cols-[35%_65%] gap-2">
+						<div className="bg-white rounded-3xl shadow-md flex flex-col">
+							<CustomImage
+								className="rounded-3xl shadow-md"
+								alt="Shop logo"
+								src={item.value.imageUrl}
+								width={600}
+								height={350}
+								priority
+							/>
+							<div className="overflow-hidden p-7">
+								<div className="flex justify-between items-center gap-2">
+									<div className="flex flex-row">
+										<ChefHat size={38} />
+										<p className="font-bold text-[30px] ml-1">{item.value.name}</p>
+									</div>
+									<Score number={item.value.rating} className="flex-shrink-0 -translate-y-[1px]" />
 								</div>
-								<Score number={item.value.rating} className="flex-shrink-0 -translate-y-[1px]" />
+								<p className="text-[14px] font-thin text-gray-500 ml-1.5">{item.value.address}</p>
+								<Divider className="my-8" orientation="horizontal" />
+								<ScrollShadow hideScrollBar className="px-6 mb-5 h-[27vh]">
+									<p className="italic font-thin text-gray-400">{item.value.description}</p>
+								</ScrollShadow>
 							</div>
-							<p className="text-[14px] font-thin text-gray-500 ml-1.5">{item.value.address}</p>
-							<Divider className="my-8" orientation="horizontal" />
-							<ScrollShadow hideScrollBar className="px-6 mb-5 h-[27vh]">
-								<p className="italic font-thin text-gray-400">{item.value.description}</p>
-							</ScrollShadow>
 						</div>
+						<ScrollShadow
+							hideScrollBar
+							className="px-6 h-[78vh] grid grid-cols-[49%_49%] gap-x-6"
+							offset={100}
+							orientation="vertical"
+						>
+							<BoxList list={BOXES_LIST} toCart={true} indexes={item.value.boxes} />
+						</ScrollShadow>
 					</div>
-					<ScrollShadow
-						hideScrollBar
-						className="px-6 h-[78vh] grid grid-cols-[49%_49%] gap-x-6"
-						offset={100}
-						orientation="vertical"
-					>
-						<BoxList list={BOXES_LIST} toCart={true} indexes={item.value.boxes} />
-					</ScrollShadow>
 				</div>
 			</Container>
 		</div>

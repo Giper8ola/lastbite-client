@@ -47,53 +47,55 @@ const Boxes = () => {
 	const [isFilter, setFilter] = useState(false);
 	return (
 		<div className="">
-			<Container className="max-w-[1600px] min-w-[915px] px-10">
-				<div className="grid grid-cols-[25%_75%] h-[70vh]">
-					<div className={`bg-white rounded-[28px] shadow-md pb-2`}>
-						<Input
-							classNames={{
-								label: 'text-black/50 dark:text-white/90',
-								input: [
-									'bg-transparent',
-									'text-black/90 dark:text-white/90',
-									'placeholder:text-default-700/50 dark:placeholder:text-white/60'
-								],
-								innerWrapper: 'bg-transparent',
-								inputWrapper: [
-									'shadow-xl',
-									'bg-default-200/50',
-									'dark:bg-default/60',
-									'backdrop-blur-xl',
-									'backdrop-saturate-200',
-									'hover:bg-default-200/70',
-									'dark:hover:bg-default/70',
-									'group-data-[focus=true]:bg-default-200/50',
-									'dark:group-data-[focus=true]:bg-default/60',
-									'text-default-700/50',
-									'!cursor-text'
-								]
-							}}
-							placeholder="Поиск"
-							radius="full"
-							endContent={
-								<Funnel
-									className="cursor-pointer text-black opacity-40 hover:opacity-75"
-									onClick={() => setFilter(!isFilter)}
-								></Funnel>
-							}
-							startContent={<Search />}
-							className="p-4"
-						/>
-						<div className="overflow-y-auto h-[68vh] rounded-3xl [&::-webkit-scrollbar]:w-0">
-							{isFilter ? FilterList(FILTER_TYPES) : FilterAccordion(FILTER_TYPES)}
+			<Container width={1600}>
+				<div className="min-w-[915px] px-10">
+					<div className="grid grid-cols-[25%_75%] h-[70vh]">
+						<div className={`bg-white rounded-[28px] shadow-md pb-2`}>
+							<Input
+								classNames={{
+									label: 'text-black/50 dark:text-white/90',
+									input: [
+										'bg-transparent',
+										'text-black/90 dark:text-white/90',
+										'placeholder:text-default-700/50 dark:placeholder:text-white/60'
+									],
+									innerWrapper: 'bg-transparent',
+									inputWrapper: [
+										'shadow-xl',
+										'bg-default-200/50',
+										'dark:bg-default/60',
+										'backdrop-blur-xl',
+										'backdrop-saturate-200',
+										'hover:bg-default-200/70',
+										'dark:hover:bg-default/70',
+										'group-data-[focus=true]:bg-default-200/50',
+										'dark:group-data-[focus=true]:bg-default/60',
+										'text-default-700/50',
+										'!cursor-text'
+									]
+								}}
+								placeholder="Поиск"
+								radius="full"
+								endContent={
+									<Funnel
+										className="cursor-pointer text-black opacity-40 hover:opacity-75"
+										onClick={() => setFilter(!isFilter)}
+									></Funnel>
+								}
+								startContent={<Search />}
+								className="p-4"
+							/>
+							<div className="overflow-y-auto h-[68vh] rounded-3xl [&::-webkit-scrollbar]:w-0">
+								{isFilter ? FilterList(FILTER_TYPES) : FilterAccordion(FILTER_TYPES)}
+							</div>
 						</div>
+						<ScrollShadow hideScrollBar className="px-7 grid grid-cols-[49%_49%] gap-x-6" offset={100} orientation="vertical">
+							<BoxList list={BOXES_LIST} toCart={true} />
+							<BoxList list={BOXES_LIST} toCart={true} />
+							<BoxList list={BOXES_LIST} toCart={true} />
+							<BoxList list={BOXES_LIST} toCart={true} />
+						</ScrollShadow>
 					</div>
-					<ScrollShadow hideScrollBar className="px-7 grid grid-cols-[49%_49%] gap-x-6" offset={100} orientation="vertical">
-						<BoxList list={BOXES_LIST} toCart={true} />
-						<BoxList list={BOXES_LIST} toCart={true} />
-						<BoxList list={BOXES_LIST} toCart={true} />
-						<BoxList list={BOXES_LIST} toCart={true} />
-					</ScrollShadow>
 				</div>
 			</Container>
 		</div>

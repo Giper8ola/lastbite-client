@@ -1,7 +1,11 @@
 import React, { ReactNode } from 'react';
 
-const Container = ({ children, className }: { children: ReactNode; className?: string }) => {
-	return <div className={`font-f-primary w-full mx-auto ` + className}>{children}</div>;
+const Container = ({ children, width }: { children: ReactNode; width?: number }) => {
+	return (
+		<div className={`w-full mx-auto font-f-primary`} style={{ maxWidth: width ?? 1400 }}>
+			{children}
+		</div>
+	);
 };
 
 export default Container;
