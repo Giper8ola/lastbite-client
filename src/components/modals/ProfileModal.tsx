@@ -21,13 +21,13 @@ export default function ProfileModal({ modalDisclosure }: CommonModalProps) {
 			<ModalContent>
 				{() => (
 					<Form method="dialog" onSubmit={() => setDisabled(!isDisabled)}>
-						<ModalHeader className="flex flex-col gap-1 pb-2">
+						<ModalHeader className="flex flex-col gap-1 pb-2 font-f-primary">
 							<div className="flex gap-3 items-center text-[24px]">
 								<CircleUser size={42} strokeWidth={2.5} />
 								Пользователь
 							</div>
 						</ModalHeader>
-						<ModalBody className="w-[100%] items-start pb-5">
+						<ModalBody className="w-[100%] items-start pb-5 font-f-primary">
 							<Input
 								color="success"
 								label="Имя"
