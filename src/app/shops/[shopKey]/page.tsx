@@ -26,8 +26,8 @@ export default async function Shops({ params }: { params: Promise<{ shopKey: str
 	return (
 		<div className="font-f-primary py-5">
 			<Container className="max-w-[1500px] min-w-[915px] px-10">
-				<div className="grid grid-cols-[35%_65%] gap-2 max-h-[78vh]">
-					<div className="bg-white rounded-3xl shadow-md flex flex-col h-[78vh]">
+				<div className="grid grid-cols-[35%_65%] gap-2">
+					<div className="bg-white rounded-3xl shadow-md flex flex-col">
 						<CustomImage
 							className="rounded-3xl shadow-md"
 							alt="Shop logo"
