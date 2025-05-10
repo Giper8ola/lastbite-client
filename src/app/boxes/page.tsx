@@ -51,7 +51,7 @@ const Boxes = () => {
 			<Container>
 				<div className="grid grid-cols-[25%_75%]">
 					<div className={`bg-white rounded-[28px] shadow-md h-[80vh]`}>
-						<CustomSearch isFilter setFilter={setFilter}></CustomSearch>
+						<CustomSearch onFilterClick={() => setFilter(!isFilter)}></CustomSearch>
 						<div className="overflow-y-auto h-[70vh] rounded-2xl [&::-webkit-scrollbar]:w-0">
 							{isFilter ? FilterList(FILTER_TYPES) : FilterAccordion(FILTER_TYPES)}
 						</div>

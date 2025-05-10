@@ -14,7 +14,6 @@ export interface IBox {
 	address: string;
 	score: number;
 	price: number;
-	Count: number;
 }
 
 export interface IOrder {

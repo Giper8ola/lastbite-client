@@ -1,7 +1,7 @@
 import { Input } from '@heroui/react';
 import { Funnel, Search } from 'lucide-react';
 
-export default function CustomSearch(filter?: { isFilter: boolean; setFilter: (value: boolean) => void }) {
+export default function CustomSearch({ onFilterClick }: { onFilterClick: () => void }) {
 	return (
 		<Input
 			classNames={{
@@ -28,12 +28,7 @@ export default function CustomSearch(filter?: { isFilter: boolean; setFilter: (v
 			}}
 			placeholder="Поиск"
 			radius="full"
-			endContent={
-				<Funnel
-					className="cursor-pointer text-black opacity-40 hover:opacity-75"
-					onClick={() => (filter ? filter.setFilter(!filter.isFilter) : {})}
-				/>
-			}
+			endContent={<Funnel className="cursor-pointer text-black opacity-40 hover:opacity-75" onClick={onFilterClick} />}
 			startContent={<Search />}
 			className="p-4"
 		/>
