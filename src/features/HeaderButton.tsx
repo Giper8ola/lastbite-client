@@ -10,8 +10,6 @@ export default function HeaderButton({
 	color = COLORS.primary,
 	modalName,
 	className,
-	isAuth,
-	setAuth,
 	onPress,
 	type
 }: HeaderButtonProps) {
@@ -31,9 +29,7 @@ export default function HeaderButton({
 			>
 				{children}
 			</Button>
-			{modalName && (
-				<ModalManager modalName={modalName} modalDisclosure={LoginModal} isAuth={isAuth} setAuth={setAuth}></ModalManager>
-			)}
+			{modalName && <ModalManager modalName={modalName} modalDisclosure={LoginModal}></ModalManager>}
 		</div>
 	);
 }

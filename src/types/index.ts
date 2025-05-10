@@ -31,12 +31,7 @@ export interface CommonModalProps {
 	modalDisclosure: UseDisclosureReturn;
 }
 
-export interface AuthModalProps extends CommonModalProps {
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
-}
-
-export interface ModalManagerProps extends AuthModalProps {
+export interface ModalManagerProps extends CommonModalProps {
 	modalName: ModalTypesEnum;
 }
 
@@ -47,8 +42,6 @@ export interface HeaderButtonProps {
 	modalName?: ModalTypesEnum;
 	color?: string;
 	className?: string;
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
 	onPress?: (e: PressEvent) => void;
 	type?: 'button' | 'submit' | 'reset';
 }
