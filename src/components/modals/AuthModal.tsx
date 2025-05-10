@@ -53,7 +53,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 								<CircleUserRound size={38} />
 								<span>Учетная запись</span>
 							</ModalHeader>
-							<ModalBody className="pb-6">
+							<ModalBody className="pb-6 font-f-primary">
 								<Card className="max-w-full border-none shadow-none">
 									<CardBody className="overflow-hidden px-0">
 										<Tabs

@@ -74,3 +74,22 @@ export interface FilterTypesProps {
 	title: JSX.Element;
 	list: ListProps[];
 }
+
+export interface ShopItem {
+	key: string;
+	value: ShopItemProps;
+}
+
+export interface ShopItemProps {
+	name: string;
+	address: string;
+	rating: number;
+	description: string;
+	boxes: number[];
+	imageUrl: string;
+}
+
+export interface IShopProps {
+	item: ShopItem;
+	className?: string;
+}

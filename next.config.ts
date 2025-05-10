@@ -7,7 +7,7 @@ const nextConfig = (phase: never): NextConfig => {
 	const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
 
 	return {
-		output: 'export',
+		output: isDev ? undefined : 'export',
 		basePath: isDev ? undefined : basePath,
 		assetPrefix: isDev ? undefined : basePath,
 		images: {

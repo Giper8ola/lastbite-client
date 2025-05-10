@@ -26,7 +26,7 @@ export default function AuthCodeModal({ modalDisclosure, setAuth }: AuthModalPro
 						method="dialog"
 					>
 						<ModalHeader className="flex flex-col gap-1">Потверждение телефона</ModalHeader>
-						<ModalBody className="pb-5">
+						<ModalBody className="pb-5 font-f-primary">
 							<div className="w-full flex flex-wrap gap-4 justify-center text-default-500 text-center">
 								<p>
 									На номер <b>{number}</b> был отправлен SMS код. Для подтверждения введите полученный код в поле ниже.
