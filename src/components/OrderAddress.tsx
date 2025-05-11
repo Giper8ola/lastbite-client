@@ -1,6 +1,6 @@
 import { Input, Textarea } from '@heroui/react';
 
-export default function OrderAddressComponent() {
+export default function OrderAddress() {
 	return (
 		<div className="bg-c-secondary rounded-[25px] p-4 shadow-md">
 			<div className="w-full h-full">

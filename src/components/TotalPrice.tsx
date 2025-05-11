@@ -1,6 +1,6 @@
 import { useCartStore } from '@/stores/CartStore';
 
-export default function TotalPriceComponent() {
+export default function TotalPrice() {
 	const cost = useCartStore((state) => state.cost);
 	const commission = Math.round(cost * 0.15 * 100) / 100;
 	const delivery = Math.round(cost * 0.3 * 100) / 100;

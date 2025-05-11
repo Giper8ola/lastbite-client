@@ -20,7 +20,7 @@ export const ToCartButton: React.FC<Props> = ({ box }) => {
 		useShallow((state) => ({ updateBox: state.updateBox, deleteBox: state.deleteBox, boxes: state.boxes }))
 	);
 	const savedBox = boxes.find((item) => item.id === box.id);
-	const savedCount = savedBox ? savedBox.Count : 0;
+	const savedCount = savedBox?.Count ?? 0;
 	const [Count, setCount] = useState(savedCount);
 
 	useEffect(() => {

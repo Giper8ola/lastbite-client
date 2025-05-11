@@ -2,7 +2,7 @@ import { Radio, RadioGroup } from '@heroui/react';
 
 import CustomImage from '@/features/CustomImage';
 
-export default function PaymentMethodComponent() {
+export default function PaymentMethod() {
 	return (
 		<div className="bg-c-secondary rounded-[25px] p-4 shadow-md">
 			<b>Оплата</b>
