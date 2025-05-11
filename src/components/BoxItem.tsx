@@ -11,6 +11,7 @@ import { ToCartButton } from '@/features/ToCartButton';
 import { BoxItemProps } from '@/types';
 
 export const BoxItem: React.FC<BoxItemProps> = ({
+	id,
 	imageUrl,
 	name,
 	categories,
@@ -67,7 +68,7 @@ export const BoxItem: React.FC<BoxItemProps> = ({
 						<p className="text-xs font-thin text-gray-500">{address}</p>
 					</div>
 				</div>
-				{toCart && <ToCartButton price={price} />}
+				{toCart && <ToCartButton box={{ id, imageUrl, name, categories, restaurant, address, score, price }} />}
 			</div>
 		</div>
 	);

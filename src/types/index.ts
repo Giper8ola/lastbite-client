@@ -6,6 +6,7 @@ import { UseDisclosureReturn } from '@heroui/use-disclosure';
 import { ModalTypesEnum, OrderStatusEnum } from '@/types/enum';
 
 export interface IBox {
+	id: number;
 	imageUrl: string;
 	name: string;
 	categories: string[];
@@ -13,7 +14,6 @@ export interface IBox {
 	address: string;
 	score: number;
 	price: number;
-	Count?: number;
 }
 
 export interface IOrder {
