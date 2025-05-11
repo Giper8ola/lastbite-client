@@ -12,6 +12,7 @@ import { ToCartButton } from '@/features/ToCartButton';
 import { BoxItemProps } from '@/types';
 
 export const BigBoxItem: React.FC<BoxItemProps> = ({
+	id,
 	imageUrl,
 	name,
 	categories,
@@ -50,7 +51,11 @@ export const BigBoxItem: React.FC<BoxItemProps> = ({
 								<p className="text-xs font-thin text-gray-500">{address}</p>
 							</div>
 						</div>
-						{toCart ? <ToCartButton price={price} /> : <RatingButton />}
+						{toCart ? (
+							<ToCartButton box={{ id, imageUrl, name, categories, restaurant, address, score, price }} />
+						) : (
+							<RatingButton />
+						)}
 					</div>
 				</div>
 			</div>

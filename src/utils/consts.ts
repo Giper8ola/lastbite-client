@@ -8,6 +8,7 @@ export const COLORS = {
 
 export const BOXES_LIST: IBox[] = [
 	{
+		id: 1,
 		imageUrl: '/bread.png',
 		name: 'Matin français',
 		categories: ['Хлебобулочные изделия'],
@@ -17,6 +18,7 @@ export const BOXES_LIST: IBox[] = [
 		price: 399
 	},
 	{
+		id: 2,
 		imageUrl: '/fish.png',
 		name: 'Дары моря',
 		categories: ['Рыба', 'Морепродукты'],
@@ -26,6 +28,7 @@ export const BOXES_LIST: IBox[] = [
 		price: 899
 	},
 	{
+		id: 3,
 		imageUrl: '/jap.png',
 		name: 'Бокс сегуна',
 		categories: [
@@ -47,6 +50,7 @@ export const BOXES_LIST: IBox[] = [
 		price: 1199
 	},
 	{
+		id: 4,
 		imageUrl: '/milk.jpg',
 		name: 'Утро в простоквашино',
 		categories: ['Молочная продукция'],
@@ -56,6 +60,7 @@ export const BOXES_LIST: IBox[] = [
 		price: 499
 	},
 	{
+		id: 5,
 		imageUrl: '/meet.jpg',
 		name: 'Steak night',
 		categories: ['Мясо'],

@@ -9,12 +9,13 @@ import { AuthButton } from '@/components/AuthButton';
 import Container from '@/features/Container';
 import CustomImage from '@/features/CustomImage';
 import HeaderButton from '@/features/HeaderButton';
+import { useCartStore } from '@/stores/CartStore';
 import { ModalTypesEnum } from '@/types/enum';
 import { COLORS } from '@/utils/consts';
 
 export default function Header() {
 	const [isAuth, setAuth] = useState(false);
-
+	const cost = useCartStore((state) => state.cost);
 	return (
 		<Container width={1700}>
 			<div className="min-w-[915px] py-6 px-10">
@@ -37,7 +38,8 @@ export default function Header() {
 
 					<div className="flex items-start gap-5 relative">
 						<HeaderButton color={COLORS.primary} modalName={ModalTypesEnum.Cart}>
-							<ShoppingCart size={28} strokeWidth={2.5} />0 ₽
+							<ShoppingCart size={28} strokeWidth={2.5} />
+							{cost} ₽
 						</HeaderButton>
 						<HeaderButton color={COLORS.secondary} className={isAuth ? 'mr-48' : ''} modalName={ModalTypesEnum.Location}>
 							<MapPin size={28} strokeWidth={2.5} />

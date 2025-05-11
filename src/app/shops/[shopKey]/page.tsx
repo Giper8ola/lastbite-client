@@ -58,7 +58,7 @@ export default async function Shops({ params }: { params: Promise<{ shopKey: str
 							offset={100}
 							orientation="vertical"
 						>
-							<BoxList list={BOXES_LIST} toCart={true} indexes={item.value.boxes} />
+							<BoxList list={BOXES_LIST} toCart={true} />
 						</ScrollShadow>
 					</div>
 				</div>
