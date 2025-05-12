@@ -10,12 +10,14 @@ import Container from '@/features/Container';
 import CustomImage from '@/features/CustomImage';
 import HeaderButton from '@/features/HeaderButton';
 import { useCartStore } from '@/stores/CartStore';
+import { useLocationStore } from '@/stores/LocationStore';
 import { ModalTypesEnum } from '@/types/enum';
 import { COLORS } from '@/utils/consts';
 
 export default function Header() {
 	const [isAuth, setAuth] = useState(false);
 	const cost = useCartStore((state) => state.cost);
+	const city = useLocationStore((state) => state.city);
 	return (
 		<Container width={1700}>
 			<div className="min-w-[915px] py-6 px-10">
@@ -43,7 +45,7 @@ export default function Header() {
 						</HeaderButton>
 						<HeaderButton color={COLORS.secondary} className={isAuth ? 'mr-48' : ''} modalName={ModalTypesEnum.Location}>
 							<MapPin size={28} strokeWidth={2.5} />
-							Воронеж
+							{city}
 						</HeaderButton>
 						<AuthButton className="absolute z-50 right-0" isAuth={isAuth} setAuth={setAuth} />
 					</div>
