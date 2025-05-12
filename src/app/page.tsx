@@ -1,55 +1,22 @@
-import getConfig from 'next/config';
-
-import { Button } from '@/components/Boxlist';
-import Header from '@/components/Header';
-
-const { publicRuntimeConfig } = getConfig();
-const basePath = publicRuntimeConfig.basePath ?? '';
-
-const BoxesList = [
-	{
-		url: basePath + '/bread.png',
-		name: 'Абобус Бокс',
-		category: ['Хлебобулочные изделия'],
-		restaurant: 'Карак Бамбама',
-		address: 'ул. Пушкина, д. Калатушкина',
-		score: 4.9
-	},
-	{
-		url: basePath + '/fish.png',
-		name: 'Абобус Бокс',
-		category: ['Хлебобулочные изделия', 'Японская кухня', 'Мясо', 'Хлебобулочные изделия', 'Японская кухня', 'Мясо'],
-		restaurant: 'Карак Бамбама',
-		address: 'ул. Пушкина, д. Калатушкина',
-		score: 3.6
-	},
-	{
-		url: basePath + '/jap.png',
-		name: 'Абобус Бокс',
-		category: ['Морепродукты', 'Молочная продукция'],
-		restaurant: 'Карак Бамбама',
-		address: 'ул. Пушкина, д. Калатушкина',
-		score: 2.0
-	}
-];
+import { ShopItemSmall } from '@/components/ShopItemSmall';
+import Container from '@/features/Container';
+import { SHOPS } from '@/utils/consts';
 
 const Home = () => {
 	return (
-		<div className="px-20 py-5">
-			<Header />
-			<div className="p-10 flex flex-col gap-6">
-				{BoxesList.map((el, ind) => (
-					<Button
-						key={ind}
-						url={el.url}
-						name={el.name}
-						category={el.category}
-						restaurant={el.restaurant}
-						address={el.address}
-						score={el.score}
-					/>
-				))}
-			</div>
+		<div className="font-f-primary py-5">
+			<Container width={1300}>
+				<div className="min-w-[915px] px-10 pb-5">
+					<b className="font-bold text-3xl">Магазины</b>
+					<div className="grid grid-cols-4 gap-5 pt-10">
+						{SHOPS.map((el) => (
+							<div key={el.key} className="mb-[95px] flex-none">
+								<ShopItemSmall key={el.key} item={el} />
+							</div>
+						))}
+					</div>
+				</div>
+			</Container>
 		</div>
 	);
 };
