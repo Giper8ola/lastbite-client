@@ -71,7 +71,7 @@ export const BOXES_LIST: IBox[] = [
 	},
 	{
 		id: 6,
-		imageUrl: '/meat.png',
+		imageUrl: '/meet.jpg',
 		name: 'Moo Kids Meal',
 		categories: ['Мясные изделия'],
 		restaurant: 'Burger Shot',
@@ -81,7 +81,7 @@ export const BOXES_LIST: IBox[] = [
 	},
 	{
 		id: 7,
-		imageUrl: '/meat.png',
+		imageUrl: '/meet.jpg',
 		name: 'Beef Tower',
 		categories: ['Мясные изделия'],
 		restaurant: 'Burger Shot',
@@ -91,7 +91,7 @@ export const BOXES_LIST: IBox[] = [
 	},
 	{
 		id: 8,
-		imageUrl: '/meat.png',
+		imageUrl: '/meet.jpg',
 		name: 'Salad Meal',
 		categories: ['Мясные изделия'],
 		restaurant: 'Burger Shot',
@@ -101,8 +101,8 @@ export const BOXES_LIST: IBox[] = [
 	},
 	{
 		id: 9,
-		imageUrl: '/meat.png',
-		name: 'number 9',
+		imageUrl: '/meet.jpg',
+		name: 'Number 9',
 		categories: ['Мясные изделия'],
 		restaurant: 'Cluckin Bell',
 		address: 'ул. Грока, д. 12, Лос-Сантос',
@@ -111,8 +111,8 @@ export const BOXES_LIST: IBox[] = [
 	},
 	{
 		id: 10,
-		imageUrl: '/meat.png',
-		name: 'number 6',
+		imageUrl: '/meet.jpg',
+		name: 'Number 6',
 		categories: ['Мясные изделия'],
 		restaurant: 'Cluckin Bell',
 		address: 'ул. Грока, д. 12, Лос-Сантос',
@@ -121,8 +121,8 @@ export const BOXES_LIST: IBox[] = [
 	},
 	{
 		id: 11,
-		imageUrl: '/meat.png',
-		name: 'number 7',
+		imageUrl: '/meet.jpg',
+		name: 'Number 7',
 		categories: ['Мясные изделия'],
 		restaurant: 'Cluckin Bell',
 		address: 'ул. Грока, д. 12, Лос-Сантос',
@@ -131,8 +131,8 @@ export const BOXES_LIST: IBox[] = [
 	},
 	{
 		id: 12,
-		imageUrl: '/meat.png',
-		name: 'number 45',
+		imageUrl: '/meet.jpg',
+		name: 'Number 45',
 		categories: ['Мясные изделия'],
 		restaurant: 'Cluckin Bell',
 		address: 'ул. Грока, д. 12, Лос-Сантос',
@@ -181,7 +181,7 @@ export const BOXES_LIST: IBox[] = [
 	},
 	{
 		id: 17,
-		imageUrl: '/meat.png',
+		imageUrl: '/meet.jpg',
 		name: 'BBQ',
 		categories: ['Мясные изделия'],
 		restaurant: '24/7',
@@ -191,7 +191,7 @@ export const BOXES_LIST: IBox[] = [
 	},
 	{
 		id: 18,
-		imageUrl: '/milk.png',
+		imageUrl: '/milk.jpg',
 		name: 'Sprank-box',
 		categories: ['Напитки'],
 		restaurant: '24/7',
