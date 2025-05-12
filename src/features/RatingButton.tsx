@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, RotateCcw } from 'lucide-react';
+import { Star, Ban } from 'lucide-react';
 
 import styles from '@/assets/styles/ToCartButton.module.css';
 
@@ -40,7 +40,7 @@ export const RatingButton: React.FC<Props> = ({}) => {
 
 				{rating > 0 && (
 					<motion.button onClick={() => setRating(0)} className={`${styles.btn} ${styles.container} ml-2`}>
-						<RotateCcw size={16} />
+						<Ban size={16} />
 					</motion.button>
 				)}
 			</motion.div>
