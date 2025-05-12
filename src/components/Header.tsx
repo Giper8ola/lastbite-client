@@ -24,18 +24,18 @@ export default function Header() {
 				<div className={'flex items-center font-f-primary justify-between'}>
 					<div className="flex items-center gap-6">
 						<CustomImage alt="LastBite logo" src="/lastbite.svg" width={120} height={120} priority />
-						<Link href={'/'}>
-							<HeaderButton color={COLORS.primary}>
+						<HeaderButton color={COLORS.primary}>
+							<Link href={'/'} className="h-full w-full flex items-center gap-2">
 								<House size={28} strokeWidth={2.5} />
 								<b>ГЛАВНАЯ</b>
-							</HeaderButton>
-						</Link>
-						<Link href={'/boxes'}>
-							<HeaderButton color={COLORS.primary}>
+							</Link>
+						</HeaderButton>
+						<HeaderButton color={COLORS.primary}>
+							<Link href={'/boxes'} className="h-full w-full flex items-center gap-2">
 								<Package size={28} strokeWidth={2.5} />
 								<b>БОКСЫ</b>
-							</HeaderButton>
-						</Link>
+							</Link>
+						</HeaderButton>
 					</div>
 
 					<div className="flex items-start gap-5 relative">
