@@ -1,20 +1,46 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Plus, Minus } from 'lucide-react';
+import { useShallow } from 'zustand/shallow';
 
 import styles from '@/assets/styles/ToCartButton.module.css';
+import { useCartStore } from '@/stores/CartStore';
+import { IBox } from '@/types';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-	price: number;
-	count?: number;
+	box: IBox;
 }
 
-export const ToCartButton: React.FC<Props> = ({ price }) => {
-	const [Count, setCount] = useState(0);
+export const ToCartButton: React.FC<Props> = ({ box }) => {
+	const { updateBox, deleteBox, boxes } = useCartStore(
+		useShallow((state) => ({ updateBox: state.updateBox, deleteBox: state.deleteBox, boxes: state.boxes }))
+	);
+	const savedBox = boxes.find((item) => item.id === box.id);
+	const savedCount = savedBox?.Count ?? 0;
+	const [Count, setCount] = useState(savedCount);
+
+	useEffect(() => {
+		setCount(savedCount);
+	}, [savedCount]);
+
+	const addOne = () => {
+		setCount(Count + 1);
+		updateBox(box, Count + 1);
+	};
+
+	const removeOneOrDelete = () => {
+		const newCount = Count - 1;
+		setCount(newCount);
+		if (newCount < 1) {
+			deleteBox(box.id, box.price);
+		} else {
+			updateBox(box, newCount);
+		}
+	};
 
 	return (
 		<AnimatePresence>
@@ -31,19 +57,19 @@ export const ToCartButton: React.FC<Props> = ({ price }) => {
 					}
 				}}
 			>
-				<p className="font-bold whitespace-nowrap text-[14px] mx-[10px]">{Count < 1 ? price : price * Count} ₽</p>
+				<p className="font-bold whitespace-nowrap text-[14px] mx-[10px]">{Count < 1 ? box.price : box.price * Count}₽</p>
 				<AnimatePresence mode="wait">
 					{Count < 1 ? (
-						<motion.button className={`${styles.btn}`} onClick={() => setCount(Count + 1)}>
+						<motion.button type="button" className={`${styles.btn}`} onClick={addOne}>
 							<ShoppingCart size={16} strokeWidth={3} />
 						</motion.button>
 					) : (
 						<>
-							<motion.button className={`${styles.btn}`} onClick={() => setCount(Count - 1)}>
+							<motion.button type="button" className={`${styles.btn}`} onClick={removeOneOrDelete}>
 								<Minus size={16} strokeWidth={3} />
 							</motion.button>
 							<p className={`font-bold whitespace-nowrap text-[14px] mx-[10px]`}>{Count > 0 ? Count : ''}</p>
-							<motion.button className={`${styles.btn}`} onClick={() => setCount(Count + 1)}>
+							<motion.button type="button" className={`${styles.btn}`} onClick={addOne}>
 								<Plus size={16} strokeWidth={3} />
 							</motion.button>
 						</>

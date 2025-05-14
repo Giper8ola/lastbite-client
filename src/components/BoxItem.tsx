@@ -11,6 +11,7 @@ import { ToCartButton } from '@/features/ToCartButton';
 import { BoxItemProps } from '@/types';
 
 export const BoxItem: React.FC<BoxItemProps> = ({
+	id,
 	imageUrl,
 	name,
 	categories,
@@ -22,36 +23,52 @@ export const BoxItem: React.FC<BoxItemProps> = ({
 	className
 }) => {
 	return (
-		<div className={`font-f-primary bg-c-secondary rounded-3xl shadow-md p-4 ` + className}>
+		<div
+			className={
+				`font-f-primary bg-c-secondary rounded-3xl shadow-md p-4 overflow-x-hidden h-max overflow-y-visible ` + className
+			}
+		>
 			<div className="flex gap-x-1">
-				<CustomImage className="rounded-2xl" alt="Box logo" src={imageUrl} width={130} height={130} priority />
-				<div className="flex flex-col gap-2 col-span-2 pl-2 w-full">
-					<div className="flex justify-between items-center">
+				<CustomImage
+					className="rounded-2xl max-w-[calc(100%-250px)] min-w-[70px]"
+					alt="Box logo"
+					src={imageUrl}
+					width={130}
+					height={130}
+					priority
+				/>
+				<div className="flex flex-col gap-2 pl-2 w-full min-w-0 flex-1">
+					<div className="flex justify-between items-center gap-2">
 						<h1 className="font-bold text-xl">{name}</h1>
-						<Score number={score} />
+						<Score number={score} className="flex-shrink-0" />
 					</div>
-					<ScrollShadow hideScrollBar={true} orientation="horizontal" offset={100}>
-						<div className="flex flex-auto flex-wrap max-h-[90px] gap-1">
+					<div className="w-full max-h-[90px] min-h-[40px] flex-shrink">
+						<ScrollShadow
+							hideScrollBar={true}
+							orientation="horizontal"
+							offset={100}
+							className="flex flex-auto flex-wrap h-full gap-2"
+						>
 							{categories.map((el, ind) => (
-								<div key={ind}>
+								<div key={ind} className="flex-shrink-0">
 									<p className="bg-[#D4D4D4] rounded-[15px] px-[6px] py-1 text-xs pl-1.5 text-gray-500 font-thin">{el}</p>
 								</div>
 							))}
-						</div>
-					</ScrollShadow>
+						</ScrollShadow>
+					</div>
 				</div>
 			</div>
 			<div className="flex items-center justify-between mt-3">
 				<div>
-					<div className="flex gap-[3px] items-center">
+					<div className="flex gap-[3px]">
 						<ChefHat size={18} />
-						<p className="text-sm">{'Ресторан ' + restaurant}</p>
+						<p className="text-sm">{restaurant}</p>
 					</div>
 					<div className="px-1 flex justify-between">
 						<p className="text-xs font-thin text-gray-500">{address}</p>
 					</div>
 				</div>
-				{toCart && <ToCartButton price={price} />}
+				{toCart && <ToCartButton box={{ id, imageUrl, name, categories, restaurant, address, score, price }} />}
 			</div>
 		</div>
 	);

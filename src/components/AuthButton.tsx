@@ -31,15 +31,15 @@ export function AuthButton({
 							<div className={`flex items-center gap-1 hover:transition-colors hover:text-c-primary`}>
 								<CircleUser size={28} strokeWidth={2.5} />
 								<div className={`text-start`}>
-									<p className="">Пользователь</p>
-									<p className="text-[10px] text-[#BEBEBE] leading-none">email@mail.ru</p>
+									<p className="font-f-primary">Пользователь</p>
+									<p className="text-[10px] font-normal text-[#BEBEBE] leading-none">email@mail.ru</p>
 								</div>
 							</div>
 						}
 						className={`bg-c-secondary rounded-[15px] px-2 pr-0 text-black font-bold text-[16px] shadow-md hover:transition-shadow hover:duration-700 hover:shadow-[0_4px_3px_0px_rgba(0,0,0,0.3)]`}
 						classNames={{ trigger: 'py-1 pb-2' }}
 					>
-						<div className="px-1">
+						<div className="px-1 font-f-primary">
 							<Listbox className={`w-full pl-0 pr-2 text-center`}>
 								<ListboxItem key="profile" onPress={ProfileModal.onOpen}>
 									Профиль
