@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-import { Input, ScrollShadow } from '@heroui/react';
+import { Input, ScrollShadow, Slider } from '@heroui/react';
 import { ChefHat, ConciergeBell, Funnel, Search, Wrench } from 'lucide-react';
 
 import { BoxList } from '@/components/BoxList';
@@ -84,6 +84,19 @@ const Boxes = () => {
 								}
 								startContent={<Search />}
 								className="p-4"
+							/>
+							<Slider
+								className="px-7 pb-2 font-bold"
+								classNames={{
+									filler: 'bg-c-primary',
+									thumb: 'bg-c-primary'
+								}}
+								defaultValue={[0, 200]}
+								formatOptions={{ style: 'currency', currency: 'RUB', roundingMode: 'ceil', roundingPriority: 'morePrecision' }}
+								label="Цена"
+								maxValue={1000}
+								minValue={0}
+								step={50}
 							/>
 							<div className="overflow-y-auto h-[68vh] rounded-3xl [&::-webkit-scrollbar]:w-0">
 								{isFilter ? FilterList(FILTER_TYPES) : FilterAccordion(FILTER_TYPES)}
