@@ -1,7 +1,9 @@
 'use client';
 import { useState } from 'react';
 
+import { Badge } from '@heroui/react';
 import { House, MapPin, Package, ShoppingCart } from 'lucide-react';
+import { useShallow } from 'zustand/shallow';
 
 import Link from 'next/link';
 
@@ -16,7 +18,7 @@ import { COLORS } from '@/utils/consts';
 
 export default function Header() {
 	const [isAuth, setAuth] = useState(false);
-	const cost = useCartStore((state) => state.cost);
+	const { cost, count } = useCartStore(useShallow((state) => ({ cost: state.cost, count: state.boxes.length })));
 	const city = useLocationStore((state) => state.city);
 	return (
 		<Container width={1700}>
@@ -39,14 +41,17 @@ export default function Header() {
 					</div>
 
 					<div className="flex items-start gap-5 relative">
-						<HeaderButton color={COLORS.primary} modalName={ModalTypesEnum.Cart}>
-							<ShoppingCart size={28} strokeWidth={2.5} />
-							{cost} ₽
-						</HeaderButton>
+						<Badge content={count} isInvisible={count < 1 ? true : false} size="lg" className="bg-c-secondary text-black">
+							<HeaderButton color={COLORS.primary} modalName={ModalTypesEnum.Cart}>
+								<ShoppingCart size={28} strokeWidth={2.5} />
+								{cost} ₽
+							</HeaderButton>
+						</Badge>
 						<HeaderButton color={COLORS.secondary} className={isAuth ? 'mr-48' : ''} modalName={ModalTypesEnum.Location}>
 							<MapPin size={28} strokeWidth={2.5} />
 							{city}
 						</HeaderButton>
+
 						<AuthButton className="absolute z-50 right-0" isAuth={isAuth} setAuth={setAuth} />
 					</div>
 				</div>
