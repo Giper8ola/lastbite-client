@@ -9,9 +9,9 @@ const Home = () => {
 				<div className="min-w-[915px] px-10 pb-5">
 					<b className="font-bold text-3xl">Магазины</b>
 					<div className="grid grid-cols-4 gap-5 pt-10">
-						{SHOPS.map((el) => (
-							<div key={el.key} className="mb-[95px] flex-none">
-								<ShopItemSmall key={el.key} item={el} />
+						{SHOPS.map((el, ind) => (
+							<div key={el.key} className="flex-none z-10 hover:z-20">
+								<ShopItemSmall key={el.key} item={el} index={ind} />
 							</div>
 						))}
 					</div>

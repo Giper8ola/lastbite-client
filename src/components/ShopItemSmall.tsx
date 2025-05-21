@@ -11,7 +11,7 @@ import CustomImage from '@/features/CustomImage';
 import { Score } from '@/features/Score';
 import { IShopProps } from '@/types';
 
-export const ShopItemSmall: React.FC<IShopProps> = ({ item }) => {
+export const ShopItemSmall: React.FC<IShopProps> = ({ item, index }) => {
 	const [isHover, setHover] = useState(false);
 
 	const { key, value } = item;
@@ -47,7 +47,14 @@ export const ShopItemSmall: React.FC<IShopProps> = ({ item }) => {
 				layout
 			>
 				<motion.div layout="position">
-					<CustomImage className="rounded-3xl shadow-md" alt="Shop logo" src={imageUrl} width={360} height={350} priority />
+					<CustomImage
+						className={`relative rounded-3xl shadow-md`}
+						alt="Shop logo"
+						src={imageUrl}
+						width={360}
+						height={350}
+						priority
+					/>
 				</motion.div>
 
 				<AnimatePresence mode="popLayout">
