@@ -5,6 +5,7 @@ import { RotateCcw } from 'lucide-react';
 import { BoxList } from '@/components/BoxList';
 import { OrderStatus } from '@/features/OrderStatus';
 import { OrderListProps } from '@/types';
+import { BoxesSize } from '@/types/enum';
 
 export function OrdersList({ orders, className }: OrderListProps) {
 	return (
@@ -17,7 +18,7 @@ export function OrdersList({ orders, className }: OrderListProps) {
 						className="bg-c-secondary mb-4 shadow-md rounded-[25px] px-5 py-2"
 					>
 						<ScrollShadow className="h-[90vh] scrollbar-hide">
-							<BoxList list={boxes} big={true} />
+							<BoxList list={boxes} size={BoxesSize.Small} />
 						</ScrollShadow>
 						<div className="flex gap-4 pt-1	h-[7vh] items-center">
 							<Button

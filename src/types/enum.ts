@@ -11,3 +11,9 @@ export enum OrderStatusEnum {
 	Process = 'process',
 	Cancel = 'cancel'
 }
+
+export enum BoxesSize {
+	Normal = 'normal',
+	Big = 'big',
+	Small = 'small'
+}
