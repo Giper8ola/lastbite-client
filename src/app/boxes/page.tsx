@@ -48,9 +48,9 @@ const Boxes = () => {
 	return (
 		<div className="">
 			<Container width={1600}>
-				<div className="min-w-[915px] px-10">
+				<div className="min-w-[915px] px-10 h-[70vh]">
 					<div className="grid grid-cols-[25%_75%] h-[70vh]">
-						<div className={`bg-white rounded-[28px] shadow-md pb-2`}>
+						<div className={`bg-white rounded-[28px] shadow-md pb-2 *:`}>
 							<Input
 								classNames={{
 									label: 'text-black/50 dark:text-white/90',
@@ -106,7 +106,7 @@ const Boxes = () => {
 									<NumberInput className="pb-5 pr-5" minValue={0} maxValue={5} size="sm" placeholder="До" />
 								</div>
 							</div>
-							<div className="overflow-y-auto h-[68vh] rounded-3xl [&::-webkit-scrollbar]:w-0">
+							<div className="overflow-y-auto h-[53vh] rounded-3xl [&::-webkit-scrollbar]:w-0">
 								{isFilter ? FilterList(FILTER_TYPES) : FilterAccordion(FILTER_TYPES)}
 							</div>
 						</div>
