@@ -7,14 +7,13 @@ import { useShallow } from 'zustand/shallow';
 
 import { BoxList } from '@/components/BoxList';
 import Container from '@/features/Container';
-import { FilterAccordion } from '@/features/FilterAccordion';
-import { FilterList } from '@/features/FilterList';
+import { Filter } from '@/features/Filter';
 import { useFilterStore } from '@/stores/FilterStore';
 import { BOXES_LIST, COOKERY, PREFERENCES, TYPE_DISHES } from '@/utils/consts';
 
 const FILTER_TYPES = [
 	{
-		key: '1',
+		key: 'type_dishes',
 		title: (
 			<>
 				<ConciergeBell />
@@ -24,7 +23,7 @@ const FILTER_TYPES = [
 		list: TYPE_DISHES
 	},
 	{
-		key: '2',
+		key: 'cookery',
 		title: (
 			<>
 				<ChefHat />
@@ -34,7 +33,7 @@ const FILTER_TYPES = [
 		list: COOKERY
 	},
 	{
-		key: '3',
+		key: 'preferences',
 		title: (
 			<>
 				<Wrench />
@@ -49,12 +48,14 @@ const Boxes = () => {
 	const [isFilter, setFilter] = useState(false);
 	const maxPrice = Math.max(...BOXES_LIST.map((box) => box.price));
 	const minPrice = Math.min(...BOXES_LIST.map((box) => box.price));
-	const { filteredList, setPriceChange, MinScoreChange, MaxScoreChange } = useFilterStore(
+	const { filteredList, setSearchResult, setPriceChange, MinScoreChange, MaxScoreChange, clearCategories } = useFilterStore(
 		useShallow((state) => ({
 			filteredList: state.filteredList,
+			setSearchResult: state.setSearchResult,
 			setPriceChange: state.setPriceRange,
 			MinScoreChange: state.MinScoreChange,
-			MaxScoreChange: state.MaxScoreChange
+			MaxScoreChange: state.MaxScoreChange,
+			clearCategories: state.clearCategories
 		}))
 	);
 
@@ -96,6 +97,7 @@ const Boxes = () => {
 									></Funnel>
 								}
 								startContent={<Search />}
+								onValueChange={(value) => setSearchResult(value)}
 								className="p-4"
 							/>
 							<Slider
@@ -135,7 +137,7 @@ const Boxes = () => {
 								</div>
 							</div>
 							<div className="overflow-y-auto h-[53vh] rounded-3xl [&::-webkit-scrollbar]:w-0">
-								{isFilter ? FilterList(FILTER_TYPES) : FilterAccordion(FILTER_TYPES)}
+								{Filter(FILTER_TYPES, isFilter)}
 							</div>
 						</div>
 						<ScrollShadow
