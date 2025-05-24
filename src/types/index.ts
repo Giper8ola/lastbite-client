@@ -91,5 +91,6 @@ export interface ShopItemProps {
 
 export interface IShopProps {
 	item: ShopItem;
+	index: number;
 	className?: string;
 }

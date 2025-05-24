@@ -13,9 +13,10 @@ import { IBox } from '@/types';
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 	box: IBox;
+	big?: boolean;
 }
 
-export const ToCartButton: React.FC<Props> = ({ box }) => {
+export const ToCartButton: React.FC<Props> = ({ box, big = true }) => {
 	const { updateBox, deleteBox, boxes } = useCartStore(
 		useShallow((state) => ({ updateBox: state.updateBox, deleteBox: state.deleteBox, boxes: state.boxes }))
 	);
@@ -57,7 +58,7 @@ export const ToCartButton: React.FC<Props> = ({ box }) => {
 					}
 				}}
 			>
-				<p className="font-bold whitespace-nowrap text-[14px] mx-[10px]">{Count < 1 ? box.price : box.price * Count}₽</p>
+				{big && <p className="font-bold whitespace-nowrap text-[14px] mx-[10px]">{Count < 1 ? box.price : box.price * Count}₽</p>}
 				<AnimatePresence mode="wait">
 					{Count < 1 ? (
 						<motion.button type="button" className={`${styles.btn}`} onClick={addOne}>

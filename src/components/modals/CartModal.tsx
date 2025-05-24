@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { BoxList } from '@/components/BoxList';
 import { useCartStore } from '@/stores/CartStore';
 import { CommonModalProps } from '@/types';
+import { BoxesSize } from '@/types/enum';
 
 export default function CartModal({ modalDisclosure }: CommonModalProps) {
 	const { boxes, cost } = useCartStore(useShallow((state) => ({ boxes: state.boxes, cost: state.cost })));
@@ -26,8 +27,8 @@ export default function CartModal({ modalDisclosure }: CommonModalProps) {
 							<b className="text-[22px]">Корзина</b>
 						</ModalHeader>
 						<ModalBody className="pl-0 pr-0 pt-0 flex items-center gap-1">
-							<ScrollShadow hideScrollBar className="h-96 px-5 pb-5 mb-10">
-								<BoxList list={boxes} />
+							<ScrollShadow hideScrollBar className="h-96 w-full px-5 pb-5 mb-10">
+								<BoxList list={boxes} size={BoxesSize.Small} toCart={true} />
 							</ScrollShadow>
 							<Button
 								isDisabled={cost === 0 ? true : false}
