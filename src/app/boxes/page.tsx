@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-import { Input, ScrollShadow } from '@heroui/react';
+import { Input, NumberInput, ScrollShadow, Slider } from '@heroui/react';
 import { ChefHat, ConciergeBell, Funnel, Search, Wrench } from 'lucide-react';
 
 import { BoxList } from '@/components/BoxList';
@@ -48,9 +48,9 @@ const Boxes = () => {
 	return (
 		<div className="">
 			<Container width={1600}>
-				<div className="min-w-[915px] px-10">
+				<div className="min-w-[915px] px-10 h-[70vh]">
 					<div className="grid grid-cols-[25%_75%] h-[70vh]">
-						<div className={`bg-white rounded-[28px] shadow-md pb-2`}>
+						<div className={`bg-white rounded-[28px] shadow-md pb-2 *:`}>
 							<Input
 								classNames={{
 									label: 'text-black/50 dark:text-white/90',
@@ -85,7 +85,28 @@ const Boxes = () => {
 								startContent={<Search />}
 								className="p-4"
 							/>
-							<div className="overflow-y-auto h-[68vh] rounded-3xl [&::-webkit-scrollbar]:w-0">
+							<Slider
+								className="px-5 py-2 font-bold"
+								classNames={{
+									filler: 'bg-c-primary',
+									thumb: 'bg-c-primary',
+									label: 'text-[16px]'
+								}}
+								defaultValue={[0, 200]}
+								formatOptions={{ style: 'currency', currency: 'RUB', roundingMode: 'ceil', roundingPriority: 'morePrecision' }}
+								label="Цена"
+								maxValue={1000}
+								minValue={0}
+								step={50}
+							/>
+							<div className="w-full grid gap-2">
+								<p className="row-start-1 pl-5 pt-3 pb-1 font-bold text-[16px]">Оценка</p>
+								<div className="row-start-2 flex gap-2">
+									<NumberInput className="pb-5 pl-5" minValue={0} maxValue={5} size="sm" placeholder="От" />
+									<NumberInput className="pb-5 pr-5" minValue={0} maxValue={5} size="sm" placeholder="До" />
+								</div>
+							</div>
+							<div className="overflow-y-auto h-[53vh] rounded-3xl [&::-webkit-scrollbar]:w-0">
 								{isFilter ? FilterList(FILTER_TYPES) : FilterAccordion(FILTER_TYPES)}
 							</div>
 						</div>
