@@ -11,203 +11,191 @@ export const BOXES_LIST: IBox[] = [
 		id: 1,
 		imageUrl: '/bread.png',
 		name: 'Matin français',
-		categories: ['Хлебобулочные изделия', 'Русская', 'Халяль'],
+		categories: ['Выпечка', 'Хлеб', 'Вегетарианское'],
 		restaurant: 'Claude Monet',
 		address: 'ул. Арзамаская, д. 32',
-		score: 4.9,
-		price: 399
+		score: 4.7,
+		price: 350
 	},
 	{
 		id: 2,
 		imageUrl: '/fish.png',
 		name: 'Дары моря',
-		categories: ['Рыба', 'Морепродукты'],
+		categories: ['Морепродукты', 'Красная рыба', 'Азиатская кухня'],
 		restaurant: 'Карак Бамбама',
 		address: 'ул. Пушкина, д. 74',
-		score: 2.6,
-		price: 899
+		score: 3.8,
+		price: 950
 	},
 	{
 		id: 3,
 		imageUrl: '/jap.png',
 		name: 'Бокс сегуна',
-		categories: [
-			'Японская кухня',
-			'Морепродукты',
-			'Морепродукты',
-			'Морепродукты',
-			'Морепродукты',
-			'Морепродукты',
-			'Морепродукты',
-			'Морепродукты',
-			'Морепродукты',
-			'Морепродукты',
-			'Морепродукты'
-		],
+		categories: ['Суши', 'Роллы', 'Морепродукты', 'Азиатская кухня'],
 		restaurant: 'Samurai',
 		address: 'ул. Речная, д. 13Б',
-		score: 4.7,
-		price: 1199
+		score: 4.9,
+		price: 1250
 	},
 	{
 		id: 4,
 		imageUrl: '/milk.jpg',
 		name: 'Утро в простоквашино',
-		categories: ['Молочная продукция', 'Веганское'],
+		categories: ['Молоко', 'Завтраки', 'Без говядины'],
 		restaurant: 'Карак Бамбама',
 		address: 'ул. Пушкина, д. 74',
-		score: 1.7,
-		price: 499
+		score: 4.2,
+		price: 450
 	},
 	{
 		id: 5,
 		imageUrl: '/meet.jpg',
 		name: 'Steak night',
-		categories: ['Мясные изделия'],
+		categories: ['Горячие блюда', 'Говядина', 'Только фастфуд'],
 		restaurant: 'Мясной дворик',
 		address: 'ул. 9-ого января, д. 26',
-		score: 5.0,
-		price: 1299
+		score: 4.8,
+		price: 1350
 	},
 	{
 		id: 6,
 		imageUrl: '/meet.jpg',
 		name: 'Moo Kids Meal',
-		categories: ['Мясо', 'Напитки'],
+		categories: ['Фастфуд', 'Курица', 'Напитки'],
 		restaurant: 'Burger Shot',
 		address: 'пр. Литл-Сеул, д. 18, Лос-Сантос',
-		score: 5.0,
-		price: 299
+		score: 4.5,
+		price: 320
 	},
 	{
 		id: 7,
 		imageUrl: '/meet.jpg',
 		name: 'Beef Tower',
-		categories: ['Мясо'],
+		categories: ['Говядина', 'Фастфуд', 'Без молочных продуктов'],
 		restaurant: 'Burger Shot',
 		address: 'пр. Литл-Сеул, д. 18, Лос-Сантос',
-		score: 5.0,
-		price: 599
+		score: 4.6,
+		price: 650
 	},
 	{
 		id: 8,
 		imageUrl: '/meet.jpg',
 		name: 'Salad Meal',
-		categories: ['Мясо'],
+		categories: ['Здоровая еда', 'Огурцы', 'Помидоры'],
 		restaurant: 'Burger Shot',
 		address: 'ул. Грока, д. 12, Лос-Сантос',
-		score: 5.0,
-		price: 899
+		score: 4.3,
+		price: 850
 	},
 	{
 		id: 9,
 		imageUrl: '/meet.jpg',
 		name: 'Number 9',
-		categories: ['Мясо'],
+		categories: ['Фастфуд', 'Курица', 'Только фастфуд'],
 		restaurant: 'Cluckin Bell',
 		address: 'ул. Грока, д. 12, Лос-Сантос',
-		score: 5.0,
-		price: 399
+		score: 4.4,
+		price: 420
 	},
 	{
 		id: 10,
 		imageUrl: '/meet.jpg',
 		name: 'Number 6',
-		categories: ['Мясо'],
+		categories: ['Фастфуд', 'Индейка', 'Без рыбы'],
 		restaurant: 'Cluckin Bell',
 		address: 'ул. Грока, д. 12, Лос-Сантос',
-		score: 5.0,
-		price: 499
+		score: 4.7,
+		price: 480
 	},
 	{
 		id: 11,
 		imageUrl: '/meet.jpg',
 		name: 'Number 7',
-		categories: ['Мясо'],
+		categories: ['Фастфуд', 'Свинина', 'Картошка'],
 		restaurant: 'Cluckin Bell',
 		address: 'ул. Грока, д. 12, Лос-Сантос',
-		score: 5.0,
-		price: 599
+		score: 4.1,
+		price: 550
 	},
 	{
 		id: 12,
 		imageUrl: '/meet.jpg',
 		name: 'Number 45',
-		categories: ['Мясо'],
+		categories: ['Фастфуд', 'Говядина', 'Сыры'],
 		restaurant: 'Cluckin Bell',
 		address: 'ул. Грока, д. 12, Лос-Сантос',
-		score: 5.0,
-		price: 699
+		score: 4.9,
+		price: 720
 	},
 	{
 		id: 13,
 		imageUrl: '/bread.png',
 		name: 'Перекус',
-		categories: ['Мучные кулинарные изделия'],
+		categories: ['Пицца', 'Сыры', 'Без морепродуктов'],
 		restaurant: 'Pizza Stack',
 		address: 'ул. Альта, д. 15, Лос-Сантос',
-		score: 5.0,
-		price: 299
+		score: 4.0,
+		price: 350
 	},
 	{
 		id: 14,
 		imageUrl: '/bread.png',
 		name: 'Двойной люкс',
-		categories: ['Мучные кулинарные изделия'],
+		categories: ['Пицца', 'Говядина', 'Помидоры'],
 		restaurant: 'Pizza Stack',
 		address: 'ул. Альта, д. 15, Лос-Сантос',
-		score: 5.0,
-		price: 499
+		score: 4.8,
+		price: 550
 	},
 	{
 		id: 15,
 		imageUrl: '/bread.png',
 		name: 'Гора еды',
-		categories: ['Мучные кулинарные изделия'],
+		categories: ['Пицца', 'Свинина', 'Картошка'],
 		restaurant: 'Pizza Stack',
 		address: 'ул. Альта, д. 15, Лос-Сантос',
-		score: 5.0,
-		price: 599
+		score: 4.5,
+		price: 650
 	},
 	{
 		id: 16,
 		imageUrl: '/jap.png',
 		name: 'Японский день',
-		categories: ['Рыба'],
+		categories: ['Суши', 'Тунец', 'Азиатская кухня'],
 		restaurant: 'Pizza Stack',
 		address: 'ул. Альта, д. 15, Лос-Сантос',
-		score: 5.0,
-		price: 899
+		score: 4.2,
+		price: 980
 	},
 	{
 		id: 17,
 		imageUrl: '/meet.jpg',
 		name: 'BBQ',
-		categories: ['Мясо'],
+		categories: ['Горячие блюда', 'Свинина', 'Без овощей'],
 		restaurant: '24/7',
 		address: 'ул. Карла, д. 11 Лос-Сантос, Лос-Сантос',
-		score: 5.0,
-		price: 699
+		score: 4.6,
+		price: 750
 	},
 	{
 		id: 18,
 		imageUrl: '/milk.jpg',
 		name: 'Sprank-box',
-		categories: ['Напитки'],
+		categories: ['Напитки', 'Сильногазированные напитки', 'Без молочных продуктов'],
 		restaurant: '24/7',
 		address: 'ул. Карла, д. 11 Лос-Сантос, Лос-Сантос',
-		score: 5.0,
-		price: 399
+		score: 3.9,
+		price: 280
 	},
 	{
 		id: 19,
 		imageUrl: '/fish.png',
 		name: 'ViceFish',
-		categories: ['Рыба'],
+		categories: ['Горячие блюда', 'Палтус', 'Без говядины'],
 		restaurant: '24/7',
 		address: 'ул. Карла, д. 11 Лос-Сантос, Лос-Сантос',
-		score: 4.0,
-		price: 599
+		score: 4.4,
+		price: 670
 	}
 ];
 
