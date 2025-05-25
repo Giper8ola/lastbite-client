@@ -1,6 +1,6 @@
 import { JSX, ReactNode } from 'react';
 
-import { PressEvent } from '@heroui/react';
+import { CalendarDate, PressEvent } from '@heroui/react';
 import { UseDisclosureReturn } from '@heroui/use-disclosure';
 
 import { ModalTypesEnum, OrderStatusEnum } from '@/types/enum';
@@ -86,4 +86,12 @@ export interface IShopProps {
 	item: ShopItem;
 	index: number;
 	className?: string;
+}
+
+export interface User {
+	first_name: string;
+	last_name: string;
+	phone_number: string;
+	email: string;
+	birth_date: CalendarDate;
 }

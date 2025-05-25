@@ -13,20 +13,22 @@ import { COLORS } from '@/utils/consts';
 
 export function AuthButton({ className }: { className?: string }) {
 	const ProfileModal = useDisclosure();
-	const { isAuth, changeAuth } = useAuthStore(useShallow((state) => ({ isAuth: state.isAuth, changeAuth: state.changeAuth })));
+	const { isAuth, user, changeAuth } = useAuthStore(
+		useShallow((state) => ({ isAuth: state.isAuth, user: state.user, changeAuth: state.changeAuth }))
+	);
 	if (isAuth) {
 		return (
-			<div className={' ' + className}>
+			<div className={'min-w-44 ' + className}>
 				<Accordion isCompact>
 					<AccordionItem
 						key="1"
 						indicator
 						title={
-							<div className={`flex items-center gap-1 hover:transition-colors hover:text-c-primary`}>
+							<div className={`flex justify-center items-center gap-1 hover:transition-colors hover:text-c-primary`}>
 								<CircleUser size={28} strokeWidth={2.5} />
 								<div className={`text-start`}>
-									<p className="font-f-primary">Пользователь</p>
-									<p className="text-[10px] font-normal text-[#BEBEBE] leading-none">email@mail.ru</p>
+									<p className="font-f-primary">{user.first_name}</p>
+									<p className="text-[10px] font-normal text-[#BEBEBE] leading-none">{user.email}</p>
 								</div>
 							</div>
 						}
