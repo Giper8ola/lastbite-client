@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 import { Badge } from '@heroui/react';
 import { House, MapPin, Package, ShoppingCart } from 'lucide-react';
@@ -11,15 +11,30 @@ import { AuthButton } from '@/components/AuthButton';
 import Container from '@/features/Container';
 import CustomImage from '@/features/CustomImage';
 import HeaderButton from '@/features/HeaderButton';
+import { useAuthStore } from '@/stores/AuthStore';
 import { useCartStore } from '@/stores/CartStore';
 import { useLocationStore } from '@/stores/LocationStore';
 import { ModalTypesEnum } from '@/types/enum';
 import { COLORS } from '@/utils/consts';
 
 export default function Header() {
-	const [isAuth, setAuth] = useState(false);
+	const isAuth = useAuthStore((state) => state.isAuth);
+
 	const { cost, count } = useCartStore(useShallow((state) => ({ cost: state.cost, count: state.boxes.length })));
 	const city = useLocationStore((state) => state.city);
+
+	useEffect(() => {
+		const checkData = () => {
+			const data = localStorage.getItem('auth-storage');
+			if (!data) useAuthStore.getState().changeAuth(false);
+		};
+		checkData();
+		if (typeof window !== 'undefined') {
+			window.addEventListener('storage', checkData);
+			return () => window.removeEventListener('storage', checkData);
+		}
+	}, []);
+
 	return (
 		<Container width={1700}>
 			<div className="min-w-[915px] py-6 px-10">
@@ -51,8 +66,7 @@ export default function Header() {
 							<MapPin size={28} strokeWidth={2.5} />
 							{city}
 						</HeaderButton>
-
-						<AuthButton className="absolute z-50 right-0" isAuth={isAuth} setAuth={setAuth} />
+						<AuthButton className="absolute z-50 right-0" />
 					</div>
 				</div>
 			</div>

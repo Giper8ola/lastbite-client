@@ -1,10 +1,12 @@
 import { Modal, ModalContent, ModalHeader, ModalBody, Button, InputOtp, Form } from '@heroui/react';
 
-import { AuthModalProps } from '@/types';
+import { useAuthStore } from '@/stores/AuthStore';
+import { CommonModalProps } from '@/types';
 
 const number = '+79009851322';
 
-export default function AuthCodeModal({ modalDisclosure, setAuth }: AuthModalProps) {
+export default function AuthCodeModal({ modalDisclosure }: CommonModalProps) {
+	const changeAuth = useAuthStore((state) => state.changeAuth);
 	return (
 		<Modal
 			isOpen={modalDisclosure.isOpen}
@@ -18,8 +20,8 @@ export default function AuthCodeModal({ modalDisclosure, setAuth }: AuthModalPro
 				{(onClose) => (
 					<Form
 						onSubmit={() => {
-							if (setAuth) {
-								setAuth(true);
+							if (changeAuth) {
+								changeAuth(true);
 							}
 							onClose();
 						}}

@@ -1,6 +1,6 @@
 import { JSX, ReactNode } from 'react';
 
-import { PressEvent } from '@heroui/react';
+import { CalendarDate, PressEvent } from '@heroui/react';
 import { UseDisclosureReturn } from '@heroui/use-disclosure';
 
 import { ModalTypesEnum, OrderStatusEnum } from '@/types/enum';
@@ -31,12 +31,7 @@ export interface CommonModalProps {
 	modalDisclosure: UseDisclosureReturn;
 }
 
-export interface AuthModalProps extends CommonModalProps {
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
-}
-
-export interface ModalManagerProps extends AuthModalProps {
+export interface ModalManagerProps extends CommonModalProps {
 	modalName: ModalTypesEnum;
 }
 
@@ -47,8 +42,6 @@ export interface HeaderButtonProps {
 	modalName?: ModalTypesEnum;
 	color?: string;
 	className?: string;
-	isAuth?: boolean;
-	setAuth?: (value: boolean) => void;
 	onPress?: (e: PressEvent) => void;
 	type?: 'button' | 'submit' | 'reset';
 }
@@ -93,4 +86,12 @@ export interface IShopProps {
 	item: ShopItem;
 	index: number;
 	className?: string;
+}
+
+export interface User {
+	first_name: string;
+	last_name: string;
+	phone_number: string;
+	email: string;
+	birth_date: CalendarDate;
 }

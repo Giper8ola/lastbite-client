@@ -9,11 +9,11 @@ import CartModal from './CartModal';
 import LocationModal from './LocationModal';
 import ProfileModal from './ProfileModal';
 
-export default function ModalManager({ modalName, modalDisclosure, isAuth, setAuth }: ModalManagerProps) {
+export default function ModalManager({ modalName, modalDisclosure }: ModalManagerProps) {
 	const MODALS: Record<ModalTypesEnum, ReactElement> = {
-		[ModalTypesEnum.Auth]: <AuthModal modalDisclosure={modalDisclosure} isAuth={isAuth} setAuth={setAuth}></AuthModal>,
+		[ModalTypesEnum.Auth]: <AuthModal modalDisclosure={modalDisclosure}></AuthModal>,
 		[ModalTypesEnum.Cart]: <CartModal modalDisclosure={modalDisclosure}></CartModal>,
-		[ModalTypesEnum.Code]: <AuthCodeModal modalDisclosure={modalDisclosure} isAuth={isAuth} setAuth={setAuth}></AuthCodeModal>,
+		[ModalTypesEnum.Code]: <AuthCodeModal modalDisclosure={modalDisclosure}></AuthCodeModal>,
 		[ModalTypesEnum.Location]: <LocationModal modalDisclosure={modalDisclosure}></LocationModal>,
 		[ModalTypesEnum.Profile]: <ProfileModal modalDisclosure={modalDisclosure}></ProfileModal>
 	};
