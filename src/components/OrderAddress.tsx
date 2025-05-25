@@ -9,13 +9,14 @@ export default function OrderAddress() {
 			<div className="w-full h-full">
 				<b>Адрес доставки</b>
 				<div className="flex items-center gap-4">
-					<div className="rounded-2xl border-c-primary border-2 shadow-md text-lg mt-6 h-1/2 py-1 px-3 items-center text-nowrap bg-c-secondary">
+					<div className="rounded-2xl border-c-primary border-2 shadow-md text-lg py-1 px-3 items-center h-full text-nowrap bg-c-secondary">
 						{'г.' + city}
 					</div>
 					<Input
 						label="Введите адрес"
-						className="py-5"
+						className="py-5 mb-6"
 						classNames={{
+							base: 'data-[invalid=true]:mb-0',
 							inputWrapper: 'group-data-[focus=true]:border-c-primary'
 						}}
 						labelPlacement="outside"
