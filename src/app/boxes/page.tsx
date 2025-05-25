@@ -9,7 +9,7 @@ import { BoxList } from '@/components/BoxList';
 import Container from '@/features/Container';
 import { Filter } from '@/features/Filter';
 import { useFilterStore } from '@/stores/FilterStore';
-import { BOXES_LIST, COOKERY, PREFERENCES, TYPE_DISHES } from '@/utils/consts';
+import { BOXES_LIST, PRODUCTS, PREFERENCES, TYPE_DISHES } from '@/utils/consts';
 
 const FILTER_TYPES = [
 	{
@@ -23,14 +23,14 @@ const FILTER_TYPES = [
 		list: TYPE_DISHES
 	},
 	{
-		key: 'cookery',
+		key: 'products',
 		title: (
 			<>
 				<ChefHat />
-				Кухня
+				Продукты
 			</>
 		),
-		list: COOKERY
+		list: PRODUCTS
 	},
 	{
 		key: 'preferences',

@@ -231,25 +231,44 @@ export const TYPE_DISHES: ListProps[] = [
 	{ key: 'fastfood', value: 'Фастфуд' },
 	{ key: 'hot_dish', value: 'Горячие блюда' },
 	{ key: 'desserts', value: 'Десерты' },
-	{ key: 'drinks', value: 'Напитки' }
+	{ key: 'drinks', value: 'Напитки' },
+	{ key: 'breakfasts', value: 'Завтраки' },
+	{ key: 'pizza', value: 'Пицца' },
+	{ key: 'wok', value: 'Вок' },
+	{ key: 'sushi', value: 'Суши' },
+	{ key: 'rolls', value: 'Роллы' },
+	{ key: 'healthy_food', value: 'Здоровая еда' }
 ];
-export const COOKERY: ListProps[] = [
-	{ key: 'russian', value: 'Русская' },
-	{ key: 'american', value: 'Американская' },
-	{ key: 'georgian', value: 'Грузинская' },
-	{ key: 'caucasian', value: 'Кавказская' },
-	{ key: 'italian', value: 'Итальянска' },
-	{ key: 'european', value: 'Европейская' },
-	{ key: 'asian', value: 'Азиатская' }
+export const PRODUCTS: ListProps[] = [
+	{ key: 'beef', value: 'Говядина' },
+	{ key: 'pork', value: 'Свинина' },
+	{ key: 'chicken', value: 'Курица' },
+	{ key: 'turkey', value: 'Индейка' },
+	{ key: 'cheeses', value: 'Сыры' },
+	{ key: 'potatoes', value: 'Картошка' },
+	{ key: 'tomatoes', value: 'Помидоры' },
+	{ key: 'cucumbers', value: 'Огурцы' },
+	{ key: 'bread', value: 'Хлеб' },
+	{ key: 'cereals', value: 'Крупы' },
+	{ key: 'milk', value: 'Молоко' },
+	{ key: 'hc_drinks', value: 'Сильногазированные напитки' },
+	{ key: 'water', value: 'Вода' },
+	{ key: 'juices', value: 'Соки' },
+	{ key: 'seafood', value: 'Морепродукты' },
+	{ key: 'halibut', value: 'Палтус' },
+	{ key: 'tuna', value: 'Тунец' },
+	{ key: 'red_fish', value: 'Красная рыба' },
+	{ key: 'ice_cream', value: 'Мороженное' }
 ];
 export const PREFERENCES: ListProps[] = [
 	{ key: 'vegetarian', value: 'Вегетарианское' },
-	{ key: 'vegan', value: 'Веганское' },
-	{ key: 'halal', value: 'Халяль' },
 	{ key: 'no_beef', value: 'Без говядины' },
 	{ key: 'no_diary', value: 'Без молочных продуктов' },
 	{ key: 'no_seafood', value: 'Без морепродуктов' },
-	{ key: 'no_citrus', value: 'Без цитрусовых' }
+	{ key: 'no_fish', value: 'Без рыбы' },
+	{ key: 'no_vegetables', value: 'Без овощей' },
+	{ key: 'only_fastfood', value: 'Только фастфуд' },
+	{ key: 'asian_food', value: 'Азиатская кухня' }
 ];
 
 export const SHOPS: ShopItem[] = [
