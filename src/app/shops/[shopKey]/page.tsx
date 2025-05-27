@@ -28,7 +28,7 @@ export default async function Shops({ params }: { params: Promise<{ shopKey: str
 			<Container width={1500}>
 				<div className="min-w-[915px] px-10">
 					<div className="grid grid-cols-[35%_65%] gap-2">
-						<div className="bg-white rounded-3xl shadow-md flex flex-col">
+						<div className="bg-white rounded-3xl shadow-md flex flex-col h-[75vh]">
 							<CustomImage
 								className="rounded-3xl shadow-md"
 								alt="Shop logo"
@@ -46,18 +46,13 @@ export default async function Shops({ params }: { params: Promise<{ shopKey: str
 									<Score number={item.value.rating} className="flex-shrink-0 -translate-y-[1px]" />
 								</div>
 								<p className="text-[14px] font-thin text-gray-500 ml-1.5">{item.value.address}</p>
-								<Divider className="my-8" orientation="horizontal" />
-								<ScrollShadow hideScrollBar className="px-6 mb-5 h-[27vh]">
-									<p className="italic font-thin text-gray-400">{item.value.description}</p>
+								<Divider className="my-4" orientation="horizontal" />
+								<ScrollShadow hideScrollBar className="px-6 mb-6 h-[25vh]">
+									<p className="italic font-thin text-gray-400 text-[14px]">{item.value.description}</p>
 								</ScrollShadow>
 							</div>
 						</div>
-						<ScrollShadow
-							hideScrollBar
-							className="px-6 h-[78vh] grid grid-cols-[49%_49%] gap-x-6"
-							offset={100}
-							orientation="vertical"
-						>
+						<ScrollShadow hideScrollBar className="px-6 grid grid-cols-[49%_49%] gap-x-6" offset={100} orientation="vertical">
 							<BoxList list={BOXES_LIST} toCart={true} indexes={item.value.boxes} />
 						</ScrollShadow>
 					</div>

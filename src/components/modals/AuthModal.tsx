@@ -18,22 +18,40 @@ import {
 	Form,
 	useDisclosure
 } from '@heroui/react';
+import { parseDate } from '@internationalized/date';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CircleUserRound, Mail, Phone } from 'lucide-react';
 
-import { AuthModalProps } from '@/types';
+import { useAuthStore } from '@/stores/AuthStore';
+import { CommonModalProps } from '@/types';
 import { ModalTypesEnum } from '@/types/enum';
 
 import ModalManager from './ModalManager';
 
-export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, setAuth }) => {
+export const AuthModal: React.FC<CommonModalProps> = ({ modalDisclosure }) => {
 	const [selected, setSelected] = React.useState('login');
+	const setUser = useAuthStore((state) => state.setUser);
 
 	const AuthCodeModal = useDisclosure();
 
 	const openCodeModal = () => {
 		modalDisclosure.onClose();
 		AuthCodeModal.onOpen();
+	};
+
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		const form = e.currentTarget as HTMLFormElement;
+		const formData = new FormData(form);
+		const updatedUser = {
+			first_name: formData.get('first_name') as string,
+			last_name: formData.get('last_name') as string,
+			phone_number: formData.get('phone_number') as string,
+			email: formData.get('email') as string,
+			birth_date: parseDate(`2024-04-04`)
+		};
+		setUser(updatedUser);
+		openCodeModal();
 	};
 
 	return (
@@ -130,21 +148,21 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 															transition={{ duration: 0.3, ease: 'easeInOut' }}
 															className="w-full"
 														>
-															<Form
-																className="flex gap-4"
-																onSubmit={(e) => {
-																	e.preventDefault();
-																	openCodeModal();
-																}}
-																method="dialog"
-															>
+															<Form className="flex gap-4" onSubmit={(e) => handleSubmit(e)} method="dialog">
 																<motion.div
 																	initial={{ opacity: 0, y: -10 }}
 																	animate={{ opacity: 1, y: 0 }}
 																	transition={{ duration: 0.3, delay: 0.1 }}
 																	className="w-full"
 																>
-																	<Input labelPlacement="outside" isRequired label="Имя" placeholder="Введите имя" type="text" />
+																	<Input
+																		labelPlacement="outside"
+																		name="first_name"
+																		isRequired
+																		label="Имя"
+																		placeholder="Введите имя"
+																		type="text"
+																	/>
 																</motion.div>
 																<motion.div
 																	initial={{ opacity: 0, y: -10 }}
@@ -155,6 +173,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 																	<Input
 																		labelPlacement="outside"
 																		isRequired
+																		name="last_name"
 																		label="Фамилия"
 																		placeholder="Введите фамилию"
 																		type="text"
@@ -169,6 +188,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 																	<Input
 																		labelPlacement="outside"
 																		isRequired
+																		name="phone_number"
 																		label="Номер телефона"
 																		placeholder="Введите номер телефона"
 																		startContent={<Phone />}
@@ -184,6 +204,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 																	<Input
 																		labelPlacement="outside"
 																		isRequired
+																		name="email"
 																		label="Электронная почта"
 																		placeholder="Введите электронную почту"
 																		type="email"
@@ -196,7 +217,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 																	transition={{ duration: 0.3, delay: 0.2 }}
 																	className="w-full"
 																>
-																	<DatePicker labelPlacement="outside" isRequired label="Дата рождения" className="" />
+																	<DatePicker
+																		name="birth_date"
+																		labelPlacement="outside"
+																		isRequired
+																		label="Дата рождения"
+																		className=""
+																	/>
 																</motion.div>
 																<p className="text-center text-small">
 																	У вас уже есть учетная запись?{' '}
@@ -222,12 +249,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ modalDisclosure, isAuth, s
 					)}
 				</ModalContent>
 			</Modal>
-			<ModalManager
-				modalName={ModalTypesEnum.Code}
-				isAuth={isAuth}
-				setAuth={setAuth}
-				modalDisclosure={AuthCodeModal}
-			></ModalManager>
+			<ModalManager modalName={ModalTypesEnum.Code} modalDisclosure={AuthCodeModal}></ModalManager>
 		</>
 	);
 };
